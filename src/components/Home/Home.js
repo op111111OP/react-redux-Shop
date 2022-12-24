@@ -39,7 +39,8 @@ function Home() {
   return (
     <Layout>
       <img src={logoiconc} width="300" height="250" />
-
+      <Crop color="royalblue" size={96} />
+      <Person color="red" size={96} />
       <ul>
         {items.map((item) => (
           <li key={item.id}>
