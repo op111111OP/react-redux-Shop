@@ -43,11 +43,11 @@ function Layout({ children }) {
           <Link className="link" to="/defense">
             {leng.defense}
           </Link>
-          <Link className="link" to="/basket">
-            {leng.basket}
-          </Link>
           <Link className="link" to="/profile">
             {leng.profile}
+          </Link>
+          <Link className="link" to="/basket">
+            {leng.basket}
           </Link>
 
           <Button

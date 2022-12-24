@@ -18,7 +18,6 @@ import { fetcReg } from "../actions/auth.action";
 import Context from "../../common/context";
 import { useContext } from "react";
 import { store } from "..";
-import logoiconc from "../public/iconc/user.svg";
 
 // App
 function Home() {
@@ -38,7 +37,6 @@ function Home() {
 
   return (
     <Layout>
-      <img src={logoiconc} width="300" height="250" />
       <Crop color="royalblue" size={96} />
       <Person color="red" size={96} />
       <ul>
