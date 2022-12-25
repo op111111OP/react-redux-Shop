@@ -6,7 +6,8 @@ import { Link } from "react-router-dom";
 
 // Home
 function Carousels() {
-  const { categories, know, lenCategories } = useContext(Context);
+  const { categories, know, lenCategories, leng, colorMenu } =
+    useContext(Context);
   const [switchs, setSwitchs] = useState(lenCategories);
   useEffect(() => {
     know ? setSwitchs(lenCategories) : setSwitchs(categories);
@@ -15,11 +16,21 @@ function Carousels() {
   return (
     <div className="carousels_cont">
       <div className="carousels_menu">
-        <ul>
+        <ul className="ul_menu">
+          <li>{leng.catalog}</li>
           {switchs.map((item, index) => (
-            <li key={index}>
-              <Link className="link" to={`/${index}`}>
-                {index + 1}. {item}
+            <li key={index} className="li_menu">
+              <Link
+                className={colorMenu ? "link link_menuC" : "link link_menuT"}
+                to={`/${index}m`}
+              >
+                <div
+                  className={
+                    colorMenu ? "menu_box menu_boxC" : "menu_box menu_boxT"
+                  }
+                >
+                  {index + 1}. {item}
+                </div>
               </Link>
             </li>
           ))}

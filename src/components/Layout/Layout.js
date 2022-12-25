@@ -10,7 +10,7 @@ import ToggleButton from "react-bootstrap/ToggleButton";
 // Home
 
 function Layout({ children }) {
-  const { leng, returs } = useContext(Context);
+  const { leng, returs, classSet } = useContext(Context);
   const [counts, setState] = useState(true);
   const [len, setLen] = useState(true);
   const [classSection, setSection] = useState(true);
@@ -23,6 +23,9 @@ function Layout({ children }) {
   useEffect(() => {
     returs(len);
   }, [len]);
+  useEffect(() => {
+    classSet(classSection);
+  }, [classSection]);
 
   return (
     <div className="wrapper">

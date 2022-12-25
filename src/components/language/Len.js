@@ -8,6 +8,7 @@ export const Len = (know) => {
     defense: "обране",
     basket: "кошик",
     profile: "профіль",
+    catalog: "КАТАЛОГ ТОВАРІВ",
   };
   const EN = {
     themeC: "theme-dark",
@@ -18,6 +19,7 @@ export const Len = (know) => {
     defense: "defense",
     basket: "basket",
     profile: "profile",
+    catalog: "CATALOG OF GOODS",
   };
   return know ? UA : EN;
 };
