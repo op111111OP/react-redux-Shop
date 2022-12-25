@@ -14,6 +14,7 @@ import {
   UsbDrive,
 } from "react-bootstrap-icons";
 import "./Home.css";
+import Carousels from "./Carousels/Carousels";
 import { fetcReg } from "../actions/auth.action";
 import Context from "../../common/context";
 import { useContext } from "react";
@@ -37,7 +38,7 @@ function Home() {
 
   return (
     <Layout>
-
+<Carousels/>
       <Person color="red" size={96} />
       <ul>
         {items.map((item) => (
