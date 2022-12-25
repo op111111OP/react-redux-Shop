@@ -37,7 +37,7 @@ function Home() {
 
   return (
     <Layout>
-      <Crop color="royalblue" size={96} />
+
       <Person color="red" size={96} />
       <ul>
         {items.map((item) => (
