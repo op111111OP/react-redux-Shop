@@ -1,16 +1,17 @@
-.carousels_cont{
-    width: 100%;
-    height: 300px;
-display: flex;
-justify-content: space-between;
+.carousels_cont {
+  width: 100%;
+  height: 330px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0px 0px 0px;
 }
-.carousels{
-    width: 60%;
-    height: 100%;
-    background: darkblue;
+.carousels {
+  width: 60%;
+  height: 100%;
+  background: darkblue;
 }
-.carousels_menu{ 
-    width: 30%;
-    height: 100%;
-    background: magenta;
+.carousels_menu {
+  width: 30%;
+  height: 100%;
+  background: magenta;
 }

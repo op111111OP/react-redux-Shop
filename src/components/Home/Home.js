@@ -3,16 +3,7 @@ import { useEffect, useState } from "react";
 import Layout from "../Layout/Layout";
 import axios from "axios";
 import { Button } from "react-bootstrap";
-import {
-  ArrowRight,
-  Crop,
-  Icon0Circle,
-  Icon0CircleFill,
-  Person,
-  PersonBadgeFill,
-  PersonFill,
-  UsbDrive,
-} from "react-bootstrap-icons";
+import { Person } from "react-bootstrap-icons";
 import "./Home.css";
 import Carousels from "./Carousels/Carousels";
 import { fetcReg } from "../actions/auth.action";
@@ -38,7 +29,7 @@ function Home() {
 
   return (
     <Layout>
-<Carousels/>
+      <Carousels />
       <Person color="red" size={96} />
       <ul>
         {items.map((item) => (
