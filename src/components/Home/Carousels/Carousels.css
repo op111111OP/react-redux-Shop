@@ -5,10 +5,15 @@
   justify-content: space-between;
   margin: 30px 0px 0px 0px;
 }
+.carItem{
+    /* display: flex;
+    justify-content: center; */
+}
 .carousels {
+
   width: 65%;
   height: 100%;
-  background: darkblue;
+  background: rgba(0, 0, 139, 0.273);
 }
 .carousels_menu {
   width: 20%;
