@@ -8,7 +8,7 @@
 .carousels {
   width: 65%;
   height: 100%;
-  background: darkblue;
+  background: rgba(50, 99, 64, 0.485);
 }
 .carousels_menu {
   width: 20%;

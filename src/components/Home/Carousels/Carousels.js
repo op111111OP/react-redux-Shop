@@ -1,9 +1,13 @@
-import { Globe, List } from "react-bootstrap-icons";
+import { List } from "react-bootstrap-icons";
 import React from "react";
 import "./Carousels.css";
 import { useContext, useState, useEffect } from "react";
 import Context from "../../../common/context";
 import { Link } from "react-router-dom";
+import Computer from "../../public/iconc/computer.png";
+import Diamond from "../../public/iconc/diamond.png";
+import Fut from "../../public/iconc/fut.png";
+import Womans from "../../public/iconc/womans.png";
 
 // Home
 function Carousels() {
@@ -43,6 +47,10 @@ function Carousels() {
             </li>
           ))}
         </ul>
+        <img src={Computer} />
+        <img src={Diamond} />
+        <img src={Fut} />
+        <img src={Womans} />
       </div>
       <div className="carousels"></div>
     </div>

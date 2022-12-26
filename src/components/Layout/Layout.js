@@ -87,7 +87,7 @@ function Layout({ children }) {
                   key={idx}
                   id={`radio-${idx}`}
                   type="radio"
-                  variant={idx % 2 ? "outline-primary" : "outline-primary"}
+                  variant={idx % 2 ? "outline-success" : "outline-success"}
                   name="radio"
                   value={radio.value}
                   checked={radioValue === radio.value}
