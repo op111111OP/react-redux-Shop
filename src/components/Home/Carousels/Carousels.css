@@ -5,10 +5,11 @@
   justify-content: space-between;
   margin: 30px 0px 0px 0px;
 }
+
 .carousels {
   width: 65%;
   height: 100%;
-  background: rgba(50, 99, 64, 0.485);
+  background: rgba(67, 133, 89, 0.319);
 }
 .carousels_menu {
   width: 20%;

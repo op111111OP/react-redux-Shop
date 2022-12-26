@@ -4,6 +4,7 @@ import "./Carousels.css";
 import { useContext, useState, useEffect } from "react";
 import Context from "../../../common/context";
 import { Link } from "react-router-dom";
+import Carousel from "react-bootstrap/Carousel";
 import Computer from "../../public/iconc/computer.png";
 import Diamond from "../../public/iconc/diamond.png";
 import Fut from "../../public/iconc/fut.png";
@@ -52,7 +53,49 @@ function Carousels() {
         <img src={Fut} />
         <img src={Womans} />
       </div>
-      <div className="carousels"></div>
+      <div className="carousels">
+        <Carousel>
+          <Carousel.Item className="carItem">
+            <div>
+              <img
+                className="d-block"
+                src="https://www.vitacenter.com.ua/wp-content/uploads/2022/05/akcia.png"
+                alt="First slide"
+              />
+            </div>
+            <Carousel.Caption>
+              <h3>First slide label</h3>
+              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item className="carItem">
+            <img
+              className="d-block"
+              src="https://www.vitacenter.com.ua/wp-content/uploads/2022/05/akcia.png"
+              alt="Second slide"
+            />
+
+            <Carousel.Caption>
+              <h3>Second slide label</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item className="carItem">
+            <img
+              className="d-block h-1005"
+              src="https://www.vitacenter.com.ua/wp-content/uploads/2022/05/akcia.png"
+              alt="Third slide"
+            />
+
+            <Carousel.Caption>
+              <h3>Third slide label</h3>
+              <p>
+                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              </p>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
+      </div>
     </div>
   );
 }
