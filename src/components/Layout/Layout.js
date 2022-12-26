@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import React from "react";
+import { Globe } from "react-bootstrap-icons";
 import { useState, useEffect } from "react";
 import "./Layout.css";
 import Context from "../../common/context";
@@ -14,6 +15,7 @@ function Layout({ children }) {
   const [counts, setState] = useState(true);
   const [len, setLen] = useState(true);
   const [classSection, setSection] = useState(true);
+  const [mouse, setMouse] = useState(false);
   const [radioValue, setRadioValue] = useState("1");
 
   const radios = [
@@ -54,6 +56,7 @@ function Layout({ children }) {
           </Link>
 
           <Button
+            className="but_theme"
             size="sm"
             variant="outline-primary"
             onClick={() =>
@@ -62,24 +65,40 @@ function Layout({ children }) {
           >
             {counts ? leng.themeC : leng.themeT}
           </Button>
-          <ButtonGroup>
-            {radios.map((radio, idx) => (
-              <ToggleButton
-                size="sm"
-                key={idx}
-                id={`radio-${idx}`}
-                type="radio"
-                variant={idx % 2 ? "outline-primary" : "outline-primary"}
-                name="radio"
-                value={radio.value}
-                checked={radioValue === radio.value}
-                onChange={(e) => setRadioValue(e.currentTarget.value)}
-                onClick={() => (idx % 2 ? setLen(false) : setLen(true))}
-              >
-                {radio.name}
-              </ToggleButton>
-            ))}
-          </ButtonGroup>
+          <div
+            className="language_box"
+            onMouseOver={() => {
+              setMouse(true);
+            }}
+            onMouseOut={() => {
+              setMouse(false);
+            }}
+          >
+            <Globe
+              color={mouse ? "rgba(23, 124, 28, 0)" : "rgba(23, 124, 28, 0.24)"}
+              size={25}
+            />
+            <ButtonGroup
+              className={mouse ? "language_but_true" : "language_but"}
+            >
+              {radios.map((radio, idx) => (
+                <ToggleButton
+                  size="sm"
+                  key={idx}
+                  id={`radio-${idx}`}
+                  type="radio"
+                  variant={idx % 2 ? "outline-primary" : "outline-primary"}
+                  name="radio"
+                  value={radio.value}
+                  checked={radioValue === radio.value}
+                  onChange={(e) => setRadioValue(e.currentTarget.value)}
+                  onClick={() => (idx % 2 ? setLen(false) : setLen(true))}
+                >
+                  {radio.name}
+                </ToggleButton>
+              ))}
+            </ButtonGroup>
+          </div>
         </div>
         <div className={classSection ? "light_color manu" : "dark_color manu"}>
           wwwwwwwwwwwww

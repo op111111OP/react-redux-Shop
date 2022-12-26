@@ -14,6 +14,7 @@ header {
   justify-content: space-around;
   align-items: center;
   font-size: 18px;
+  position: relative;
 }
 .manu {
   display: flex;
@@ -96,4 +97,17 @@ section {
 }
 .link {
   text-decoration: none;
+}
+.but_theme {
+  background-color: rgba(23, 124, 28, 0.24);
+}
+
+.language_but {
+  display: none;
+}
+.language_but_true {
+  position: absolute;
+  right: 20px;
+  top: 18px;
+  display: inline-block;
 }

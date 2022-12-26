@@ -14,6 +14,11 @@
   width: 20%;
   height: 100%;
 }
+/* menu */
+.title_box {
+  display: flex;
+  align-items: center;
+}
 .link {
   color: black;
 }
@@ -38,3 +43,4 @@
 .menu_boxT:hover {
   background: rgba(142, 172, 33, 0.294);
 }
+/* menu and */

@@ -1,3 +1,4 @@
+import { Globe, List } from "react-bootstrap-icons";
 import React from "react";
 import "./Carousels.css";
 import { useContext, useState, useEffect } from "react";
@@ -17,7 +18,14 @@ function Carousels() {
     <div className="carousels_cont">
       <div className="carousels_menu">
         <ul className="ul_menu">
-          <li>{leng.catalog}</li>
+          <li>
+            <div className="title_box">
+              <List color={colorMenu ? "black" : "white"} size={21} />
+              <div className={colorMenu ? " link_menuC" : "link_menuT"}>
+                {leng.catalog}
+              </div>
+            </div>
+          </li>
           {switchs.map((item, index) => (
             <li key={index} className="li_menu">
               <Link
