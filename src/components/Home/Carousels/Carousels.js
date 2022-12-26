@@ -63,7 +63,7 @@ function Carousels() {
                 alt="First slide"
               />
             </div>
-            <Carousel.Caption>
+            <Carousel.Caption className="carousel_text">
               <h3>First slide label</h3>
               <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
             </Carousel.Caption>
@@ -75,7 +75,7 @@ function Carousels() {
               alt="Second slide"
             />
 
-            <Carousel.Caption>
+            <Carousel.Caption className="carousel_text">
               <h3>Second slide label</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </Carousel.Caption>
@@ -87,7 +87,7 @@ function Carousels() {
               alt="Third slide"
             />
 
-            <Carousel.Caption>
+            <Carousel.Caption className="carousel_text">
               <h3>Third slide label</h3>
               <p>
                 Praesent commodo cursus magna, vel scelerisque nisl consectetur.

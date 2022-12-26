@@ -5,7 +5,9 @@
   justify-content: space-between;
   margin: 30px 0px 0px 0px;
 }
-
+.carousel_text {
+  color: black;
+}
 .carousels {
   width: 65%;
   height: 100%;
