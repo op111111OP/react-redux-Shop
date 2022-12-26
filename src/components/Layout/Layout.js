@@ -58,7 +58,7 @@ function Layout({ children }) {
           <Button
             className="but_theme"
             size="sm"
-            variant="outline-primary"
+            variant={counts ? "outline-secondary" : "outline-success"}
             onClick={() =>
               setState((prevState) => !prevState) || setSection((s) => !s)
             }

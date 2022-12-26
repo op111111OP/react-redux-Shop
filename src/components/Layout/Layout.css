@@ -98,9 +98,6 @@ section {
 .link {
   text-decoration: none;
 }
-.but_theme {
-  background-color: rgba(23, 124, 28, 0.24);
-}
 
 .language_but {
   display: none;
