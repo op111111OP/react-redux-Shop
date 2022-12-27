@@ -111,9 +111,11 @@ function Layout({ children }) {
         <div className={classSection ? "light_color manu" : "dark_color manu"}>
           {/* <div className="ul_menu"> */}
           {switchs.map((item, index) => (
-            <div key={index} className="li_menu">
+            <div key={index} className="li_menu ">
               <Link
-                className={classSection ? "light_color" : "dark_color"}
+                className={
+                  classSection ? "none light_color" : "none dark_color "
+                }
                 to={`/${index}m`}
               >
                 <div

@@ -22,9 +22,9 @@
   display: flex;
   align-items: center;
 }
-.link {
+/* .link {
   color: black;
-}
+} */
 
 .link_menuT {
   color: rgb(255, 252, 252);

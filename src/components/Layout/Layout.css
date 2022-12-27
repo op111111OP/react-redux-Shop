@@ -1,59 +1,3 @@
-header {
-  height: 90px;
-  width: 100%;
-  background: rgb(181, 181, 255);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.header_container {
-  height: 100%;
-  width: 1200px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  font-size: 18px;
-  position: relative;
-}
-.manu {
-  display: flex;
-  align-items: baseline;
-  height: 40px;
-}
-.header_container span {
-  text-decoration: underline;
-  letter-spacing: 8px;
-}
-.K {
-  font-size: 40px;
-  font-family: "Arial Narrow Bold";
-  color: rgb(128, 47, 47);
-}
-.a1 {
-  font-size: 24px;
-  color: rgb(244, 9, 9);
-}
-.c {
-  font-size: 35px;
-  font-family: Impact, "Arial Narrow Bold", sans-serif;
-  color: rgb(14, 58, 64);
-}
-.light_color {
-  color: rgb(142, 153, 158);
-}
-.dark_color {
-  color: rgb(92, 88, 110);
-}
-.t {
-  font-size: 24px;
-  color: rgb(244, 9, 9);
-}
-.a {
-  font-size: 40px;
-  font-family: "Arial Narrow Bold";
-  color: rgb(194, 50, 50);
-}
 ul,
 ol,
 li {
@@ -87,6 +31,7 @@ section {
 .container {
   width: 1200px;
 }
+/* header */
 .light {
   background-color: rgb(174, 189, 195);
 }
@@ -97,6 +42,7 @@ section {
 }
 .link {
   text-decoration: none;
+  color: black;
 }
 
 .language_but {
@@ -108,3 +54,66 @@ section {
   top: 18px;
   display: inline-block;
 }
+header {
+  height: 90px;
+  width: 100%;
+  background: rgb(181, 181, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.header_container {
+  height: 100%;
+  width: 1200px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 18px;
+  position: relative;
+}
+
+.header_container span {
+  text-decoration: underline;
+  letter-spacing: 8px;
+}
+.K {
+  font-size: 40px;
+  font-family: "Arial Narrow Bold";
+  color: rgb(128, 47, 47);
+}
+.a1 {
+  font-size: 24px;
+  color: rgb(244, 9, 9);
+}
+.c {
+  font-size: 35px;
+  font-family: Impact, "Arial Narrow Bold", sans-serif;
+  color: rgb(14, 58, 64);
+}
+.light_color {
+  color: rgb(142, 153, 158);
+}
+.dark_color {
+  color: rgb(92, 88, 110);
+}
+.t {
+  font-size: 24px;
+  color: rgb(244, 9, 9);
+}
+.a {
+  font-size: 40px;
+  font-family: "Arial Narrow Bold";
+  color: rgb(194, 50, 50);
+}
+/* menu */
+.manu {
+  display: flex;
+  align-items: baseline;
+  height: 40px;
+  width: 40%;
+}
+.none {
+  text-decoration: none;
+}
+/* menu and */
