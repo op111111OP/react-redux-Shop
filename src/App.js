@@ -32,7 +32,7 @@ function App() {
       .then((result) => setCategories(result));
   }, []);
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products/category/jewelery")
+    fetch("https://fakestoreapi.com/products/category/electronics")
       .then((res) => res.json())
       .then((result) => setElectronics(result));
   }, []);
