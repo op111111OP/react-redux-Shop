@@ -8,23 +8,30 @@ import { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import ToggleButton from "react-bootstrap/ToggleButton";
+import Computer from "../public/iconc/computer.png";
+import Diamond from "../public/iconc/diamond.png";
+import Fut from "../public/iconc/fut.png";
+import Womans from "../public/iconc/womans.png";
 // Home
 
 function Layout({ children }) {
-  const { leng, returs, classSet, categories, lenCategories, know } =
+  const { leng, returs, classSet, categories, lenCategories } =
     useContext(Context);
   const [counts, setState] = useState(true);
   const [len, setLen] = useState(true);
   const [classSection, setSection] = useState(true);
   const [mouse, setMouse] = useState(false);
   const [radioValue, setRadioValue] = useState("1");
+  const [switchs, setSwitchs] = useState(lenCategories);
 
+  const areuMenu = [Computer, Diamond, Fut, Womans];
   const radios = [
     { name: leng.languageU, value: "1" },
     { name: leng.languageE, value: "2" },
   ];
   useEffect(() => {
     returs(len);
+    len ? setSwitchs(lenCategories) : setSwitchs(categories);
   }, [len]);
   useEffect(() => {
     classSet(classSection);
@@ -102,7 +109,24 @@ function Layout({ children }) {
           </div>
         </div>
         <div className={classSection ? "light_color manu" : "dark_color manu"}>
-          wwwwwwwwwwwww
+          {/* <div className="ul_menu"> */}
+          {switchs.map((item, index) => (
+            <div key={index} className="li_menu">
+              <Link
+                className={classSection ? "light_color" : "dark_color"}
+                to={`/${index}m`}
+              >
+                <div
+                  className={
+                    classSection ? "menu_box menu_boxC" : "menu_box menu_boxT"
+                  }
+                >
+                  <img src={areuMenu[index]} className="iconMenu" /> {item}
+                </div>
+              </Link>
+            </div>
+          ))}
+          {/* </div> */}
         </div>
       </header>
       <section className={classSection ? "light" : "dark"}>
