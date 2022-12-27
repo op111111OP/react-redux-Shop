@@ -11,7 +11,8 @@ import ToggleButton from "react-bootstrap/ToggleButton";
 // Home
 
 function Layout({ children }) {
-  const { leng, returs, classSet } = useContext(Context);
+  const { leng, returs, classSet, categories, lenCategories, know } =
+    useContext(Context);
   const [counts, setState] = useState(true);
   const [len, setLen] = useState(true);
   const [classSection, setSection] = useState(true);
