@@ -1,7 +1,12 @@
 import React from "react";
+import Layout from "../../Layout/Layout";
 
 function Electronics() {
-  return <div>Electronics</div>;
+  return (
+    <Layout>
+      <div>Electronics</div>;
+    </Layout>
+  );
 }
 
 export default Electronics;

@@ -20,6 +20,7 @@ function App() {
   const [categories, setCategories] = useState([]);
   const [know, setKnow] = useState(true);
   const [colorMenu, setColorMenu] = useState(true);
+  const [electronics, setElectronics] = useState([]);
   useEffect(() => {
     fetch("https://fakestoreapi.com/products?limit=10")
       .then((res) => res.json())
@@ -29,6 +30,11 @@ function App() {
     fetch("https://fakestoreapi.com/products/categories")
       .then((res) => res.json())
       .then((result) => setCategories(result));
+  }, []);
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products/category/jewelery")
+      .then((res) => res.json())
+      .then((result) => setElectronics(result));
   }, []);
 
   function returs(len) {
@@ -40,7 +46,7 @@ function App() {
 
   const leng = Len(know);
   const lenCategories = LenCategories();
-
+  console.log(electronics);
   return (
     <ContextProvider
       value={{
@@ -53,6 +59,7 @@ function App() {
         know,
         colorMenu,
         classSet,
+        electronics,
       }}
     >
       <BrowserRouter>
