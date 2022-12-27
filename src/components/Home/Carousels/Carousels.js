@@ -15,10 +15,15 @@ function Carousels() {
   const { categories, know, lenCategories, leng, colorMenu } =
     useContext(Context);
   const [switchs, setSwitchs] = useState(lenCategories);
+  const [iconMenu, setIconMenu] = useState("");
+  const [indexMenu, setIndexMenu] = useState("");
+  console.log(indexMenu);
   useEffect(() => {
     know ? setSwitchs(lenCategories) : setSwitchs(categories);
   }, [know]);
-
+  function setIndexMen(i) {
+    console.log(i);
+  }
   return (
     <div className="carousels_cont">
       <div className="carousels_menu">
@@ -42,7 +47,8 @@ function Carousels() {
                     colorMenu ? "menu_box menu_boxC" : "menu_box menu_boxT"
                   }
                 >
-                  {index + 1}. {item}
+                  {setIndexMen(`${index}m`)}
+                  <img src={iconMenu} /> {item}
                 </div>
               </Link>
             </li>
