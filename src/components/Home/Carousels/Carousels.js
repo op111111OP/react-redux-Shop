@@ -57,8 +57,8 @@ function Carousels() {
           <Carousel.Item className="carItem">
             <div>
               <img
-                className="d-block"
-                src="https://www.vitacenter.com.ua/wp-content/uploads/2022/05/akcia.png"
+                className="d-block akcia"
+                src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
                 alt="First slide"
               />
             </div>
@@ -69,8 +69,8 @@ function Carousels() {
           </Carousel.Item>
           <Carousel.Item className="carItem">
             <img
-              className="d-block"
-              src="https://www.vitacenter.com.ua/wp-content/uploads/2022/05/akcia.png"
+              className="d-block akcia"
+              src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
               alt="Second slide"
             />
 
@@ -81,8 +81,8 @@ function Carousels() {
           </Carousel.Item>
           <Carousel.Item className="carItem">
             <img
-              className="d-block h-1005"
-              src="https://www.vitacenter.com.ua/wp-content/uploads/2022/05/akcia.png"
+              className="d-block h-1005 akcia"
+              src="https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg"
               alt="Third slide"
             />
 
