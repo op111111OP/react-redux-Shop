@@ -58,6 +58,9 @@ header {
   height: 90px;
   width: 100%;
   background: rgb(181, 181, 255);
+  /* background: linear-gradient(to right,rgb(224, 255, 85),rgb(255, 196, 120),rgb(255, 241, 88)); */
+  /* background: linear-gradient(to right,rgb(128, 47, 47),rgb(244, 9, 9),rgb(142, 153, 158),rgb(244, 9, 9),rgb(158, 0, 0)); */
+  /* background: linear-gradient(to right,rgb(10, 149, 255),rgb(43, 39, 255),rgb(117, 110, 255)); */
   display: flex;
   justify-content: center;
   align-items: center;
