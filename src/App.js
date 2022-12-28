@@ -13,6 +13,7 @@ import Electronics from "./components/Menu/Electronics/Electronics";
 import Jewelery from "./components/Menu/Jewelery/Jewelery";
 import Men from "./components/Menu/Men/Men";
 import Women from "./components/Menu/Women/Women";
+import { Map } from "react-bootstrap-icons";
 
 function App() {
   const post = 222222;
@@ -21,6 +22,10 @@ function App() {
   const [know, setKnow] = useState(true);
   const [colorMenu, setColorMenu] = useState(true);
   const [electronics, setElectronics] = useState([]);
+  const [jewelery, setJewelery] = useState([]);
+  const [mens, setMens] = useState([]);
+  const [womens, setWomens] = useState([]);
+  //   const posts = [categories, electronics, jewelery, mens, womens];
   useEffect(() => {
     fetch("https://fakestoreapi.com/products?limit=10")
       .then((res) => res.json())
@@ -36,6 +41,21 @@ function App() {
       .then((res) => res.json())
       .then((result) => setElectronics(result));
   }, []);
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products/category/jewelery")
+      .then((res) => res.json())
+      .then((result) => setJewelery(result));
+  }, []);
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products/category/men's%20clothing")
+      .then((res) => res.json())
+      .then((result) => setMens(result));
+  }, []);
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products/category/women's%20clothing")
+      .then((res) => res.json())
+      .then((result) => setWomens(result));
+  }, []);
 
   function returs(len) {
     setKnow(len);
@@ -43,10 +63,9 @@ function App() {
   function classSet(classSection) {
     setColorMenu(classSection);
   }
-
   const leng = Len(know);
   const lenCategories = LenCategories();
-  console.log(electronics);
+
   return (
     <ContextProvider
       value={{
@@ -60,6 +79,9 @@ function App() {
         colorMenu,
         classSet,
         electronics,
+        jewelery,
+        mens,
+        womens,
       }}
     >
       <BrowserRouter>
