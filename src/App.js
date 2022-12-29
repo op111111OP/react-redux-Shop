@@ -26,6 +26,7 @@ function App() {
   const [mens, setMens] = useState([]);
   const [womens, setWomens] = useState([]);
   //   const posts = [categories, electronics, jewelery, mens, womens];
+
   useEffect(() => {
     fetch("https://fakestoreapi.com/products?limit=10")
       .then((res) => res.json())
