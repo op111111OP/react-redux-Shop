@@ -25,34 +25,31 @@ function App() {
   const [jewelery, setJewelery] = useState([]);
   const [mens, setMens] = useState([]);
   const [womens, setWomens] = useState([]);
-  //   const posts = [categories, electronics, jewelery, mens, womens];
+
+  //   const posts = [
+  //     "categories",
+  //     "electronics",
+  //     "jewelery",
+  //     "men's%20clothing",
+  //     "women's%20clothing",
+  //   ];
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products?limit=10")
       .then((res) => res.json())
       .then((result) => setItems(result));
-  }, []);
-  useEffect(() => {
     fetch("https://fakestoreapi.com/products/categories")
       .then((res) => res.json())
       .then((result) => setCategories(result));
-  }, []);
-  useEffect(() => {
     fetch("https://fakestoreapi.com/products/category/electronics")
       .then((res) => res.json())
       .then((result) => setElectronics(result));
-  }, []);
-  useEffect(() => {
     fetch("https://fakestoreapi.com/products/category/jewelery")
       .then((res) => res.json())
       .then((result) => setJewelery(result));
-  }, []);
-  useEffect(() => {
     fetch("https://fakestoreapi.com/products/category/men's%20clothing")
       .then((res) => res.json())
       .then((result) => setMens(result));
-  }, []);
-  useEffect(() => {
     fetch("https://fakestoreapi.com/products/category/women's%20clothing")
       .then((res) => res.json())
       .then((result) => setWomens(result));
