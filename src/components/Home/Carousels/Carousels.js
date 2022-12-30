@@ -12,7 +12,7 @@ import Womans from "../../public/iconc/womans.png";
 
 // Home
 function Carousels() {
-  const { categories, know, lenCategories, leng, colorMenu, womens } =
+  const { categories, know, lenCategories, leng, colorMenu } =
     useContext(Context);
   const [switchs, setSwitchs] = useState(lenCategories);
 
