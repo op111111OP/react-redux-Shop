@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Layout from "../Layout/Layout";
 import axios from "axios";
 import { Button } from "react-bootstrap";
-
+// import { Person } from "react-bootstrap-icons";
 import "./Home.css";
 import Carousels from "./Carousels/Carousels";
 import { fetcReg } from "../actions/auth.action";
@@ -29,20 +29,22 @@ function Home() {
 
   return (
     <Layout>
-      <Carousels />
-
-      <ul>
-        {items.map((item) => (
-          <li key={item.id}>
-            <div> {item.category}</div>
-            <div>{item.description}</div>
-            <img src={item.image} width="300" height="250" />
-            <div> {item.rating.count}</div>
-            <div>{item.rating.rate}</div>
-            <div> {item.title}</div>
-          </li>
-        ))}
-      </ul>
+      <div className="home">
+        <Carousels />
+        {/* <Person color="red" size={96} /> */}
+        <ul>
+          {items.map((item) => (
+            <li key={item.id}>
+              <div> {item.category}</div>
+              <div>{item.description}</div>
+              <img src={item.image} width="300" height="250" />
+              <div> {item.rating.count}</div>
+              <div>{item.rating.rate}</div>
+              <div> {item.title}</div>
+            </li>
+          ))}
+        </ul>
+      </div>
     </Layout>
   );
 }

@@ -13,7 +13,7 @@
   height: 100%;
   background: rgba(67, 133, 89, 0.076);
 }
-.akcia{
+.akcia {
   margin-left: 15%;
   width: 544px;
   height: 353px;
@@ -26,6 +26,7 @@
 .title_box {
   display: flex;
   align-items: center;
+  margin: 20px 0px 0px 0px;
 }
 /* .link {
   color: black;

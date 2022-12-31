@@ -13,7 +13,6 @@ import Electronics from "./components/Menu/Electronics/Electronics";
 import Jewelery from "./components/Menu/Jewelery/Jewelery";
 import Men from "./components/Menu/Men/Men";
 import Women from "./components/Menu/Women/Women";
-import { Map } from "react-bootstrap-icons";
 
 function App() {
   const post = 222222;
