@@ -6,19 +6,27 @@
   margin: 20px 0px 0px 0px;
   gap: 17px;
 }
-.electronics_elem:hover {
-  color: black;
-}
+
 .electronics_elem {
   width: 222px;
   background: white;
   border-radius: 10px;
-  padding: 4px;
+
   margin: 0px 0px 20px 0px;
+  height: 370px;
+  overflow: hidden;
+  z-index: 1;
 }
-.electronics_elem > *:not(:last-child) {
-  margin: 0px 0px 15px 0px;
+.electronics_elem:hover {
+  color: black;
+  overflow: visible;
+  z-index: 10;
+  box-shadow: 7px 1px rgba(114, 97, 97, 0.083);
 }
+.electronics_elem > * {
+  padding: 4px;
+}
+
 .electronics_container_img {
   width: 100%;
   margin: 0px 0px 15px 0px;
@@ -35,6 +43,7 @@
   font-size: 22px;
   display: flex;
   justify-content: space-between;
+  margin: 15px 0px 15px 0px;
 }
 .price span {
   font-size: 18px;
@@ -45,11 +54,22 @@
 .rete {
   display: flex;
   justify-content: space-between;
+  margin: 0px 0px 15px 0px;
 }
 .electronics_but:hover {
   color: darkred;
 }
-.title {
-  margin: 0px 0px 15px 0px;
+
+.descriprion {
+  background: white;
+  border-radius: 0 0px 10px 10px;
+  padding: 20px 4px 4px 4px;
+  box-shadow: 7px 7px 0px 0px rgba(114, 97, 97, 0.083);
+  margin: -25px 0px 0px 0px;
+  color: rgba(240, 248, 255, 0);
 }
+.electronics_elem:hover:hover .descriprion {
+  color: black;
+}
+
 /* box and */
