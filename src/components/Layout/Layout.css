@@ -116,9 +116,11 @@ header {
 .manu_home {
   display: flex;
   align-items: baseline;
-  justify-content: space-evenly;
+  justify-content: center;
   height: 40px;
-  width: 60%;
+}
+.manu_home > *:not(:last-child) {
+  margin: 0px 50px 0px 0px;
 }
 .none {
   text-decoration: none;

@@ -1,18 +1,23 @@
+/* box */
 .electronics_box {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-
   margin: 20px 0px 0px 0px;
+  gap: 17px;
+}
+.electronics_elem:hover {
+  color: black;
 }
 .electronics_elem {
-  width: 215px;
+  width: 222px;
   background: white;
   border-radius: 10px;
   padding: 4px;
+  margin: 0px 0px 20px 0px;
 }
 .electronics_elem > *:not(:last-child) {
-  margin: 0px 0px 5px 0px;
+  margin: 0px 0px 15px 0px;
 }
 .electronics_container_img {
   width: 100%;
@@ -25,3 +30,22 @@
   max-width: 100%;
   object-fit: cover;
 }
+.price {
+  font-size: 22px;
+  display: flex;
+  justify-content: space-between;
+}
+.price span {
+  font-size: 18px;
+}
+.link_heart {
+  margin: 0px 10px 0px 0px;
+}
+.rete {
+  display: flex;
+  justify-content: space-between;
+}
+.electronics_but:hover {
+  color: darkred;
+}
+/* box and */
