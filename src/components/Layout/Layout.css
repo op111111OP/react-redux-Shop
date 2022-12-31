@@ -21,15 +21,19 @@ body {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  min-width: 100%;
 }
 
 section {
   flex: 1 1 auto;
   display: flex;
   justify-content: center;
+  padding: 0 2px;
 }
 .container {
-  width: 1200px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
 }
 /* header */
 .light {
@@ -68,7 +72,6 @@ header {
 }
 .header_container {
   height: 100%;
-  width: 1200px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -110,13 +113,15 @@ header {
   color: rgb(194, 50, 50);
 }
 /* menu */
-.manu {
+.manu_home {
   display: flex;
   align-items: baseline;
+  justify-content: space-evenly;
   height: 40px;
-  width: 40%;
+  width: 60%;
 }
 .none {
   text-decoration: none;
 }
+
 /* menu and */

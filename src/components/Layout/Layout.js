@@ -40,7 +40,7 @@ function Layout({ children }) {
   return (
     <div className="wrapper">
       <header>
-        <div className="header_container">
+        <div className="header_container container">
           <div>
             <span className="K">К</span>
             <span className="a1">а</span>
@@ -108,10 +108,14 @@ function Layout({ children }) {
             </ButtonGroup>
           </div>
         </div>
-        <div className={classSection ? "light_color manu" : "dark_color manu"}>
+        <div
+          className={
+            classSection ? "light_color manu_home" : "dark_color manu_home"
+          }
+        >
           {/* <div className="ul_menu"> */}
           {switchs.map((item, index) => (
-            <div key={index} className="li_menu ">
+            <div key={index} className="li_menu_home ">
               <Link
                 className={
                   classSection ? "none light_color" : "none dark_color "

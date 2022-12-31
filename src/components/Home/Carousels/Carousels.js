@@ -12,7 +12,7 @@ import Womans from "../../public/iconc/womans.png";
 
 // Home
 function Carousels() {
-  const { categories, know, lenCategories, leng, colorMenu, womens } =
+  const { categories, know, lenCategories, leng, colorMenu } =
     useContext(Context);
   const [switchs, setSwitchs] = useState(lenCategories);
 
@@ -26,14 +26,14 @@ function Carousels() {
     <div className="carousels_cont">
       <div className="carousels_menu">
         <ul className="ul_menu">
-          <li>
-            <div className="title_box">
-              <List color={colorMenu ? "black" : "white"} size={21} />
-              <div className={colorMenu ? " link_menuC" : "link_menuT"}>
-                {leng.catalog}
-              </div>
+          {/* <li className=""> */}
+          <div className="title_box">
+            <List color={colorMenu ? "black" : "white"} size={21} />
+            <div className={colorMenu ? " link_menuC" : "link_menuT"}>
+              {leng.catalog}
             </div>
-          </li>
+          </div>
+          {/* </li> */}
           {switchs.map((item, index) => (
             <li key={index} className="li_menu">
               <Link
