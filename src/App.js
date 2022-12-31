@@ -26,47 +26,45 @@ function App() {
   const [womens, setWomens] = useState([]);
   const [carousels, setCarousels] = useState([]);
   const [akcia, setAkcia] = useState([]);
-  console.log(carousels);
+  //   console.log(carousels);
   //   const posts = [
-    //     "categories",
-    //     "electronics",
-    //     "jewelery",
-    //     "men's%20clothing",
-    //     "women's%20clothing",
-    //   ];
-    
-    useEffect(() => {
-      fetch("https://fakestoreapi.com/products?limit=10")
+  //     "categories",
+  //     "electronics",
+  //     "jewelery",
+  //     "men's%20clothing",
+  //     "women's%20clothing",
+  //   ];
+
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products?limit=10")
       .then((res) => res.json())
       .then((result) => setItems(result));
-      fetch("https://fakestoreapi.com/products/categories")
+    fetch("https://fakestoreapi.com/products/categories")
       .then((res) => res.json())
       .then((result) => setCategories(result));
-      fetch("https://fakestoreapi.com/products/category/electronics")
+    fetch("https://fakestoreapi.com/products/category/electronics")
       .then((res) => res.json())
       .then((result) => setElectronics(result));
-      fetch("https://fakestoreapi.com/products/category/jewelery")
+    fetch("https://fakestoreapi.com/products/category/jewelery")
       .then((res) => res.json())
       .then((result) => setJewelery(result));
-      fetch("https://fakestoreapi.com/products/category/men's%20clothing")
+    fetch("https://fakestoreapi.com/products/category/men's%20clothing")
       .then((res) => res.json())
       .then((result) => setMens(result));
-      fetch("https://fakestoreapi.com/products/category/women's%20clothing")
+    fetch("https://fakestoreapi.com/products/category/women's%20clothing")
       .then((res) => res.json())
       .then((result) => setWomens(result));
-      setCarousels([electronics[1],jewelery[1],womens[1]])     
+    setCarousels([electronics[1], jewelery[1], womens[1]]);
+  }, []);
 
-      
-    }, []);
-    
-    function returs(len) {
-      setKnow(len);
-    }
-    function classSet(classSection) {
-      setColorMenu(classSection);
-    }
-    const leng = Len(know);
-    const lenCategories = LenCategories();
+  function returs(len) {
+    setKnow(len);
+  }
+  function classSet(classSection) {
+    setColorMenu(classSection);
+  }
+  const leng = Len(know);
+  const lenCategories = LenCategories();
 
   return (
     <ContextProvider

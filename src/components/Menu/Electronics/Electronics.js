@@ -14,36 +14,42 @@ function Electronics() {
       <div className="container">
         <div className="electronics_box">
           {electronics.map((item) => (
-            <Link className="link" to="/3m" key={item.id}>
-              <div className="electronics_elem">
+            <div className="electronics_elem" key={item.id}>
+              <Link className="link" to="/3m">
                 <div className="electronics_container_img">
                   <img src={item.image} className="electronics_img" />
                 </div>
-                <div className="price">
-                  <div>
-                    Price: {item.price}
-                    <span>uah.</span>
-                  </div>
-                  <Link className="link link_heart" to="/basket">
-                    <Heart color="grin" size={18} />
-                  </Link>
-                </div>
-                <div className="rete">
-                  <span> rating: {item.rating.rate}</span>
-                  <Link className="link" to="/2m">
-                    <Button
-                      className="electronics_but"
-                      size="sm"
-                      variant="success"
-                    >
-                      {leng.themeC}
-                    </Button>
-                  </Link>
-                </div>
-                <div> {item.title}</div>
-                <div>{item.description}</div>
+              </Link>
+              <div className="price">
+                <Link className="link" to="/3m">
+                  Price: {item.price}
+                  <span>uah.</span>
+                </Link>
+                <Link className="link link_heart" to="/basket">
+                  <Heart color="grin" size={18} />
+                </Link>
               </div>
-            </Link>
+              <div className="rete">
+                <Link className="link" to="/3m">
+                  rating: {item.rating.rate}
+                </Link>
+                <Link className="link" to="/2m">
+                  <Button
+                    className="electronics_but"
+                    size="sm"
+                    variant="success"
+                  >
+                    {leng.themeC}
+                  </Button>
+                </Link>
+              </div>
+              <Link className="link" to="/3m">
+                <div className="title"> {item.title}</div>
+              </Link>
+              <Link className="link" to="/3m">
+                <div className="descriprion">{item.description}</div>
+              </Link>
+            </div>
           ))}
         </div>
       </div>

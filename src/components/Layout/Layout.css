@@ -48,6 +48,9 @@ section {
   text-decoration: none;
   color: black;
 }
+.link:hover {
+  color: black;
+}
 
 .language_but {
   display: none;

@@ -21,6 +21,7 @@
 }
 .electronics_container_img {
   width: 100%;
+  margin: 0px 0px 15px 0px;
 
   display: flex;
   justify-content: center;
@@ -47,5 +48,8 @@
 }
 .electronics_but:hover {
   color: darkred;
+}
+.title {
+  margin: 0px 0px 15px 0px;
 }
 /* box and */
