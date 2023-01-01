@@ -24,8 +24,8 @@ function Electronics() {
                 </Link>
                 <div className="price">
                   <Link className="link" to="/3m">
-                    Price: {item.price}
-                    <span>uah.</span>
+                    {leng.price} {item.price}
+                    <span>{leng.uah}</span>
                   </Link>
                   <Link className="link link_heart" to="/basket">
                     <Heart color="grin" size={18} />
@@ -33,7 +33,7 @@ function Electronics() {
                 </div>
                 <div className="rete">
                   <Link className="link" to="/3m">
-                    rating: {item.rating.rate}
+                    {leng.rating} {item.rating.rate}
                   </Link>
                   <Link className="link" to="/2m">
                     <Button
@@ -41,7 +41,7 @@ function Electronics() {
                       size="sm"
                       variant="success"
                     >
-                      {leng.themeC}
+                      {leng.buy}
                     </Button>
                   </Link>
                 </div>

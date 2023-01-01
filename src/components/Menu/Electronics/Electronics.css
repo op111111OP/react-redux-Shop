@@ -21,7 +21,7 @@
   color: black;
   overflow: visible;
   z-index: 10;
-  box-shadow: 7px 1px rgba(114, 97, 97, 0.083);
+  box-shadow: 7px 1px rgba(121, 84, 84, 0.083);
 }
 .electronics_elem > * {
   padding: 4px;

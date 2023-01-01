@@ -9,6 +9,10 @@ export const Len = (know) => {
     basket: "кошик",
     profile: "профіль",
     catalog: "КАТАЛОГ ТОВАРІВ",
+    price: "Ціна: ",
+    uah: "грн.",
+    rating: "рейтинг: ",
+    buy: " КУПИТИ ",
   };
   const EN = {
     themeC: "theme-dark",
@@ -20,6 +24,10 @@ export const Len = (know) => {
     basket: "basket",
     profile: "profile",
     catalog: "CATALOG OF GOODS",
+    price: "Price: ",
+    uah: "uah.",
+    rating: "rating: ",
+    buy: " BUY ",
   };
   return know ? UA : EN;
 };

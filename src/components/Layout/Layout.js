@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import React from "react";
-import { Globe } from "react-bootstrap-icons";
+import { Cart3, Globe, Heart, Person } from "react-bootstrap-icons";
 import { useState, useEffect } from "react";
 import "./Layout.css";
 import Context from "../../common/context";
@@ -54,12 +54,15 @@ function Layout({ children }) {
             {leng.home}
           </Link>
           <Link className="link" to="/defense">
+            <Heart color="grin" size={18} className="cart" />
             {leng.defense}
           </Link>
           <Link className="link" to="/profile">
+            <Person color="grin" size={21} className="cart" />
             {leng.profile}
           </Link>
           <Link className="link" to="/basket">
+            <Cart3 color="grin" size={21} className="cart" />
             {leng.basket}
           </Link>
 
