@@ -24,7 +24,10 @@ function App() {
   const [jewelery, setJewelery] = useState([]);
   const [mens, setMens] = useState([]);
   const [womens, setWomens] = useState([]);
-  const [carousels, setCarousels] = useState([]);
+  const [carousels, setCarousels] = useState('');
+  const [carousels1, setCarousels1] = useState('');
+  const [carousels2, setCarousels2] = useState('');
+  const [carousels3, setCarousels3] = useState('');
   const [akcia, setAkcia] = useState([]);
   //   console.log(carousels);
   //   const posts = [
@@ -54,9 +57,17 @@ function App() {
     fetch("https://fakestoreapi.com/products/category/women's%20clothing")
       .then((res) => res.json())
       .then((result) => setWomens(result));
-    setCarousels([electronics[1], jewelery[1], womens[1]]);
-  }, []);
-
+      fetch('https://fakestoreapi.com/products/1')
+            .then(res=>res.json())
+            .then((result) => setCarousels1(result));
+      fetch('https://fakestoreapi.com/products/2')
+            .then(res=>res.json())
+            .then((result) => setCarousels2(result));
+      fetch('https://fakestoreapi.com/products/3')
+            .then(res=>res.json())
+            .then((result) => setCarousels3(result));
+          }, []);
+     
   function returs(len) {
     setKnow(len);
   }
@@ -82,6 +93,10 @@ function App() {
         jewelery,
         mens,
         womens,
+        carousels,
+        carousels1,
+        carousels2,
+        carousels3,
       }}
     >
       <BrowserRouter>

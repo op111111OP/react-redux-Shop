@@ -12,10 +12,10 @@ import Womans from "../../public/iconc/womans.png";
 
 // Home
 function Carousels() {
-  const { categories, know, lenCategories, leng, colorMenu } =
+  const {carousels1, carousels2, carousels3, categories, know, lenCategories, leng, colorMenu } =
     useContext(Context);
   const [switchs, setSwitchs] = useState(lenCategories);
-
+// console.log(electronics);
   const areuMenu = [Computer, Diamond, Fut, Womans];
 
   useEffect(() => {
@@ -56,7 +56,7 @@ function Carousels() {
             <div>
               <img
                 className="d-block akcia"
-                src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+                src={carousels1.image}
                 alt="First slide"
               />
             </div>
@@ -68,7 +68,7 @@ function Carousels() {
           <Carousel.Item className="carItem">
             <img
               className="d-block akcia"
-              src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
+              src={carousels2.image}
               alt="Second slide"
             />
 
@@ -80,7 +80,7 @@ function Carousels() {
           <Carousel.Item className="carItem">
             <img
               className="d-block h-1005 akcia"
-              src="https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg"
+              src={carousels3.image}
               alt="Third slide"
             />
 
