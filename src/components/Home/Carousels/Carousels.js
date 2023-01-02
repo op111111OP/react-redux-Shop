@@ -51,44 +51,56 @@ function Carousels() {
         </ul>
       </div>
       <div className="carousels">
+
         <Carousel>
           <Carousel.Item className="carItem">
             <div>
+            <Link
+                className= "link"
+                to={`/1m`}
+              >
               <img
                 className="d-block akcia"
                 src={carousels1.image}
                 alt="First slide"
               />
+              </Link>
             </div>
             <Carousel.Caption className="carousel_text">
-              <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              <h3>akcia</h3>
+              
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item className="carItem">
+          <Link
+                className= "link"
+                to={`/1m`}
+              >
             <img
               className="d-block akcia"
               src={carousels2.image}
               alt="Second slide"
             />
+ </Link>
 
             <Carousel.Caption className="carousel_text">
-              <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3>akcia</h3>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item className="carItem">
+          <Link
+                className= "link"
+                to={`/1m`}
+              >
             <img
               className="d-block h-1005 akcia"
               src={carousels3.image}
               alt="Third slide"
             />
+ </Link>
 
             <Carousel.Caption className="carousel_text">
-              <h3>Third slide label</h3>
-              <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-              </p>
+            <h3>akcia</h3>
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
