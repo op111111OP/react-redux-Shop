@@ -6,6 +6,7 @@ import Context from "../../../common/context";
 import { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import { Heart } from "react-bootstrap-icons";
+import { Buy } from "./Buy";
 // App
 function Electronics() {
   const { know, leng, electronics, lenElectronicsTitl, lenElectronicsDes } =
@@ -28,23 +29,22 @@ function Electronics() {
                     {leng.price} {item.price}
                     <span>{leng.uah}</span>
                   </Link>
-                  <Link className="link link_heart" to="/basket">
-                    <Heart color="grin" size={18} />
-                  </Link>
+
+                  <Heart color="grin" size={18} className="heart_defense" />
                 </div>
                 <div className="rete">
                   <Link className="link" to="/3m">
                     {leng.rating} {item.rating.rate}
                   </Link>
-                  <Link className="link" to="/2m">
-                    <Button
-                      className="electronics_but"
-                      size="sm"
-                      variant="success"
-                    >
-                      {leng.buy}
-                    </Button>
-                  </Link>
+
+                  <Button
+                    className="electronics_but"
+                    size="sm"
+                    variant="success"
+                    onClick={() => Buy()}
+                  >
+                    {leng.buy}
+                  </Button>
                 </div>
                 <Link className="link" to="/3m">
                   <div className="title">

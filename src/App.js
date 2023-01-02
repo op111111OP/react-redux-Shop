@@ -26,11 +26,10 @@ function App() {
   const [jewelery, setJewelery] = useState([]);
   const [mens, setMens] = useState([]);
   const [womens, setWomens] = useState([]);
-  const [carousels, setCarousels] = useState("");
   const [carousels1, setCarousels1] = useState("");
   const [carousels2, setCarousels2] = useState("");
   const [carousels3, setCarousels3] = useState("");
-  const [akcia, setAkcia] = useState([]);
+  const [carts, setCarts] = useState([]);
   //   console.log(carousels);
   //   const posts = [
   //     "categories",
@@ -39,7 +38,7 @@ function App() {
   //     "men's%20clothing",
   //     "women's%20clothing",
   //   ];
-
+  console.log(carts);
   useEffect(() => {
     fetch("https://fakestoreapi.com/products?limit=10")
       .then((res) => res.json())
@@ -68,6 +67,9 @@ function App() {
     fetch("https://fakestoreapi.com/products/3")
       .then((res) => res.json())
       .then((result) => setCarousels3(result));
+    fetch("https://fakestoreapi.com/carts")
+      .then((res) => res.json())
+      .then((result) => setCarts(result));
   }, []);
 
   function returs(len) {
@@ -99,7 +101,6 @@ function App() {
         jewelery,
         mens,
         womens,
-        carousels,
         carousels1,
         carousels2,
         carousels3,
