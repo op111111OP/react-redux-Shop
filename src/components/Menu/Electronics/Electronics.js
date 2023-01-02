@@ -8,13 +8,14 @@ import Button from "react-bootstrap/Button";
 import { Heart } from "react-bootstrap-icons";
 // App
 function Electronics() {
-  const { know, leng, colorMenu, electronics } = useContext(Context);
+  const { know, leng, electronics, lenElectronicsTitl, lenElectronicsDes } =
+    useContext(Context);
 
   return (
     <Layout>
       <div className="container">
         <div className="electronics_box">
-          {electronics.map((item) => (
+          {electronics.map((item, index) => (
             <div className="electronics_elem" key={item.id}>
               <div>
                 <Link className="link" to="/3m">
@@ -46,11 +47,15 @@ function Electronics() {
                   </Link>
                 </div>
                 <Link className="link" to="/3m">
-                  <div className="title"> {item.title}</div>
+                  <div className="title">
+                    {know ? lenElectronicsTitl[index] : item.title}
+                  </div>
                 </Link>
               </div>
               <Link className="link" to="/3m">
-                <div className="descriprion">{item.description}</div>
+                <div className="descriprion">
+                  {know ? lenElectronicsDes[index] : item.description}
+                </div>
               </Link>
             </div>
           ))}
