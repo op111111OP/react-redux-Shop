@@ -54,7 +54,7 @@ function Carousels() {
 
         <Carousel>
           <Carousel.Item className="carItem">
-            <div>
+         
             <Link
                 className= "link"
                 to={`/1m`}
@@ -65,7 +65,7 @@ function Carousels() {
                 alt="First slide"
               />
               </Link>
-            </div>
+   
             <Carousel.Caption className="carousel_text">
               <h3>akcia</h3>
               
@@ -89,7 +89,7 @@ function Carousels() {
           </Carousel.Item>
           <Carousel.Item className="carItem">
           <Link
-                className= "link"
+                className= "link "
                 to={`/1m`}
               >
             <img

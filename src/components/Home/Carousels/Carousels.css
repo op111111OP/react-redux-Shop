@@ -14,9 +14,13 @@
   background: rgba(67, 133, 89, 0.076);
 }
 .akcia {
-  margin-left: 15%;
-  width: 544px;
-  height: 353px;
+  object-fit: cover;
+  max-height: 350px;
+  max-width: 100%;
+  margin: auto;
+}
+.carousels link {
+  justify-content: center;
 }
 .carousels_menu {
   width: 20%;
