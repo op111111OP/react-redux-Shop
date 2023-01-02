@@ -6,15 +6,17 @@ import Context from "../../../common/context";
 import { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import { Heart } from "react-bootstrap-icons";
+import { Buy } from "./Buy";
 // App
 function Electronics() {
-  const { know, leng, colorMenu, electronics } = useContext(Context);
+  const { know, leng, electronics, lenElectronicsTitl, lenElectronicsDes } =
+    useContext(Context);
 
   return (
     <Layout>
       <div className="container">
         <div className="electronics_box">
-          {electronics.map((item) => (
+          {electronics.map((item, index) => (
             <div className="electronics_elem" key={item.id}>
               <div>
                 <Link className="link" to="/3m">
@@ -24,33 +26,36 @@ function Electronics() {
                 </Link>
                 <div className="price">
                   <Link className="link" to="/3m">
-                    Price: {item.price}
-                    <span>uah.</span>
+                    {leng.price} {item.price}
+                    <span>{leng.uah}</span>
                   </Link>
-                  <Link className="link link_heart" to="/basket">
-                    <Heart color="grin" size={18} />
-                  </Link>
+
+                  <Heart color="grin" size={18} className="heart_defense" />
                 </div>
                 <div className="rete">
                   <Link className="link" to="/3m">
-                    rating: {item.rating.rate}
+                    {leng.rating} {item.rating.rate}
                   </Link>
-                  <Link className="link" to="/2m">
-                    <Button
-                      className="electronics_but"
-                      size="sm"
-                      variant="success"
-                    >
-                      {leng.themeC}
-                    </Button>
-                  </Link>
+
+                  <Button
+                    className="electronics_but"
+                    size="sm"
+                    variant="success"
+                    onClick={() => Buy()}
+                  >
+                    {leng.buy}
+                  </Button>
                 </div>
                 <Link className="link" to="/3m">
-                  <div className="title"> {item.title}</div>
+                  <div className="title">
+                    {know ? lenElectronicsTitl[index] : item.title}
+                  </div>
                 </Link>
               </div>
               <Link className="link" to="/3m">
-                <div className="descriprion">{item.description}</div>
+                <div className="descriprion">
+                  {know ? lenElectronicsDes[index] : item.description}
+                </div>
               </Link>
             </div>
           ))}

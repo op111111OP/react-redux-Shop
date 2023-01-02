@@ -6,6 +6,8 @@ import { ContextProvider } from "./common/context";
 import Home from "./components/Home/Home";
 import { Len } from "./components/language/Len";
 import { LenCategories } from "./components/language/LenCategories";
+import { LenElectronicsTitl } from "./components/language/LenElectronicsTitl";
+import { LenElectronicsDes } from "./components/language/LenElectronicsDes";
 import Defense from "./components/Defense/Defense";
 import Basket from "./components/Basket/Basket";
 import Profile from "./components/Profile/Profile";
@@ -24,11 +26,10 @@ function App() {
   const [jewelery, setJewelery] = useState([]);
   const [mens, setMens] = useState([]);
   const [womens, setWomens] = useState([]);
-  const [carousels, setCarousels] = useState('');
-  const [carousels1, setCarousels1] = useState('');
-  const [carousels2, setCarousels2] = useState('');
-  const [carousels3, setCarousels3] = useState('');
-  const [akcia, setAkcia] = useState([]);
+  const [carousels1, setCarousels1] = useState("");
+  const [carousels2, setCarousels2] = useState("");
+  const [carousels3, setCarousels3] = useState("");
+  const [carts, setCarts] = useState([]);
   //   console.log(carousels);
   //   const posts = [
   //     "categories",
@@ -37,7 +38,7 @@ function App() {
   //     "men's%20clothing",
   //     "women's%20clothing",
   //   ];
-
+  console.log(carts);
   useEffect(() => {
     fetch("https://fakestoreapi.com/products?limit=10")
       .then((res) => res.json())
@@ -57,17 +58,20 @@ function App() {
     fetch("https://fakestoreapi.com/products/category/women's%20clothing")
       .then((res) => res.json())
       .then((result) => setWomens(result));
-      fetch('https://fakestoreapi.com/products/1')
-            .then(res=>res.json())
-            .then((result) => setCarousels1(result));
-      fetch('https://fakestoreapi.com/products/2')
-            .then(res=>res.json())
-            .then((result) => setCarousels2(result));
-      fetch('https://fakestoreapi.com/products/3')
-            .then(res=>res.json())
-            .then((result) => setCarousels3(result));
-          }, []);
-     
+    fetch("https://fakestoreapi.com/products/1")
+      .then((res) => res.json())
+      .then((result) => setCarousels1(result));
+    fetch("https://fakestoreapi.com/products/2")
+      .then((res) => res.json())
+      .then((result) => setCarousels2(result));
+    fetch("https://fakestoreapi.com/products/3")
+      .then((res) => res.json())
+      .then((result) => setCarousels3(result));
+    fetch("https://fakestoreapi.com/carts")
+      .then((res) => res.json())
+      .then((result) => setCarts(result));
+  }, []);
+
   function returs(len) {
     setKnow(len);
   }
@@ -76,6 +80,8 @@ function App() {
   }
   const leng = Len(know);
   const lenCategories = LenCategories();
+  const lenElectronicsTitl = LenElectronicsTitl();
+  const lenElectronicsDes = LenElectronicsDes();
 
   return (
     <ContextProvider
@@ -86,6 +92,8 @@ function App() {
         returs,
         categories,
         lenCategories,
+        lenElectronicsTitl,
+        lenElectronicsDes,
         know,
         colorMenu,
         classSet,
@@ -93,7 +101,6 @@ function App() {
         jewelery,
         mens,
         womens,
-        carousels,
         carousels1,
         carousels2,
         carousels3,

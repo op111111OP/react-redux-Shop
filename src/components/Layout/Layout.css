@@ -115,6 +115,9 @@ header {
   font-family: "Arial Narrow Bold";
   color: rgb(194, 50, 50);
 }
+.cart {
+  margin: 0px 5px 5px 0px;
+}
 /* menu */
 .manu_home {
   display: flex;
