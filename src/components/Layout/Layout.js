@@ -12,6 +12,8 @@ import Computer from "../public/iconc/computer.png";
 import Diamond from "../public/iconc/diamond.png";
 import Fut from "../public/iconc/fut.png";
 import Womans from "../public/iconc/womans.png";
+import Footer from "./Footer/Footer";
+
 // Home
 
 function Layout({ children }) {
@@ -141,7 +143,7 @@ function Layout({ children }) {
       <section className={classSection ? "light" : "dark"}>
         <div className="container">{children}</div>
       </section>
-      <footer className="footer">footer</footer>
+      <footer className={classSection ?  "dark footer" :  "light footer"  }><Footer/></footer>
     </div>
   );
 }
