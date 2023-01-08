@@ -15,10 +15,10 @@ import Electronics from "./components/Menu/Electronics/Electronics";
 import Jewelery from "./components/Menu/Jewelery/Jewelery";
 import Men from "./components/Menu/Men/Men";
 import Women from "./components/Menu/Women/Women";
+import Element from "./components/Menu/Element/Element";
 
 function App() {
-  const post = 222222;
-  const [item, setItems] = useState([]);
+  const [item, setItem] = useState([]);
   const [categories, setCategories] = useState([]);
   const [know, setKnow] = useState(true);
   const [colorMenu, setColorMenu] = useState(true);
@@ -29,20 +29,11 @@ function App() {
   const [carousels1, setCarousels1] = useState("");
   const [carousels2, setCarousels2] = useState("");
   const [carousels3, setCarousels3] = useState("");
-  const [carts, setCarts] = useState([]);
-  //   console.log(carousels);
-  //   const posts = [
-  //     "categories",
-  //     "electronics",
-  //     "jewelery",
-  //     "men's%20clothing",
-  //     "women's%20clothing",
-  //   ];
-  console.log(carts);
+
   useEffect(() => {
     fetch("https://fakestoreapi.com/products?limit=10")
       .then((res) => res.json())
-      .then((result) => setItems(result));
+      .then((result) => setItem(result));
     fetch("https://fakestoreapi.com/products/categories")
       .then((res) => res.json())
       .then((result) => setCategories(result));
@@ -67,9 +58,6 @@ function App() {
     fetch("https://fakestoreapi.com/products/3")
       .then((res) => res.json())
       .then((result) => setCarousels3(result));
-    fetch("https://fakestoreapi.com/carts")
-      .then((res) => res.json())
-      .then((result) => setCarts(result));
   }, []);
 
   function returs(len) {
@@ -86,7 +74,6 @@ function App() {
   return (
     <ContextProvider
       value={{
-        post,
         item,
         leng,
         returs,
@@ -116,8 +103,8 @@ function App() {
           <Route path="/1m" element={<Jewelery />} />
           <Route path="/2m" element={<Men />} />
           <Route path="/3m" element={<Women />} />
-          {/* <Route path="/post/:id" element={<Post />} />
-        <Route path="*" element={<Notfound />} /> */}
+          <Route path="/post/:id" element={<Element />} />
+          {/* <Route path="*" element={<Notfound />} /> */}
         </Routes>
       </BrowserRouter>
     </ContextProvider>

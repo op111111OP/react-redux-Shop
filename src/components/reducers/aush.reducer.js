@@ -6,7 +6,7 @@ const initialState = {
 export const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case aushTypes.AUTH_TITELE1:
-      return { post: 2222222 };
+      return { ...action.payload };
     case aushTypes.AUTH_TITELE2:
       return { ...action.payload };
     case aushTypes.AUTH_TITELE3:

@@ -6,26 +6,14 @@ import { Button } from "react-bootstrap";
 // import { Person } from "react-bootstrap-icons";
 import "./Home.css";
 import Carousels from "./Carousels/Carousels";
-import { fetcReg } from "../actions/auth.action";
 import Context from "../../common/context";
 import { useContext } from "react";
+import { fetcReg } from "../actions/auth.action";
 import { store } from "..";
 
 // App
 function Home() {
-  //   const URL = process.env.REACT_APP_URL;
-  const { post, item } = useContext(Context);
-  const [items, setItems] = useState([]);
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    setItems(item);
-    async function getPosts(params) {
-      const result = await store.dispatch(fetcReg(post));
-      // console.log(result.payload);
-    }
-    getPosts();
-  }, [item]);
+  const { item } = useContext(Context);
 
   return (
     <Layout>
@@ -33,7 +21,7 @@ function Home() {
         <Carousels />
         {/* <Person color="red" size={96} /> */}
         <ul>
-          {items.map((item) => (
+          {item.map((item) => (
             <li key={item.id}>
               <div> {item.category}</div>
               <div>{item.description}</div>

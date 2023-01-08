@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Electronics.css";
 import Layout from "../../Layout/Layout";
@@ -6,11 +6,26 @@ import Context from "../../../common/context";
 import { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import { Heart } from "react-bootstrap-icons";
-import { Buy } from "./Buy";
+import axios from "axios";
+import { fetcReg } from "../../actions/auth.action";
+import { store } from "../..";
 // App
 function Electronics() {
   const { know, leng, electronics, lenElectronicsTitl, lenElectronicsDes } =
     useContext(Context);
+  const [onTrue, setOnTrue] = useState(false);
+  const [onCard, setOnCard] = useState([]);
+  const [onYas, setOnYas] = useState(false);
+
+  function getPosts(e) {
+    fetch("https://fakestoreapi.com/products/" + e)
+      .then((res) => res.json())
+      .then((result) => addItem(result));
+  }
+  function addItem(result) {
+    setOnCard([...onCard, result]);
+  }
+  console.log(onCard);
 
   return (
     <Layout>
@@ -19,7 +34,7 @@ function Electronics() {
           {electronics.map((item, index) => (
             <div className="electronics_elem" key={item.id}>
               <div>
-                <Link className="link" to="/3m">
+                <Link className="link" to={`/post/${item.id}`}>
                   <div className="electronics_container_img">
                     <img src={item.image} className="electronics_img" />
                   </div>
@@ -41,7 +56,10 @@ function Electronics() {
                     className="electronics_but"
                     size="sm"
                     variant="success"
-                    onClick={() => Buy()}
+                    onClick={(e) => {
+                      getPosts(e.target.id);
+                    }}
+                    id={item.id}
                   >
                     {leng.buy}
                   </Button>
