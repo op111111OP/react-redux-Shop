@@ -37,12 +37,12 @@ section {
 }
 /* header */
 .light {
-  background-color: rgb(174, 189, 195);
+  background-color: rgb(222, 222, 222);
 }
 
 .dark {
-  background-color: rgb(92, 88, 110);
-  /* color: rgb(255, 252, 252); */
+  background-color: rgb(39, 38, 38);
+  color: rgb(255, 252, 252);
 }
 .link {
   text-decoration: none;

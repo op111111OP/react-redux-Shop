@@ -67,7 +67,7 @@ function Carousels() {
               </Link>
    
             <Carousel.Caption className="carousel_text">
-              <h3>akcia</h3>
+              <h3>SHARE</h3>
               
             </Carousel.Caption>
           </Carousel.Item>
@@ -84,7 +84,7 @@ function Carousels() {
  </Link>
 
             <Carousel.Caption className="carousel_text">
-            <h3>akcia</h3>
+            <h3>SHARE</h3>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item className="carItem">
@@ -100,7 +100,7 @@ function Carousels() {
  </Link>
 
             <Carousel.Caption className="carousel_text">
-            <h3>akcia</h3>
+            <h3>SHARE</h3>
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
