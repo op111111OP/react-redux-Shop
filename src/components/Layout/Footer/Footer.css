@@ -1,3 +1,6 @@
-.number{
-   margin:0 0 0 1760px;
+.footer_num {
+  display: flex;
+  justify-content: right;
+}
+.number {
 }
