@@ -68,13 +68,12 @@ function App() {
   function classSet(classSection) {
     setColorMenu(classSection);
   }
-  function addElectronics(res) {
+  function addElement(res) {
     setOnCard([...onCard, res]);
   }
-  function onYas(onTrue) {
-    if (onTrue) {
-      setNumber((a) => a + 1);
-    }
+  console.log(onCard);
+  function onYas() {
+    setNumber((a) => a + 1);
   }
   const leng = Len(know);
   const lenCategories = LenCategories();
@@ -87,7 +86,7 @@ function App() {
         item,
         leng,
         returs,
-        addElectronics,
+        addElement,
         onYas,
         categories,
         lenCategories,

@@ -17,24 +17,16 @@ function Electronics() {
     electronics,
     lenElectronicsTitl,
     lenElectronicsDes,
-    addElectronics,
+    addElement,
     onYas,
   } = useContext(Context);
   const [onTrue, setOnTrue] = useState(false);
-  const [onChek, setOnChek] = useState(false);
 
   function getPosts(e) {
     fetch("https://fakestoreapi.com/products/" + e)
       .then((res) => res.json())
-      .then((result) => addItem(result));
+      .then((result) => addElement(result));
   }
-  function addItem(result) {
-    addElectronics(result);
-  }
-  useEffect(() => {
-    onYas(onTrue);
-  }, [onChek]);
-
   return (
     <Layout>
       <div className="container">
@@ -66,8 +58,7 @@ function Electronics() {
                     variant="success"
                     onClick={(e) => {
                       getPosts(e.target.id);
-                      setOnTrue(true);
-                      setOnChek((v) => !v);
+                      onYas();
                     }}
                     id={item.id}
                   >
