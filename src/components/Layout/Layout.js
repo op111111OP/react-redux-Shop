@@ -17,7 +17,7 @@ import Footer from "./Footer/Footer";
 // Home
 
 function Layout({ children }) {
-  const { leng, returs, classSet, categories, lenCategories } =
+  const { leng, returs, classSet, categories, lenCategories, number } =
     useContext(Context);
   const [counts, setState] = useState(true);
   const [len, setLen] = useState(true);
@@ -63,9 +63,10 @@ function Layout({ children }) {
             <Person color="grin" size={21} className="cart" />
             {leng.profile}
           </Link>
-          <Link className="link" to="/basket">
+          <Link className="link link_baslet" to="/basket">
             <Cart3 color="grin" size={21} className="cart" />
-            {leng.basket}
+            <div>{leng.basket}</div>
+            <div className="basket_number">{number}</div>
           </Link>
 
           <Button
@@ -143,7 +144,9 @@ function Layout({ children }) {
       <section className={classSection ? "light" : "dark"}>
         <div className="container">{children}</div>
       </section>
-      <footer className={classSection ?  "dark footer" :  "light footer"  }><Footer/></footer>
+      <footer className={classSection ? "dark footer" : "light footer"}>
+        <Footer />
+      </footer>
     </div>
   );
 }

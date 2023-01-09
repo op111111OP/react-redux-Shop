@@ -11,11 +11,17 @@ import { fetcReg } from "../../actions/auth.action";
 import { store } from "../..";
 // App
 function Electronics() {
-  const { know, leng, electronics, lenElectronicsTitl, lenElectronicsDes } =
-    useContext(Context);
+  const {
+    know,
+    leng,
+    electronics,
+    lenElectronicsTitl,
+    lenElectronicsDes,
+    addElectronics,
+    onYas,
+  } = useContext(Context);
   const [onTrue, setOnTrue] = useState(false);
-  const [onCard, setOnCard] = useState([]);
-  const [onYas, setOnYas] = useState(false);
+  const [onChek, setOnChek] = useState(false);
 
   function getPosts(e) {
     fetch("https://fakestoreapi.com/products/" + e)
@@ -23,9 +29,11 @@ function Electronics() {
       .then((result) => addItem(result));
   }
   function addItem(result) {
-    setOnCard([...onCard, result]);
+    addElectronics(result);
   }
-  console.log(onCard);
+  useEffect(() => {
+    onYas(onTrue);
+  }, [onChek]);
 
   return (
     <Layout>
@@ -58,6 +66,8 @@ function Electronics() {
                     variant="success"
                     onClick={(e) => {
                       getPosts(e.target.id);
+                      setOnTrue(true);
+                      setOnChek((v) => !v);
                     }}
                     id={item.id}
                   >
