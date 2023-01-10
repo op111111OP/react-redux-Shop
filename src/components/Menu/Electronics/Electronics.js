@@ -25,8 +25,9 @@ function Electronics() {
   function getPosts(e) {
     fetch("https://fakestoreapi.com/products/" + e)
       .then((res) => res.json())
-      .then((result) => addElement(result));
+      .then((result) => addElement(result, e));
   }
+
   return (
     <Layout>
       <div className="container">

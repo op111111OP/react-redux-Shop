@@ -1,7 +1,12 @@
 import React from "react";
+import Layout from "../../Layout/Layout";
 
 function Jewelery() {
-  return <div>Jewelery</div>;
+  return (
+    <Layout>
+      <div>Jewelery</div>
+    </Layout>
+  );
 }
 
 export default Jewelery;

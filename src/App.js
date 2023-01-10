@@ -31,6 +31,8 @@ function App() {
   const [carousels3, setCarousels3] = useState("");
   const [onCard, setOnCard] = useState([]);
   const [number, setNumber] = useState(0);
+  const [id, setId] = useState([]);
+  const [idYas, setIdYas] = useState(true);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products?limit=10")
@@ -68,12 +70,14 @@ function App() {
   function classSet(classSection) {
     setColorMenu(classSection);
   }
-  function addElement(res) {
-    setOnCard([...onCard, res]);
-  }
-  console.log(onCard);
   function onYas() {
     setNumber((a) => a + 1);
+  }
+  function addElement(res, e) {
+    setId([...id, e]);
+    if (id.indexOf(e) === -1) {
+      setOnCard([...onCard, res]);
+    }
   }
   const leng = Len(know);
   const lenCategories = LenCategories();
@@ -103,6 +107,7 @@ function App() {
         carousels2,
         carousels3,
         number,
+        onCard,
       }}
     >
       <BrowserRouter>
