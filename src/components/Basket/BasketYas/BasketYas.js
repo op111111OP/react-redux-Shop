@@ -8,34 +8,40 @@ import Button from "react-bootstrap/Button";
 function BasketYas() {
   const { know, onCard, leng } = useContext(Context);
   return (
-    <div>
-      <div>
+    <div className="container card_box">
+      <div className="container_cards">
         {onCard.map((item, index) => (
           <div key={item.id} className="card_conteiner">
-            <div className="card_conteiner_text">
-              <div>товар</div>
-              <div>кількість</div>
-              <div>ціна</div>
-              <div>сума</div>
-            </div>
-            <div>
-              <Link className="link" to="/3m">
+            <Link className="link link_card" to="/3m">
+              <div className="card_text">товар</div>
+              <div className="goods_card">
                 <div className="card_conteiner_img">
-                  <img
-                    src={item.image}
-                    width="300"
-                    height="250"
-                    className="card_img"
-                  />
+                  <img src={item.image} className="card_img" />
                 </div>
-                <div> {item.title}</div>
-              </Link>
-              <div> {item.rating.count}</div>
-              <div> {item.rating.count}</div>
-              <div> {item.rating.count}</div>
-              <Button className="electronics_but" size="sm" variant="success">
-                {leng.buy}
-              </Button>
+                <div className="card_title"> {item.title}</div>
+              </div>
+            </Link>
+            <div className="card_conteiner_numbers">
+              <div className="card_conteiner_text">
+                <div>кількість</div>
+                <div>ціна</div>
+                <div>сума</div>
+              </div>
+              <div className="card_numbers">
+                <div> {item.rating.count}</div>
+                <div> {item.rating.count}</div>
+                <div> {item.rating.count}</div>
+                <div className="card_but_conteiner">
+                  <Button
+                    className="electronics_but card_but"
+                    size="sm"
+                    variant="success"
+                  >
+                    {leng.buy}
+                  </Button>
+                  <div> {item.rating.count}</div>
+                </div>
+              </div>
             </div>
           </div>
         ))}

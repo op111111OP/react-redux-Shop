@@ -20,7 +20,6 @@
   color: black;
   overflow: visible;
   z-index: 10;
-  /* box-shadow: 7px 1px rgba(131, 34, 34, 0.198); */
 }
 .electronics_elem > * {
   padding: 4px;
