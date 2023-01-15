@@ -9,6 +9,7 @@ import { Heart } from "react-bootstrap-icons";
 import axios from "axios";
 import { fetcReg } from "../../actions/auth.action";
 import { store } from "../..";
+import Element from "../Element/Element";
 // App
 function Electronics() {
   const {
@@ -21,12 +22,40 @@ function Electronics() {
     onYas,
   } = useContext(Context);
   const [onTrue, setOnTrue] = useState(false);
+  const [price, setPrice] = useState([]);
+  const [amount, setAmount] = useState("");
+  const [id, setId] = useState([]);
+  const [idE, setIdE] = useState([]);
+  const [ee, setEe] = useState("");
+  const [idNum, setIdNum] = useState([]);
+  const [num, setNum] = useState("");
+  const [amountNum, setAmountNum] = useState("");
+  const [numberE, setNumberE] = useState("");
+  const [app, setApp] = useState({});
 
   function getPosts(e) {
     fetch("https://fakestoreapi.com/products/" + e)
       .then((res) => res.json())
       .then((result) => addElement(result, e));
+    fetch("https://fakestoreapi.com/products/" + e)
+      .then((res) => res.json())
+      .then((result) => setAmount(result.price));
+    setEe(e);
   }
+
+  useEffect(() => {
+    setId([...id, ee]);
+    if (id.indexOf(ee) === -1 && ee != "") {
+      setIdE([...idE, { num: 1, id: ee, amount: amount }]);
+      setIdNum([...idNum, ee]);
+    }
+  }, [amount]);
+  useEffect(() => {
+    idE.map((item, index) => (item.id === ee ? setNumberE(index) : true));
+    //  setNotes([...notes.slice(0, editNum), event.target.value, ...notes.slice(editNum + 1)]);
+  }, [onTrue]);
+  Element(1);
+  console.log(numberE);
 
   return (
     <Layout>
@@ -60,6 +89,7 @@ function Electronics() {
                     onClick={(e) => {
                       getPosts(e.target.id);
                       onYas();
+                      setOnTrue((a) => !a);
                     }}
                     id={item.id}
                   >

@@ -32,8 +32,6 @@ function App() {
   const [onCard, setOnCard] = useState([]);
   const [number, setNumber] = useState(0);
   const [id, setId] = useState([]);
-  const [i, seti] = useState([]);
-  const [ii, setii] = useState([1]);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products?limit=10")
@@ -77,14 +75,12 @@ function App() {
   function addElement(res, e) {
     setId([...id, e]);
     if (id.indexOf(e) === -1) {
-      setOnCard([...onCard, res]);
+      setOnCard([...onCard, { ...res, num: 1, amount: 200 }]);
     }
-    if (id.indexOf(e) === -1) {
-      seti([...i, { i: 1 }]);
-    } else {
-      console.log(1);
-    }
-    console.log(i);
+  }
+  s();
+  function s() {
+    //  console.log(onCard);
   }
   const leng = Len(know);
   const lenCategories = LenCategories();

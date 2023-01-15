@@ -1,10 +1,12 @@
 import React from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 
-function Element() {
+function Element(e) {
   const id = useParams().id || "";
-  console.log(id);
-  return <div>Element</div>;
+  const [s, setS] = useState(e);
+
+  return;
 }
 
 export default Element;
