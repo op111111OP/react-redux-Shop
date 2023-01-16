@@ -32,6 +32,7 @@ function App() {
   const [onCard, setOnCard] = useState([]);
   const [number, setNumber] = useState(0);
   const [id, setId] = useState([]);
+  const [appAny, setAppAny] = useState({});
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products?limit=10")
@@ -78,10 +79,21 @@ function App() {
       setOnCard([...onCard, { ...res, num: 1, amount: 200 }]);
     }
   }
-  s();
-  function s() {
-    //  console.log(onCard);
+  function anyApp(s) {
+    setAppAny({ ...s });
   }
+  console.log(appAny);
+  //   useEffect(() => {
+  //     onCard.map((item, index) =>
+  //       item.id === appAny.id
+  //         ? setOnCard([
+  //             ...onCard.slice(0, index),
+  //             appAny,
+  //             ...onCard.slice(index + 1),
+  //           ])
+  //         : true
+  //     );
+  //   }, [appAny]);
   const leng = Len(know);
   const lenCategories = LenCategories();
   const lenElectronicsTitl = LenElectronicsTitl();
@@ -111,6 +123,7 @@ function App() {
         carousels3,
         number,
         onCard,
+        anyApp,
       }}
     >
       <BrowserRouter>

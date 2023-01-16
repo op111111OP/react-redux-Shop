@@ -1,10 +1,22 @@
 import React from "react";
-import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useState, useContext, useEffect } from "react";
+import Context from "../../../common/context";
 
-function Element(e) {
-  const id = useParams().id || "";
-  const [s, setS] = useState(e);
+function Element({ app }) {
+  const { anyApp } = useContext(Context);
+  const [s, setS] = useState({});
+  const [sTrue, setSTrue] = useState(false);
+  useEffect(() => {
+    if (s != {}) {
+      setS({ ...app });
+      setSTrue((a) => !a);
+    }
+  }, [app]);
+  useEffect(() => {
+    if (s != {}) {
+      anyApp(s);
+    }
+  }, [sTrue]);
 
   return;
 }
