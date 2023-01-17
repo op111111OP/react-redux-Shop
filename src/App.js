@@ -76,24 +76,25 @@ function App() {
   function addElement(res, e) {
     setId([...id, e]);
     if (id.indexOf(e) === -1) {
-      setOnCard([...onCard, { ...res, num: 1, amount: 200 }]);
+      setOnCard([...onCard, { ...res, num: 1, amount: res.price }]);
     }
   }
   function anyApp(s) {
     setAppAny({ ...s });
   }
-  console.log(appAny);
-  //   useEffect(() => {
-  //     onCard.map((item, index) =>
-  //       item.id === appAny.id
-  //         ? setOnCard([
-  //             ...onCard.slice(0, index),
-  //             appAny,
-  //             ...onCard.slice(index + 1),
-  //           ])
-  //         : true
-  //     );
-  //   }, [appAny]);
+
+  useEffect(() => {
+    onCard.map((item, index) =>
+      item.id === Number(appAny.id)
+        ? setOnCard([
+            ...onCard.slice(0, index),
+            { ...item, num: appAny.num, amount: appAny.amount },
+            ...onCard.slice(index + 1),
+          ])
+        : true
+    );
+  }, [appAny]);
+  console.log(onCard);
   const leng = Len(know);
   const lenCategories = LenCategories();
   const lenElectronicsTitl = LenElectronicsTitl();

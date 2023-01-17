@@ -29,7 +29,7 @@ function BasketYas() {
                 <div>сума</div>
               </div>
               <div className="card_numbers">
-                <div> {item.rating.count}</div>
+                <div> {item.num}</div>
                 <div> {item.rating.count}</div>
                 <div> {item.rating.count}</div>
                 <div className="card_but_conteiner">
