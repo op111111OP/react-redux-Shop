@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import "./Card.css";
 import { Button } from "react-bootstrap";
 import { Heart } from "react-bootstrap-icons";
 import { useParams } from "react-router";
@@ -22,25 +23,21 @@ function Card() {
       .then((res) => res.json())
       .then((result) => setElement(result));
   }, [id]);
-  console.log(element);
+
   return (
     <Layout>
-      <div>
+      <div className="card_box container_cards card_conteiner card_elem">
         <div className="electronics_container_img">
           <img src={element.image} className="electronics_img" />
         </div>
         <div>
           <div className="title">{element.title}</div>
           <div>
-            <div>
-              <div className="">
-                {leng.price} {element.price}
-                <span>{leng.uah}</span>
-              </div>
-              <div className="">
-                {/* {leng.rating} {element.rating.rate} */}
-              </div>
+            <div className="s">
+              {leng.price} {element.price}
+              <span>{leng.uah}</span>
             </div>
+
             <Heart color="grin" size={18} className="heart_defense" />
             <Button
               className="electronics_but"

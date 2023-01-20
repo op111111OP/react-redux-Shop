@@ -18,7 +18,7 @@
 .goods_card {
   display: flex;
   gap: 20px;
-  width: 500px;
+  width: 100%;
   align-items: center;
 }
 .card_text {
@@ -57,16 +57,16 @@
   border-top: 1px solid;
   height: 35px;
   align-items: center;
-  padding: 0 34% 0 0;
+  padding: 0 35% 0 0;
   margin: 10px 0px 0px 0px;
 }
 .card_numbers {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 0 60px 120px;
-
+  padding: 0px 0 60px 15%;
   height: 100%;
+  gap: 20px;
 }
 .card_but_conteiner {
   height: 100%;
