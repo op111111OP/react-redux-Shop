@@ -21,8 +21,6 @@
   width: 500px;
   align-items: center;
 }
-/* .link_card {
-} */
 .card_text {
   display: flex;
   margin: 10px 0px 10px 0px;
@@ -64,16 +62,22 @@
 }
 .card_numbers {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  padding-bottom: 60px;
+  padding: 0px 0 60px 120px;
+
   height: 100%;
 }
 .card_but_conteiner {
   height: 100%;
+  width: 200px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 .card_but {
   height: 30px;
+}
+.cart_cirle {
+  cursor: pointer;
 }

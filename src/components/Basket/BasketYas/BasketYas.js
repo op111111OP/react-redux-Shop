@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import Context from "../../../common/context";
 import Button from "react-bootstrap/Button";
+import { XCircle } from "react-bootstrap-icons";
 // Basket
 function BasketYas() {
   const { know, onCard, leng } = useContext(Context);
@@ -30,17 +31,23 @@ function BasketYas() {
               </div>
               <div className="card_numbers">
                 <div> {item.num}</div>
-                <div> {item.rating.count}</div>
-                <div> {item.rating.count}</div>
+                <div> {item.price}грн.</div>
+                <div> {item.amount}грн.</div>
                 <div className="card_but_conteiner">
                   <Button
                     className="electronics_but card_but"
                     size="sm"
                     variant="success"
                   >
-                    {leng.buy}
+                    Оформити замовлення
                   </Button>
-                  <div> {item.rating.count}</div>
+                  <div>
+                    <XCircle
+                      color="grin"
+                      size={21}
+                      className="cart cart_cirle"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
