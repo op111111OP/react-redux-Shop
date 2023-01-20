@@ -93,7 +93,7 @@ function Electronics() {
                   </div>
                 </Link>
                 <div className="price">
-                  <Link className="link" to="/3m">
+                  <Link className="link" to={`/post/${item.id}`}>
                     {leng.price} {item.price}
                     <span>{leng.uah}</span>
                   </Link>
@@ -101,7 +101,7 @@ function Electronics() {
                   <Heart color="grin" size={18} className="heart_defense" />
                 </div>
                 <div className="rete">
-                  <Link className="link" to="/3m">
+                  <Link className="link" to={`/post/${item.id}`}>
                     {leng.rating} {item.rating.rate}
                   </Link>
 
@@ -119,13 +119,13 @@ function Electronics() {
                     {leng.buy}
                   </Button>
                 </div>
-                <Link className="link" to="/3m">
+                <Link className="link" to={`/post/${item.id}`}>
                   <div className="title">
                     {know ? lenElectronicsTitl[index] : item.title}
                   </div>
                 </Link>
               </div>
-              <Link className="link" to="/3m">
+              <Link className="link" to={`/post/${item.id}`}>
                 <div className="descriprion">
                   {know ? lenElectronicsDes[index] : item.description}
                 </div>

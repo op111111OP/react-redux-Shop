@@ -15,7 +15,7 @@ import Electronics from "./components/Menu/Electronics/Electronics";
 import Jewelery from "./components/Menu/Jewelery/Jewelery";
 import Men from "./components/Menu/Men/Men";
 import Women from "./components/Menu/Women/Women";
-import Element from "./components/Menu/Element/Element";
+import Card from "./components/Card/Card";
 
 function App() {
   const [item, setItem] = useState([]);
@@ -94,7 +94,7 @@ function App() {
         : true
     );
   }, [appAny]);
-  console.log(onCard);
+
   const leng = Len(know);
   const lenCategories = LenCategories();
   const lenElectronicsTitl = LenElectronicsTitl();
@@ -137,7 +137,7 @@ function App() {
           <Route path="/1m" element={<Jewelery />} />
           <Route path="/2m" element={<Men />} />
           <Route path="/3m" element={<Women />} />
-          <Route path="/post/:id" element={<Element />} />
+          <Route path="/post/:id" element={<Card />} />
           {/* <Route path="*" element={<Notfound />} /> */}
         </Routes>
       </BrowserRouter>
