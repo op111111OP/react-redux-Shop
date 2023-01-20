@@ -38,7 +38,7 @@ function Card() {
                 <span>{leng.uah}</span>
               </div>
               <div className="">
-                {leng.rating} {element.rating.rate}
+                {/* {leng.rating} {element.rating.rate} */}
               </div>
             </div>
             <Heart color="grin" size={18} className="heart_defense" />
