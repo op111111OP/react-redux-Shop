@@ -26,18 +26,18 @@ function Card() {
 
   return (
     <Layout>
-      <div className="card_box container_cards card_conteiner card_elem">
-        <div className="electronics_container_img">
-          <img src={element.image} className="electronics_img" />
+      <div className="card_box  card_elem">
+        <div className="electronics_container_img element_container_img">
+          <img src={element.image} className=" element_img" />
         </div>
-        <div>
+        <div className="element_container_text">
           <div className="title">{element.title}</div>
-          <div>
-            <div className="s">
-              {leng.price} {element.price}
-              <span>{leng.uah}</span>
-            </div>
+          <div className="s">
+            {leng.price} {element.price}
+            <span>{leng.uah}</span>
+          </div>
 
+          <div className="element_container_but">
             <Heart color="grin" size={18} className="heart_defense" />
             <Button
               className="electronics_but"
