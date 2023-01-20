@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import Layout from "../Layout/Layout";
 
 function Card() {
   const id = useParams().id || "";
@@ -9,9 +10,13 @@ function Card() {
     fetch("https://fakestoreapi.com/products/" + id)
       .then((res) => res.json())
       .then((result) => setElement(result));
-  }, []);
+  }, [id]);
   console.log(element);
-  return <div>{element.title}</div>;
+  return (
+    <Layout>
+      <div>{element.title}</div>
+    </Layout>
+  );
 }
 
 export default Card;
