@@ -144,7 +144,7 @@ function Layout({ children }) {
       <section className={classSection ? "light" : "dark"}>
         <div className="container">{children}</div>
       </section>
-      <footer className={classSection ? "dark footer" : "light footer"}>
+      <footer className= "dark-footer footer" >
         <Footer />
       </footer>
     </div>
