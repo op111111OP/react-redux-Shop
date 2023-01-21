@@ -15,10 +15,10 @@ import Electronics from "./components/Menu/Electronics/Electronics";
 import Jewelery from "./components/Menu/Jewelery/Jewelery";
 import Men from "./components/Menu/Men/Men";
 import Women from "./components/Menu/Women/Women";
+import Card from "./components/Card/Card";
 
 function App() {
-  const post = 222222;
-  const [item, setItems] = useState([]);
+  const [item, setItem] = useState([]);
   const [categories, setCategories] = useState([]);
   const [know, setKnow] = useState(true);
   const [colorMenu, setColorMenu] = useState(true);
@@ -29,20 +29,15 @@ function App() {
   const [carousels1, setCarousels1] = useState("");
   const [carousels2, setCarousels2] = useState("");
   const [carousels3, setCarousels3] = useState("");
-  const [carts, setCarts] = useState([]);
-  //   console.log(carousels);
-  //   const posts = [
-  //     "categories",
-  //     "electronics",
-  //     "jewelery",
-  //     "men's%20clothing",
-  //     "women's%20clothing",
-  //   ];
-  console.log(carts);
+  const [onCard, setOnCard] = useState([]);
+  const [number, setNumber] = useState(0);
+  const [id, setId] = useState([]);
+  const [appAny, setAppAny] = useState({});
+
   useEffect(() => {
     fetch("https://fakestoreapi.com/products?limit=10")
       .then((res) => res.json())
-      .then((result) => setItems(result));
+      .then((result) => setItem(result));
     fetch("https://fakestoreapi.com/products/categories")
       .then((res) => res.json())
       .then((result) => setCategories(result));
@@ -67,9 +62,6 @@ function App() {
     fetch("https://fakestoreapi.com/products/3")
       .then((res) => res.json())
       .then((result) => setCarousels3(result));
-    fetch("https://fakestoreapi.com/carts")
-      .then((res) => res.json())
-      .then((result) => setCarts(result));
   }, []);
 
   function returs(len) {
@@ -78,6 +70,31 @@ function App() {
   function classSet(classSection) {
     setColorMenu(classSection);
   }
+  function onYas() {
+    setNumber((a) => a + 1);
+  }
+  function addElement(res, e) {
+    setId([...id, e]);
+    if (id.indexOf(e) === -1) {
+      setOnCard([...onCard, { ...res, num: 1, amount: res.price }]);
+    }
+  }
+  function anyApp(s) {
+    setAppAny({ ...s });
+  }
+
+  useEffect(() => {
+    onCard.map((item, index) =>
+      item.id === Number(appAny.id)
+        ? setOnCard([
+            ...onCard.slice(0, index),
+            { ...item, num: appAny.num, amount: appAny.amount },
+            ...onCard.slice(index + 1),
+          ])
+        : true
+    );
+  }, [appAny]);
+
   const leng = Len(know);
   const lenCategories = LenCategories();
   const lenElectronicsTitl = LenElectronicsTitl();
@@ -86,10 +103,11 @@ function App() {
   return (
     <ContextProvider
       value={{
-        post,
         item,
         leng,
         returs,
+        addElement,
+        onYas,
         categories,
         lenCategories,
         lenElectronicsTitl,
@@ -104,6 +122,9 @@ function App() {
         carousels1,
         carousels2,
         carousels3,
+        number,
+        onCard,
+        anyApp,
       }}
     >
       <BrowserRouter>
@@ -116,8 +137,8 @@ function App() {
           <Route path="/1m" element={<Jewelery />} />
           <Route path="/2m" element={<Men />} />
           <Route path="/3m" element={<Women />} />
-          {/* <Route path="/post/:id" element={<Post />} />
-        <Route path="*" element={<Notfound />} /> */}
+          <Route path="/post/:id" element={<Card />} />
+          {/* <Route path="*" element={<Notfound />} /> */}
         </Routes>
       </BrowserRouter>
     </ContextProvider>

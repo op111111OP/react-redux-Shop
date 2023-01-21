@@ -1,18 +1,13 @@
 import React from "react";
-import axios from "axios";
 import { useEffect } from "react";
+import Layout from "../../Layout/Layout";
 
 function Women() {
-  useEffect(() => {
-    async function getPosts() {
-      const response = await axios.get(
-        "https://covid-193.p.rapidapi.com/countries"
-      );
-      console.log(response.data);
-    }
-  }, []);
-  return;
-  <div></div>;
+  return (
+    <Layout>
+      <div>zzzzzzz</div>
+    </Layout>
+  );
 }
 
 export default Women;

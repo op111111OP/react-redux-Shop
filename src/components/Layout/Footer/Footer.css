@@ -5,3 +5,7 @@
    text-align: right;
    margin: 0 150px 100px 0 ;
 }
+.footer_num {
+  display: flex;
+  justify-content: right;
+}

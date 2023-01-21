@@ -1,7 +1,12 @@
 import React from "react";
+import Layout from "../Layout/Layout";
 
 function Defense() {
-  return <div>Defense</div>;
+  return (
+    <Layout>
+      <div>Defense</div>
+    </Layout>
+  );
 }
 
 export default Defense;
