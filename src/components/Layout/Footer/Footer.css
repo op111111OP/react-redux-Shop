@@ -1,12 +1,11 @@
 .footer {
   display: flex;
-  justify-content: space-around;
-  padding: 20px 0;
+  justify-content: space-between;
+  padding: 20px 100px;
 }
 /* .number {
-  text-align: right;
-}
-.icon {
-  text-align: right;
-  margin: 20 0px 40px 0;
+  
 } */
+.icon {
+  margin: 20 0px 40px 0;
+}

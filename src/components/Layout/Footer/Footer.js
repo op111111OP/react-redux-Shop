@@ -1,5 +1,6 @@
 import React from "react";
-import { Instagram } from "react-bootstrap-icons";
+import { Facebook, Instagram, Telegram } from "react-bootstrap-icons";
+import Feedback from "react-bootstrap/esm/Feedback";
 import "./Footer.css";
 
 // Layout
@@ -8,7 +9,9 @@ function Footer() {
   return (
     <div className="footer container">
       <div className="icon">
-        <Instagram size={50} color="blueviolet" />
+        <Instagram size={35} color="blueviolet" />
+        <Facebook size={35} color="blue" />
+        <Telegram size={35} color="darkturquoise" />
       </div>
 
       <div className="number">

@@ -148,6 +148,17 @@ header {
 }
 
 /* menu and */
+.fixed_a{
+
+}
+.fixed_box{
+  gap: 5px;
+  display: flex;
+  flex-direction: column;
+  top: 76%;
+  left: 97%;
+  position: fixed;
+}
 /* footer */
 /* .dark-footer {
 } */

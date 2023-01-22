@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import React from "react";
-import { Cart3, Globe, Heart, Person } from "react-bootstrap-icons";
+import { ArrowDownCircleFill, ArrowUp, ArrowUpCircle, ArrowUpCircleFill, ArrowUpRightCircleFill, Cart3, Globe, Heart, Person } from "react-bootstrap-icons";
 import { useState, useEffect } from "react";
 import "./Layout.css";
 import Context from "../../common/context";
@@ -144,7 +144,11 @@ function Layout({ children }) {
       <section className={classSection ? "light" : "dark"}>
         <div className="container">{children}</div>
       </section>
-      <footer className="dark-footer">
+      <div  className="fixed_box"><a href="#top" title="Вгору"  className="fixed_a"><ArrowUpCircleFill color={classSection ?"rgb(39, 38, 38)" :"rgb(222, 222, 222)"} size="40"/></a>
+      <a href="#footer" title="Вгору"  className="fixed_a"><ArrowDownCircleFill color={classSection ?"rgb(39, 38, 38)" :"rgb(222, 222, 222)"} size="40"/>
+      </a>
+      </div>
+      <footer id="footer" className="dark-footer">
         <Footer />
       </footer>
     </div>
