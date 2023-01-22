@@ -44,7 +44,7 @@ section {
   background-color: rgb(39, 38, 38);
   color: rgb(255, 252, 252);
 }
-.dark-footer{
+.dark-footer {
   background: rgb(55, 57, 59);
   color: rgb(255, 252, 252);
 }
@@ -148,3 +148,7 @@ header {
 }
 
 /* menu and */
+/* footer */
+/* .dark-footer {
+} */
+/* footer and*/
