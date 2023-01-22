@@ -1,0 +1,16 @@
+.but {
+  font-size: 18px;
+  padding: 2px 5px 3px 5px;
+}
+.defense_numbers {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1px 0 60px 5px;
+  height: 100%;
+  gap: 20px;
+}
+.defense_description {
+  width: 70%;
+  padding-bottom: 1px;
+}

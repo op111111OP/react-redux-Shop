@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import "./DefenseYas.css";
 import { XCircle } from "react-bootstrap-icons";
 import Context from "../../../common/context";
 import Button from "react-bootstrap/Button";
@@ -7,6 +8,7 @@ import { Link } from "react-router-dom";
 // App
 function DefenseYas() {
   const { defenseCard } = useContext(Context);
+
   return (
     <div className="container card_box">
       <div className="container_cards">
@@ -23,20 +25,20 @@ function DefenseYas() {
             </Link>
             <div className="card_conteiner_numbers">
               <div className="card_conteiner_text">
-                <div>кількість</div>
+                <div>описання</div>
                 <div>ціна</div>
-                <div>сума</div>
               </div>
-              <div className="card_numbers">
+              <div className="defense_numbers">
+                <div className="defense_description">{item.description}</div>
                 <div> {item.price}грн.</div>
 
                 <div className="card_but_conteiner">
                   <Button
-                    className="electronics_but card_but"
+                    className="electronics_but but"
                     size="sm"
                     variant="success"
                   >
-                    Оформити замовлення
+                    купити
                   </Button>
                   <div>
                     <XCircle
