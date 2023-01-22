@@ -14,70 +14,22 @@ function Jewelery() {
     jewelery,
     lenElectronicsTitl,
     lenElectronicsDes,
-    addElement,
     onYas,
+    addIcon,
   } = useContext(Context);
   const [onTrue, setOnTrue] = useState(false);
-  const [twoTrue, setTwoTrue] = useState(false);
-  const [threeTrue, setThreeTrue] = useState(false);
-  const [fourTrue, setFourTrue] = useState(false);
+  const [posts, setPosts] = useState("");
 
-  const [amount, setAmount] = useState("");
-  const [id, setId] = useState([]);
-  const [idE, setIdE] = useState([]);
-  const [ee, setEe] = useState("");
-  const [num, setNum] = useState("");
-  const [amountNum, setAmountNum] = useState("");
-  const [numberE, setNumberE] = useState(0);
-  const [app, setApp] = useState({});
-
-  function getPosts(e) {
+  // -----
+  function onIcon(e) {
     fetch("https://fakestoreapi.com/products/" + e)
       .then((res) => res.json())
-      .then((result) => addElement(result, e));
-    fetch("https://fakestoreapi.com/products/" + e)
-      .then((res) => res.json())
-      .then((result) => setAmount(result.price));
-    setEe(e);
+      .then((result) => addIcon(result, e));
   }
-
-  useEffect(() => {
-    setId([...id, ee]);
-    if (id.indexOf(ee) === -1 && ee != "") {
-      setIdE([...idE, { num: 1, id: ee, amount: amount }]);
-    }
-  }, [amount]);
-  useEffect(() => {
-    idE.map((item, index) =>
-      item.id === ee
-        ? setTwoTrue((a) => !a) ||
-          setNumberE(index) ||
-          setNum(item.num) ||
-          setAmountNum(item.amount)
-        : true
-    );
-    setFourTrue(false);
-  }, [onTrue]);
-  useEffect(() => {
-    if (ee != "") {
-      setIdE([
-        ...idE.slice(0, numberE),
-        { num: num + 1, id: ee, amount: amountNum + amount },
-        ...idE.slice(numberE + 1),
-      ]);
-      setThreeTrue((a) => !a);
-    }
-  }, [twoTrue]);
-  useEffect(() => {
-    if (ee != "") {
-      setApp({ ...idE[numberE] });
-      setFourTrue(true);
-    }
-  }, [threeTrue]);
 
   return (
     <Layout>
-      {fourTrue ? <Element app={app} /> : false}
+      {posts === "" ? false : <Element posts={posts} onTrue={onTrue} />}
       <div className="container">
         <div className="electronics_box">
           {jewelery.map((item, index) => (
@@ -94,7 +46,15 @@ function Jewelery() {
                     <span>{leng.uah}</span>
                   </Link>
 
-                  <Heart color="grin" size={18} className="heart_defense" />
+                  <Heart
+                    color="grin"
+                    size={18}
+                    className="heart_defense"
+                    onClick={(e) => {
+                      onIcon(e.target.id);
+                    }}
+                    id={item.id}
+                  />
                 </div>
                 <div className="rete">
                   <Link className="link" to={`/post/${item.id}`}>
@@ -106,7 +66,7 @@ function Jewelery() {
                     size="sm"
                     variant="success"
                     onClick={(e) => {
-                      getPosts(e.target.id);
+                      setPosts(e.target.id);
                       onYas();
                       setOnTrue((a) => !a);
                     }}
