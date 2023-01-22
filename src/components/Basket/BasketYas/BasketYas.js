@@ -12,7 +12,7 @@ function BasketYas() {
   return (
     <div className="container card_box">
       <div className="container_cards">
-        {onCard.map((item, index) => (
+        {onCard.map((item) => (
           <div key={item.id} className="card_conteiner">
             <Link className="link link_card" to={`/post/${item.id}`}>
               <div className="card_text">товар</div>

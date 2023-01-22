@@ -8,14 +8,7 @@ import Layout from "../Layout/Layout";
 
 function Card() {
   const id = useParams().id || "";
-  const {
-    know,
-    leng,
-    lenElectronicsTitl,
-    lenElectronicsDes,
-    addElement,
-    onYas,
-  } = useContext(Context);
+  const { know, leng } = useContext(Context);
   const [element, setElement] = useState({});
 
   useEffect(() => {

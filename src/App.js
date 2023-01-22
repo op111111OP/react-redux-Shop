@@ -32,7 +32,9 @@ function App() {
   const [onCard, setOnCard] = useState([]);
   const [number, setNumber] = useState(0);
   const [id, setId] = useState([]);
+  const [idElem, setIdElem] = useState([]);
   const [appAny, setAppAny] = useState({});
+  const [defenseCard, setDefenseCard] = useState("");
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products?limit=10")
@@ -94,6 +96,13 @@ function App() {
         : true
     );
   }, [appAny]);
+  //   ===
+  function addIcon(res, e) {
+    setIdElem([...idElem, e]);
+    if (idElem.indexOf(e) === -1) {
+      setDefenseCard([...defenseCard, res]);
+    }
+  }
 
   const leng = Len(know);
   const lenCategories = LenCategories();
@@ -125,6 +134,8 @@ function App() {
         number,
         onCard,
         anyApp,
+        addIcon,
+        defenseCard,
       }}
     >
       <BrowserRouter>

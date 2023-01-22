@@ -6,10 +6,9 @@ import Context from "../../../common/context";
 import { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import { Heart } from "react-bootstrap-icons";
-import axios from "axios";
-import { fetcReg } from "../../actions/auth.action";
-import { store } from "../..";
+// import { store } from "../..";
 import Element from "../Element/Element";
+
 // App
 function Electronics() {
   const {
@@ -20,6 +19,7 @@ function Electronics() {
     lenElectronicsDes,
     addElement,
     onYas,
+    addIcon,
   } = useContext(Context);
   const [onTrue, setOnTrue] = useState(false);
   const [twoTrue, setTwoTrue] = useState(false);
@@ -79,6 +79,12 @@ function Electronics() {
     }
   }, [threeTrue]);
 
+  // -----
+  function onIcon(e) {
+    fetch("https://fakestoreapi.com/products/" + e)
+      .then((res) => res.json())
+      .then((result) => addIcon(result, e));
+  }
   return (
     <Layout>
       {fourTrue ? <Element app={app} /> : false}
@@ -98,7 +104,15 @@ function Electronics() {
                     <span>{leng.uah}</span>
                   </Link>
 
-                  <Heart color="grin" size={18} className="heart_defense" />
+                  <Heart
+                    color="grin"
+                    size={18}
+                    className="heart_defense"
+                    onClick={(e) => {
+                      onIcon(e.target.id);
+                    }}
+                    id={item.id}
+                  />
                 </div>
                 <div className="rete">
                   <Link className="link" to={`/post/${item.id}`}>

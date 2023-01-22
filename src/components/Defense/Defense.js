@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import Context from "../../common/context";
 import Layout from "../Layout/Layout";
+import DefenseYas from "./DefenseYas/DefenseYas";
+import DefenseNo from "./DefenseNo/DefenseNo";
 
+// App
 function Defense() {
-  return (
-    <Layout>
-      <div>Defense</div>
-    </Layout>
-  );
+  const { defenseCard } = useContext(Context);
+
+  return <Layout>{defenseCard === "" ? <DefenseNo /> : <DefenseYas />}</Layout>;
 }
 
 export default Defense;

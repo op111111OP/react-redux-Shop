@@ -6,7 +6,7 @@ import BasketYas from "./BasketYas/BasketYas";
 import BasketNo from "./BasketNo/BasketNo";
 // App
 function Basket() {
-  const { know, number, onCard } = useContext(Context);
+  const { onCard } = useContext(Context);
   return <Layout>{onCard.length === 0 ? <BasketNo /> : <BasketYas />}</Layout>;
 }
 
