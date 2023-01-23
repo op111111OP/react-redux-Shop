@@ -31,7 +31,7 @@ function Card() {
           </div>
 
           <div className="element_container_but">
-            <Heart color="grin" size={18} className="heart_defense" />
+            <Heart color="grin" size={20} className="heart_defense" />
             <Button
               className="electronics_but"
               size="sm"
@@ -46,7 +46,7 @@ function Card() {
               {leng.buy}
             </Button>
           </div>
-          <div className="description">{element.description}</div>
+          <div className="element_description">{element.description}</div>
         </div>
       </div>
     </Layout>

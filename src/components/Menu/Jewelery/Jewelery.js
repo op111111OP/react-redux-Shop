@@ -6,30 +6,20 @@ import Context from "../../../common/context";
 import Button from "react-bootstrap/Button";
 import { Heart } from "react-bootstrap-icons";
 import Element from "../Element/Element";
+import ElementDefense from "../Element/ElementDefense";
 // App
 function Jewelery() {
-  const {
-    know,
-    leng,
-    jewelery,
-    lenElectronicsTitl,
-    lenElectronicsDes,
-    onYas,
-    addIcon,
-  } = useContext(Context);
+  const { know, leng, jewelery, lenElectronicsTitl, lenElectronicsDes, onYas } =
+    useContext(Context);
   const [onTrue, setOnTrue] = useState(false);
   const [posts, setPosts] = useState("");
-
-  // -----
-  function onIcon(e) {
-    fetch("https://fakestoreapi.com/products/" + e)
-      .then((res) => res.json())
-      .then((result) => addIcon(result, e));
-  }
+  const [e, setE] = useState("");
+  const [onTrueOne, setOnTrueOne] = useState(false);
 
   return (
     <Layout>
       {posts === "" ? false : <Element posts={posts} onTrue={onTrue} />}
+      {e === "" ? false : <ElementDefense e={e} onTrueOne={onTrueOne} />}
       <div className="container">
         <div className="electronics_box">
           {jewelery.map((item, index) => (
@@ -51,7 +41,8 @@ function Jewelery() {
                     size={18}
                     className="heart_defense"
                     onClick={(e) => {
-                      onIcon(e.target.id);
+                      setE(e.target.id);
+                      setOnTrueOne((a) => !a);
                     }}
                     id={item.id}
                   />
