@@ -4,9 +4,11 @@
   color: black;
 }
 .container_cards {
-  width: 100%;
-  min-height: 100%;
-  padding: 10px 5px 0px 5px;
+  width: 99%;
+  /* min-height: 100%; */
+  padding: 10px 0px 0px 0px;
+  border-bottom: 1px solid;
+  margin: 0px 5px 0px 5px;
 }
 .card_conteiner {
   margin: 0px 0px 10px 0px;

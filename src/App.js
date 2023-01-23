@@ -10,7 +10,6 @@ import { LenElectronicsTitl } from "./components/language/LenElectronicsTitl";
 import { LenElectronicsDes } from "./components/language/LenElectronicsDes";
 import Defense from "./components/Defense/Defense";
 import Basket from "./components/Basket/Basket";
-import Profile from "./components/Profile/Profile";
 import Electronics from "./components/Menu/Electronics/Electronics";
 import Jewelery from "./components/Menu/Jewelery/Jewelery";
 import Men from "./components/Menu/Men/Men";
@@ -143,7 +142,6 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/defense" element={<Defense />} />
           <Route path="/basket" element={<Basket />} />
-          <Route path="/profile" element={<Profile />} />
           <Route path="/0m" element={<Electronics />} />
           <Route path="/1m" element={<Jewelery />} />
           <Route path="/2m" element={<Men />} />

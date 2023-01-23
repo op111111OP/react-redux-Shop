@@ -8,6 +8,7 @@ import Button from "react-bootstrap/Button";
 import { Heart } from "react-bootstrap-icons";
 // import { store } from "../..";
 import Element from "../Element/Element";
+import ElementDefense from "../Element/ElementDefense";
 
 // App
 function Electronics() {
@@ -17,22 +18,19 @@ function Electronics() {
     electronics,
     lenElectronicsTitl,
     lenElectronicsDes,
-    //  addElement,
     onYas,
-    addIcon,
   } = useContext(Context);
   const [onTrue, setOnTrue] = useState(false);
   const [posts, setPosts] = useState("");
+  const [e, setE] = useState("");
+  const [onTrueOne, setOnTrueOne] = useState(false);
 
   // -----
-  function onIcon(e) {
-    fetch("https://fakestoreapi.com/products/" + e)
-      .then((res) => res.json())
-      .then((result) => addIcon(result, e));
-  }
+
   return (
     <Layout>
       {posts === "" ? false : <Element posts={posts} onTrue={onTrue} />}
+      {e === "" ? false : <ElementDefense e={e} onTrueOne={onTrueOne} />}
       <div className="container">
         <div className="electronics_box">
           {electronics.map((item, index) => (
@@ -54,7 +52,8 @@ function Electronics() {
                     size={18}
                     className="heart_defense"
                     onClick={(e) => {
-                      onIcon(e.target.id);
+                      setE(e.target.id);
+                      setOnTrueOne((a) => !a);
                     }}
                     id={item.id}
                   />
