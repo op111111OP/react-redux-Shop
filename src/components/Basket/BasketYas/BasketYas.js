@@ -46,6 +46,11 @@ function BasketYas() {
                       color="grin"
                       size={21}
                       className="cart cart_cirle"
+                      onClick={(e) => {
+                        // setE(e.target.id);
+                        // setOnTrueOne((a) => !a);
+                      }}
+                      id={item.id}
                     />
                   </div>
                 </div>
