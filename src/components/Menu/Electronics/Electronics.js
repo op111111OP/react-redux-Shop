@@ -5,7 +5,7 @@ import Layout from "../../Layout/Layout";
 import Context from "../../../common/context";
 import { useContext } from "react";
 import Button from "react-bootstrap/Button";
-import { Heart } from "react-bootstrap-icons";
+import { Heart, HeartFill } from "react-bootstrap-icons";
 // import { store } from "../..";
 import Element from "../Element/Element";
 
@@ -23,6 +23,7 @@ function Electronics() {
   } = useContext(Context);
   const [onTrue, setOnTrue] = useState(false);
   const [posts, setPosts] = useState("");
+  const [onHeart, setOnHeart] = useState(false);
 
   // -----
   function onIcon(e) {
@@ -49,15 +50,22 @@ function Electronics() {
                     <span>{leng.uah}</span>
                   </Link>
 
-                  <Heart
+                {onHeart ? <HeartFill 
+                    color="red"
+                    size={18}
+                    className="heart_defense"
+                    id={item.id}
+                  />:
+                  < Heart 
                     color="grin"
                     size={18}
                     className="heart_defense"
-                    onClick={(e) => {
+                   onClick={(e) => {
+                      setOnHeart(true)
                       onIcon(e.target.id);
                     }}
                     id={item.id}
-                  />
+                  />}
                 </div>
                 <div className="rete">
                   <Link className="link" to={`/post/${item.id}`}>
