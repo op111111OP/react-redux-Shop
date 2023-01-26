@@ -95,6 +95,18 @@ function App() {
         : true
     );
   }, [appAny]);
+  function appEId(e) {
+    onCard.map((item, index) =>
+      item.id === Number(e)
+        ? setOnCard([...onCard.slice(0, index), ...onCard.slice(index + 1)])
+        : true
+    );
+    id.map((item, index) =>
+      item === Number(e)
+        ? setId([...id.slice(0, index), ...id.slice(index + 1)])
+        : true
+    );
+  }
   //   ===
   function addIcon(res, e) {
     setIdElem([...idElem, e]);
@@ -135,6 +147,7 @@ function App() {
         anyApp,
         addIcon,
         defenseCard,
+        appEId,
       }}
     >
       <BrowserRouter>

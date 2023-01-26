@@ -7,6 +7,7 @@ import Button from "react-bootstrap/Button";
 import { Heart } from "react-bootstrap-icons";
 import Element from "../Element/Element";
 import ElementDefense from "../Element/ElementDefense";
+import { useRef } from "react";
 // App
 function Jewelery() {
   const { know, leng, jewelery, lenElectronicsTitl, lenElectronicsDes, onYas } =
@@ -15,6 +16,8 @@ function Jewelery() {
   const [posts, setPosts] = useState("");
   const [e, setE] = useState("");
   const [onTrueOne, setOnTrueOne] = useState(false);
+  const ref = useRef(null);
+  const n = [ref];
 
   return (
     <Layout>
@@ -45,6 +48,7 @@ function Jewelery() {
                       setOnTrueOne((a) => !a);
                     }}
                     id={item.id}
+                    ref={n[item.id]}
                   />
                 </div>
                 <div className="rete">

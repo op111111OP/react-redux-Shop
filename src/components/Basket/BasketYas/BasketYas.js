@@ -7,7 +7,7 @@ import Button from "react-bootstrap/Button";
 import { XCircle } from "react-bootstrap-icons";
 // Basket
 function BasketYas() {
-  const { know, onCard, leng } = useContext(Context);
+  const { know, onCard, leng, appEId } = useContext(Context);
 
   return (
     <div className="container card_box">
@@ -47,8 +47,7 @@ function BasketYas() {
                       size={21}
                       className="cart cart_cirle"
                       onClick={(e) => {
-                        // setE(e.target.id);
-                        // setOnTrueOne((a) => !a);
+                        appEId(e.target.id);
                       }}
                       id={item.id}
                     />
