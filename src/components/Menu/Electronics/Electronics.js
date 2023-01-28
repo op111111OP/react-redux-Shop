@@ -18,6 +18,7 @@ function Electronics() {
     electronics,
     lenElectronicsTitl,
     lenElectronicsDes,
+    //  addElement,
     onYas,
     n,
   } = useContext(Context);

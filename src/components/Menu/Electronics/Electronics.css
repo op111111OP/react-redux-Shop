@@ -51,6 +51,7 @@
 .heart_defense {
   cursor: pointer;
 }
+
 .rete {
   display: flex;
   justify-content: space-between;
