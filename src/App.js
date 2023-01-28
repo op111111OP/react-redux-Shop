@@ -15,6 +15,7 @@ import Jewelery from "./components/Menu/Jewelery/Jewelery";
 import Men from "./components/Menu/Men/Men";
 import Women from "./components/Menu/Women/Women";
 import Card from "./components/Card/Card";
+import RefIcon from "./components/RefIcon";
 
 function App() {
   const [item, setItem] = useState([]);
@@ -34,9 +35,10 @@ function App() {
   const [idElem, setIdElem] = useState([]);
   const [appAny, setAppAny] = useState({});
   const [defenseCard, setDefenseCard] = useState("");
+  const [n, setN] = useState("");
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products?limit=10")
+    fetch("https://fakestoreapi.com/products?limit=5")
       .then((res) => res.json())
       .then((result) => setItem(result));
     fetch("https://fakestoreapi.com/products/categories")
@@ -114,6 +116,11 @@ function App() {
       setDefenseCard([...defenseCard, res]);
     }
   }
+  //   --
+
+  function addRef(e) {
+    setN(e);
+  }
 
   const leng = Len(know);
   const lenCategories = LenCategories();
@@ -148,8 +155,11 @@ function App() {
         addIcon,
         defenseCard,
         appEId,
+        addRef,
+        n,
       }}
     >
+      <RefIcon />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />

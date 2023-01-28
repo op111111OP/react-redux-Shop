@@ -5,7 +5,7 @@ import Layout from "../../Layout/Layout";
 import Context from "../../../common/context";
 import { useContext } from "react";
 import Button from "react-bootstrap/Button";
-import { Heart } from "react-bootstrap-icons";
+import { Heart, HeartFill } from "react-bootstrap-icons";
 // import { store } from "../..";
 import Element from "../Element/Element";
 import ElementDefense from "../Element/ElementDefense";
@@ -19,6 +19,7 @@ function Electronics() {
     lenElectronicsTitl,
     lenElectronicsDes,
     onYas,
+    n,
   } = useContext(Context);
   const [onTrue, setOnTrue] = useState(false);
   const [posts, setPosts] = useState("");
@@ -46,17 +47,22 @@ function Electronics() {
                     {leng.price} {item.price}
                     <span>{leng.uah}</span>
                   </Link>
-
-                  <Heart
-                    color="grin"
-                    size={18}
-                    className="heart_defense"
-                    onClick={(e) => {
-                      setE(e.target.id);
-                      setOnTrueOne((a) => !a);
-                    }}
-                    id={item.id}
-                  />
+                  <div className="icon_box">
+                    <div ref={n[Number(item.id)]} className="icon_none">
+                      <HeartFill color="firebrick" size={18} />
+                    </div>
+                    <Heart
+                      color="grin"
+                      size={18}
+                      className="heart_defense"
+                      onClick={(e) => {
+                        setE(e.target.id);
+                        setOnTrueOne((a) => !a);
+                        n[Number(item.id)].current.className = "icon_block";
+                      }}
+                      id={item.id}
+                    />
+                  </div>
                 </div>
                 <div className="rete">
                   <Link className="link" to={`/post/${item.id}`}>

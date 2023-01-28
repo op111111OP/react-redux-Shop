@@ -48,8 +48,19 @@
 .link_heart {
   margin: 0px 10px 0px 0px;
 }
+.icon_box {
+  position: relative;
+}
+.icon_block {
+  display: block;
+  position: absolute;
+}
+.icon_none {
+  display: none;
+}
 .heart_defense {
   cursor: pointer;
+  z-index: 1;
 }
 .rete {
   display: flex;

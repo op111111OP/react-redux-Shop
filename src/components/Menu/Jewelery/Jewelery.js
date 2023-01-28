@@ -1,24 +1,28 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useRef, useContext } from "react";
 import { Link } from "react-router-dom";
 import "./Jewelery.css";
 import Layout from "../../Layout/Layout";
 import Context from "../../../common/context";
 import Button from "react-bootstrap/Button";
-import { Heart } from "react-bootstrap-icons";
+import { Heart, HeartFill } from "react-bootstrap-icons";
 import Element from "../Element/Element";
 import ElementDefense from "../Element/ElementDefense";
-import { useRef } from "react";
+
 // App
 function Jewelery() {
-  const { know, leng, jewelery, lenElectronicsTitl, lenElectronicsDes, onYas } =
-    useContext(Context);
+  const {
+    know,
+    leng,
+    jewelery,
+    lenElectronicsTitl,
+    lenElectronicsDes,
+    onYas,
+    n,
+  } = useContext(Context);
   const [onTrue, setOnTrue] = useState(false);
   const [posts, setPosts] = useState("");
   const [e, setE] = useState("");
   const [onTrueOne, setOnTrueOne] = useState(false);
-  const ref = useRef(null);
-  const n = [ref];
-
   return (
     <Layout>
       {posts === "" ? false : <Element posts={posts} onTrue={onTrue} />}
@@ -39,17 +43,22 @@ function Jewelery() {
                     <span>{leng.uah}</span>
                   </Link>
 
-                  <Heart
-                    color="grin"
-                    size={18}
-                    className="heart_defense"
-                    onClick={(e) => {
-                      setE(e.target.id);
-                      setOnTrueOne((a) => !a);
-                    }}
-                    id={item.id}
-                    ref={n[item.id]}
-                  />
+                  <div className="icon_box">
+                    <div ref={n[Number(item.id)]} className="icon_none">
+                      <HeartFill color="firebrick" size={18} />
+                    </div>
+                    <Heart
+                      color="grin"
+                      size={18}
+                      className="heart_defense"
+                      onClick={(e) => {
+                        setE(e.target.id);
+                        setOnTrueOne((a) => !a);
+                        n[Number(item.id)].current.className = "icon_block";
+                      }}
+                      id={item.id}
+                    />
+                  </div>
                 </div>
                 <div className="rete">
                   <Link className="link" to={`/post/${item.id}`}>
