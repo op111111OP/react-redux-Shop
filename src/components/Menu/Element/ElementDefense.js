@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import Context from "../../../common/context";
 // общий
 function ElementDefense({ e, onTrueOne }) {

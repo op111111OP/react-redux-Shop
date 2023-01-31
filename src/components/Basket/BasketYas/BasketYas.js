@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./BasketYas.css";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
@@ -7,12 +7,41 @@ import Button from "react-bootstrap/Button";
 import { XCircle } from "react-bootstrap-icons";
 // Basket
 function BasketYas() {
-  const { know, onCard, leng, appEId } = useContext(Context);
+  const { know, onCard, leng, id, twoIdTrue } = useContext(Context);
+  const [twoCard, setTwoCard] = useState(onCard);
+  const [twoId, setTwoId] = useState(id);
+  const [eId, setEId] = useState("");
 
+  useEffect(() => {
+    //  onCard.map((item, index) =>
+    //    item.id === Number(e)
+    //      ? setNumber((a) => a - item.num)
+    //      : true
+    //  );
+
+    if (eId != "") {
+      twoId.map((item, index) =>
+        Number(item) === Number(eId)
+          ? setTwoCard([
+              ...twoCard.slice(0, index),
+              ...twoCard.slice(index + 1),
+            ])
+          : true
+      );
+      twoId.map((item, index) =>
+        Number(item) === Number(eId)
+          ? setTwoId([...twoId.slice(0, index), ...twoId.slice(index + 1)])
+          : true
+      );
+    }
+  }, [eId]);
+  if (twoId === []) {
+    twoIdTrue(true);
+  }
   return (
     <div className="container card_box">
       <div className="container_cards">
-        {onCard.map((item) => (
+        {twoCard.map((item) => (
           <div key={item.id} className="card_conteiner">
             <Link className="link link_card" to={`/post/${item.id}`}>
               <div className="card_text">товар</div>
@@ -47,7 +76,7 @@ function BasketYas() {
                       size={21}
                       className="cart cart_cirle"
                       onClick={(e) => {
-                        appEId(e.target.id);
+                        setEId(e.target.id);
                       }}
                       id={item.id}
                     />

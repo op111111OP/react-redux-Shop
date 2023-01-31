@@ -17,7 +17,7 @@ import Women from "./components/Menu/Women/Women";
 import Card from "./components/Card/Card";
 import RefIcon from "./components/RefIcon";
 
-function App() {
+function App({ appEId }) {
   const [item, setItem] = useState([]);
   const [categories, setCategories] = useState([]);
   const [know, setKnow] = useState(true);
@@ -33,7 +33,6 @@ function App() {
   const [number, setNumber] = useState(0);
   const [id, setId] = useState([]);
   const [idElem, setIdElem] = useState([]);
-  const [appAny, setAppAny] = useState({});
   const [defenseCard, setDefenseCard] = useState("");
   const [n, setN] = useState("");
 
@@ -76,42 +75,20 @@ function App() {
   function onYas() {
     setNumber((a) => a + 1);
   }
+  //   +++
   function addElement(res, e) {
-    setId([...id, e]);
+    if (id.indexOf(e) === -1) {
+      setId([...id, e]);
+    }
     if (id.indexOf(e) === -1) {
       setOnCard([...onCard, { ...res, num: 1, amount: res.price }]);
     }
   }
-  function anyApp(s) {
-    setAppAny({ ...s });
-  }
-
-  useEffect(() => {
-    onCard.map((item, index) =>
-      item.id === Number(appAny.id)
-        ? setOnCard([
-            ...onCard.slice(0, index),
-            { ...item, num: appAny.num, amount: appAny.amount },
-            ...onCard.slice(index + 1),
-          ])
-        : true
-    );
-  }, [appAny]);
-  function appEId(e) {
-    onCard.map((item, index) =>
-      item.id === Number(e)
-        ? setOnCard([...onCard.slice(0, index), ...onCard.slice(index + 1)])
-        : true
-    );
-    id.map((item, index) =>
-      item === Number(e)
-        ? setId([...id.slice(0, index), ...id.slice(index + 1)])
-        : true
-    );
-  }
   //   ===
   function addIcon(res, e) {
-    setIdElem([...idElem, e]);
+    if (idElem.indexOf(e) === -1) {
+      setIdElem([...idElem, e]);
+    }
     if (idElem.indexOf(e) === -1) {
       setDefenseCard([...defenseCard, res]);
     }
@@ -120,6 +97,9 @@ function App() {
 
   function addRef(e) {
     setN(e);
+  }
+  function twoIdTrue(e) {
+    const twoId = e;
   }
 
   const leng = Len(know);
@@ -151,12 +131,12 @@ function App() {
         carousels3,
         number,
         onCard,
-        anyApp,
         addIcon,
         defenseCard,
-        appEId,
         addRef,
         n,
+        id,
+        twoIdTrue,
       }}
     >
       <RefIcon />
