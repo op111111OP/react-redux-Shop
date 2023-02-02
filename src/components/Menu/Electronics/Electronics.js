@@ -75,7 +75,7 @@ function Electronics() {
                     variant="success"
                     onClick={(e) => {
                       setPosts(e.target.id);
-                      onYas();
+                      onYas(e.target.id);
                       setOnTrue((a) => !a);
                     }}
                     id={item.id}

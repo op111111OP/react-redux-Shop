@@ -72,8 +72,10 @@ function App({ appEId }) {
   function classSet(classSection) {
     setColorMenu(classSection);
   }
-  function onYas() {
-    setNumber((a) => a + 1);
+  function onYas(e) {
+    if (id.indexOf(e) === -1) {
+      setNumber((a) => a + 1);
+    }
   }
   function onNo() {
     setNumber((a) => a - 1);
@@ -114,7 +116,6 @@ function App({ appEId }) {
   const lenCategories = LenCategories();
   const lenElectronicsTitl = LenElectronicsTitl();
   const lenElectronicsDes = LenElectronicsDes();
-
   return (
     <ContextProvider
       value={{
