@@ -37,7 +37,7 @@ function App({ appEId }) {
   const [n, setN] = useState("");
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products?limit=5")
+    fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
       .then((result) => setItem(result));
     fetch("https://fakestoreapi.com/products/categories")
@@ -86,7 +86,7 @@ function App({ appEId }) {
       setId([...id, e]);
     }
     if (id.indexOf(e) === -1) {
-      setOnCard([...onCard, { ...res, num: 1, amount: res.price }]);
+      setOnCard([...onCard, { ...res, amount: res.price }]);
     }
   }
   //   ===

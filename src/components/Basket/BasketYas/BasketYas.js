@@ -12,6 +12,7 @@ function BasketYas() {
   const [twoCard, setTwoCard] = useState(onCard);
   const [twoId, setTwoId] = useState(id);
   const [eId, setEId] = useState("");
+  const [id2, setId2] = useState("");
   const [onTrue, setOnTrue] = useState(false);
 
   useEffect(() => {
@@ -38,10 +39,11 @@ function BasketYas() {
     }
   }, [onTrue]);
 
+  console.log(id2);
   return (
     <div className="container card_box">
       <div className="container_cards">
-        {twoCard.map((item) => (
+        {twoCard.map((item, index) => (
           <div key={item.id} className="card_conteiner">
             <Link className="link link_card" to={`/post/${item.id}`}>
               <div className="card_text">товар</div>
@@ -59,9 +61,27 @@ function BasketYas() {
                 <div>сума</div>
               </div>
               <div className="card_numbers">
-                <div> {item.num}</div>
+                <div>
+                  <select
+                    id={index}
+                    onChange={(e) => {
+                      setId2(e.target.id);
+                    }}
+                  >
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                  </select>
+                </div>
                 <div> {item.price}грн.</div>
-                <div> {item.amount}грн.</div>
+                <div> {item.price}грн.</div>
                 <div className="card_but_conteiner">
                   <Button
                     className="electronics_but card_but"

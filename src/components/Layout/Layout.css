@@ -148,14 +148,13 @@ header {
 }
 
 /* menu and */
-.fixed_a{
-
+.fixed_a {
 }
-.fixed_box{
+.fixed_box {
   gap: 5px;
   display: flex;
   flex-direction: column;
-  top: 76%;
+  top: 50vh;
   left: 97%;
   position: fixed;
 }
