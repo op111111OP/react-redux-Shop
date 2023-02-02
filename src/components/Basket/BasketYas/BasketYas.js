@@ -5,20 +5,16 @@ import { Link } from "react-router-dom";
 import Context from "../../../common/context";
 import Button from "react-bootstrap/Button";
 import { XCircle } from "react-bootstrap-icons";
+import { Card } from "react-bootstrap";
 // Basket
 function BasketYas() {
-  const { know, onCard, leng, id, twoIdTrue } = useContext(Context);
+  const { know, onCard, leng, id, card, onNo } = useContext(Context);
   const [twoCard, setTwoCard] = useState(onCard);
   const [twoId, setTwoId] = useState(id);
   const [eId, setEId] = useState("");
+  const [onTrue, setOnTrue] = useState(false);
 
   useEffect(() => {
-    //  onCard.map((item, index) =>
-    //    item.id === Number(e)
-    //      ? setNumber((a) => a - item.num)
-    //      : true
-    //  );
-
     if (eId != "") {
       twoId.map((item, index) =>
         Number(item) === Number(eId)
@@ -33,11 +29,15 @@ function BasketYas() {
           ? setTwoId([...twoId.slice(0, index), ...twoId.slice(index + 1)])
           : true
       );
+      setOnTrue((a) => !a);
     }
   }, [eId]);
-  if (twoId === []) {
-    twoIdTrue(true);
-  }
+  useEffect(() => {
+    if (eId != "") {
+      card(twoCard, twoId);
+    }
+  }, [onTrue]);
+
   return (
     <div className="container card_box">
       <div className="container_cards">
@@ -70,16 +70,16 @@ function BasketYas() {
                   >
                     Оформити замовлення
                   </Button>
-                  <div>
-                    <XCircle
-                      color="grin"
-                      size={21}
+                  <div className="XCircle_box">
+                    <XCircle color="grin" size={21} />
+                    <div
                       className="cart cart_cirle"
                       onClick={(e) => {
                         setEId(e.target.id);
+                        onNo();
                       }}
                       id={item.id}
-                    />
+                    ></div>
                   </div>
                 </div>
               </div>

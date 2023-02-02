@@ -8,7 +8,9 @@ import DefenseNo from "./DefenseNo/DefenseNo";
 function Defense() {
   const { defenseCard } = useContext(Context);
 
-  return <Layout>{defenseCard === "" ? <DefenseNo /> : <DefenseYas />}</Layout>;
+  return (
+    <Layout>{defenseCard.length === 0 ? <DefenseNo /> : <DefenseYas />}</Layout>
+  );
 }
 
 export default Defense;

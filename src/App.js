@@ -33,7 +33,7 @@ function App({ appEId }) {
   const [number, setNumber] = useState(0);
   const [id, setId] = useState([]);
   const [idElem, setIdElem] = useState([]);
-  const [defenseCard, setDefenseCard] = useState("");
+  const [defenseCard, setDefenseCard] = useState([]);
   const [n, setN] = useState("");
 
   useEffect(() => {
@@ -75,6 +75,9 @@ function App({ appEId }) {
   function onYas() {
     setNumber((a) => a + 1);
   }
+  function onNo() {
+    setNumber((a) => a - 1);
+  }
   //   +++
   function addElement(res, e) {
     if (id.indexOf(e) === -1) {
@@ -93,13 +96,18 @@ function App({ appEId }) {
       setDefenseCard([...defenseCard, res]);
     }
   }
+  //   ----
+  function cardDefense(e, e1) {
+    setDefenseCard(e);
+    setIdElem(e1);
+  }
   //   --
-
   function addRef(e) {
     setN(e);
   }
-  function twoIdTrue(e) {
-    const twoId = e;
+  function card(e, e1) {
+    setOnCard(e);
+    setId(e1);
   }
 
   const leng = Len(know);
@@ -136,7 +144,10 @@ function App({ appEId }) {
         addRef,
         n,
         id,
-        twoIdTrue,
+        card,
+        onNo,
+        idElem,
+        cardDefense,
       }}
     >
       <RefIcon />

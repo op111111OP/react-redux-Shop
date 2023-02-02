@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./DefenseYas.css";
 import { XCircle } from "react-bootstrap-icons";
 import Context from "../../../common/context";
@@ -7,7 +7,35 @@ import { Link } from "react-router-dom";
 
 // App
 function DefenseYas() {
-  const { defenseCard } = useContext(Context);
+  const { defenseCard, idElem, cardDefense } = useContext(Context);
+  const [twoCard, setTwoCard] = useState(defenseCard);
+  const [twoId, setTwoId] = useState(idElem);
+  const [eId, setEId] = useState("");
+  const [onTrue, setOnTrue] = useState(false);
+
+  useEffect(() => {
+    if (eId != "") {
+      twoId.map((item, index) =>
+        Number(item) === Number(eId)
+          ? setTwoCard([
+              ...twoCard.slice(0, index),
+              ...twoCard.slice(index + 1),
+            ])
+          : true
+      );
+      twoId.map((item, index) =>
+        Number(item) === Number(eId)
+          ? setTwoId([...twoId.slice(0, index), ...twoId.slice(index + 1)])
+          : true
+      );
+      setOnTrue((a) => !a);
+    }
+  }, [eId]);
+  useEffect(() => {
+    if (eId != "") {
+      cardDefense(twoCard, twoId);
+    }
+  }, [onTrue]);
 
   return (
     <div className="container card_box">
@@ -38,8 +66,15 @@ function DefenseYas() {
                 >
                   купити
                 </Button>
-                <div>
-                  <XCircle color="grin" size={21} className="cart cart_cirle" />
+                <div className="XCircle_box">
+                  <XCircle color="grin" size={21} />
+                  <div
+                    className="cart cart_cirle"
+                    onClick={(e) => {
+                      setEId(e.target.id);
+                    }}
+                    id={item.id}
+                  ></div>
                 </div>
               </div>
             </div>

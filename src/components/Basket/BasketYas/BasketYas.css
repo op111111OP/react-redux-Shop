@@ -83,4 +83,12 @@
 }
 .cart_cirle {
   cursor: pointer;
+  position: absolute;
+  width: 22px;
+  height: 22px;
+
+  top: 0px;
+}
+.XCircle_box {
+  position: relative;
 }
