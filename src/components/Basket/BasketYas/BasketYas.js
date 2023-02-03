@@ -12,8 +12,9 @@ function BasketYas() {
   const [twoCard, setTwoCard] = useState(onCard);
   const [twoId, setTwoId] = useState(id);
   const [eId, setEId] = useState("");
-  const [id2, setId2] = useState("");
   const [onTrue, setOnTrue] = useState(false);
+  //   const [id2, setId2] = useState("");
+  //   const [onValue, setOnValue] = useState(1);
 
   useEffect(() => {
     if (eId != "") {
@@ -38,8 +39,14 @@ function BasketYas() {
       card(twoCard, twoId);
     }
   }, [onTrue]);
+  function addValue(e, e1) {
+    setTwoCard([
+      ...twoCard.slice(0, e),
+      { ...twoCard[e], amount: onCard[e].amount * e1 },
+      ...twoCard.slice(e + 1),
+    ]);
+  }
 
-  console.log(id2);
   return (
     <div className="container card_box">
       <div className="container_cards">
@@ -65,7 +72,7 @@ function BasketYas() {
                   <select
                     id={index}
                     onChange={(e) => {
-                      setId2(e.target.id);
+                      addValue(e.target.id, e.target.value);
                     }}
                   >
                     <option value="1">1</option>
@@ -81,7 +88,7 @@ function BasketYas() {
                   </select>
                 </div>
                 <div> {item.price}грн.</div>
-                <div> {item.price}грн.</div>
+                <div> {item.amount}грн.</div>
                 <div className="card_but_conteiner">
                   <Button
                     className="electronics_but card_but"
