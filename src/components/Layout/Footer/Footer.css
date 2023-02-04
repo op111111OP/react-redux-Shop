@@ -3,9 +3,13 @@
   justify-content: space-between;
   padding: 20px 100px;
 }
-/* .number {
-  
-} */
+.number div svg {
+  margin: 10px;
+}
 .icon {
   margin: 20 0px 40px 0;
+}
+.addres > *{
+  max-width: 200px;
+margin: 20px;
 }
