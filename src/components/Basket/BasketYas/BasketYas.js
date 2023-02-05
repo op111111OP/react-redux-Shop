@@ -6,15 +6,18 @@ import Context from "../../../common/context";
 import Button from "react-bootstrap/Button";
 import { XCircle } from "react-bootstrap-icons";
 import { Card } from "react-bootstrap";
+import { useLocalStorageObject } from "react-use-window-localstorage";
+
 // Basket
 function BasketYas() {
   const { know, onCard, leng, id, card, onNo } = useContext(Context);
+  //   const [twoCard, setTwoCard] = useLocalStorageObject("a", onCard);
   const [twoCard, setTwoCard] = useState(onCard);
   const [twoId, setTwoId] = useState(id);
   const [eId, setEId] = useState("");
   const [onTrue, setOnTrue] = useState(false);
-  //   const [id2, setId2] = useState("");
-  //   const [onValue, setOnValue] = useState(1);
+  const [twoTrue, setTwoTrue] = useState(false);
+  const [forTrue, setForTrue] = useState(0);
 
   useEffect(() => {
     if (eId != "") {
@@ -41,12 +44,17 @@ function BasketYas() {
   }, [onTrue]);
   function addValue(e, e1) {
     setTwoCard([
-      ...twoCard.slice(0, e),
-      { ...twoCard[e], amount: onCard[e].amount * e1 },
-      ...twoCard.slice(e + 1),
+      ...twoCard.slice(0, Number(e)),
+      { ...twoCard[Number(e)], amount: onCard[Number(e)].amount * e1 },
+      ...twoCard.slice(Number(e) + 1),
     ]);
+    setTwoTrue((a) => !a);
+    setForTrue(1);
   }
 
+  //   useEffect(() => {
+  //     setTwoCard(value);
+  //   }, []);
   return (
     <div className="container card_box">
       <div className="container_cards">
