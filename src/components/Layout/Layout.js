@@ -7,6 +7,7 @@ import {
   Globe,
   Heart,
   Person,
+  X,
 } from "react-bootstrap-icons";
 import { useState, useEffect } from "react";
 import "./Layout.css";
@@ -20,6 +21,7 @@ import Diamond from "../public/iconc/diamond.png";
 import Fut from "../public/iconc/fut.png";
 import Womans from "../public/iconc/womans.png";
 import Footer from "./Footer/Footer";
+import { Modal } from "react-bootstrap";
 
 // Home
 
@@ -32,6 +34,9 @@ function Layout({ children }) {
   const [mouse, setMouse] = useState(false);
   const [radioValue, setRadioValue] = useState("1");
   const [switchs, setSwitchs] = useState(lenCategories);
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const areuMenu = [Computer, Diamond, Fut, Womans];
   const radios = [
@@ -66,10 +71,29 @@ function Layout({ children }) {
             <Heart color="grin" size={18} className="cart" />
             {leng.defense}
           </Link>
-          <Link className="link" to="/profile">
+          <div className="link profile" onClick={handleShow}>
             <Person color="grin" size={21} className="cart" />
             {leng.profile}
-          </Link>
+          </div>
+          <div>
+            <Modal show={show} onHide={handleClose}>
+              <Modal.Header closeButton>
+                <Modal.Title>Modal heading</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                Woohoo, you're reading this text in a modal!
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                  Close
+                </Button>
+                <Button variant="primary" onClick={handleClose}>
+                  Save Changes
+                </Button>
+              </Modal.Footer>
+            </Modal>
+          </div>
+
           <Link className="link link_baslet" to="/basket">
             <Cart3 color="grin" size={21} className="cart" />
             <div>{leng.basket}</div>

@@ -162,3 +162,6 @@ header {
 /* .dark-footer {
 } */
 /* footer and*/
+.profile {
+  cursor: pointer;
+}
