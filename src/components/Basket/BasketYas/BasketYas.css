@@ -92,3 +92,51 @@
 .XCircle_box {
   position: relative;
 }
+/* ====== */
+@media (max-width: 935px) {
+  .card_conteiner {
+    margin: 0px 0px 10px 0px;
+    flex-direction: column;
+    height: auto;
+  }
+  .card_numbers {
+    padding: 30px 5px 50px 30px;
+    gap: 10px;
+  }
+  .goods_card {
+    padding-right: 5px;
+  }
+  .card_conteiner_text {
+    margin: 0px 5px 0px 0px;
+  }
+  .card_text {
+    margin: 10px 5px 10px 0px;
+  }
+}
+@media (max-width: 450px) {
+  .goods_card {
+    flex-direction: column;
+  }
+  .card_conteiner_img {
+    width: 100%;
+  }
+  .card_text {
+    justify-content: center;
+    padding: 0;
+  }
+}
+@media (max-width: 420px) {
+  .card_conteiner {
+    margin: 0px 0px 10px 0px;
+  }
+  .card_numbers {
+    padding: 30px 5px 50px 10px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
+@media (max-width: 409px) {
+  .card_conteiner_text {
+    padding: 0;
+  }
+}
