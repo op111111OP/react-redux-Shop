@@ -7,7 +7,7 @@ import {
   Globe,
   Heart,
   Person,
-  X,
+  List,
 } from "react-bootstrap-icons";
 import { useState, useEffect } from "react";
 import "./Layout.css";
@@ -22,6 +22,8 @@ import Fut from "../public/iconc/fut.png";
 import Womans from "../public/iconc/womans.png";
 import Footer from "./Footer/Footer";
 import { Modal } from "react-bootstrap";
+import Reg from "./Reg/Reg";
+import Dropdown from "react-bootstrap/Dropdown";
 
 // Home
 
@@ -76,25 +78,12 @@ function Layout({ children }) {
             {leng.profile}
           </div>
           <div>
-            <Modal show={show} onHide={handleClose}>
-              <Modal.Header closeButton>
-                <Modal.Title>Modal heading</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
-                Woohoo, you're reading this text in a modal!
-              </Modal.Body>
-              <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                  Close
-                </Button>
-                <Button variant="primary" onClick={handleClose}>
-                  Save Changes
-                </Button>
-              </Modal.Footer>
+            <Modal show={show} onHide={handleClose} className="modal">
+              <Modal.Header closeButton></Modal.Header>
+              <Reg />
             </Modal>
           </div>
-
-          <Link className="link link_baslet" to="/basket">
+          <Link className="link link_basket" to="/basket">
             <Cart3 color="grin" size={21} className="cart" />
             <div>{leng.basket}</div>
             <div className="basket_number">{number}</div>
@@ -150,7 +139,6 @@ function Layout({ children }) {
             classSection ? "light_color manu_home" : "dark_color manu_home"
           }
         >
-          {/* <div className="ul_menu"> */}
           {switchs.map((item, index) => (
             <div key={index} className="li_menu_home ">
               <Link
@@ -169,8 +157,33 @@ function Layout({ children }) {
               </Link>
             </div>
           ))}
-          {/* </div> */}
         </div>
+        <Dropdown className="bropdown">
+          <Dropdown.Toggle variant="" bsPrefix="jj" id="dropdown-basic">
+            <List color="black" size={28} />
+          </Dropdown.Toggle>
+
+          <Dropdown.Menu className="dropdown_menu">
+            {switchs.map((item, index) => (
+              <div key={index} className="li_menu">
+                <Link
+                  className={
+                    classSection ? "link link_menuC" : "link link_menuT"
+                  }
+                  to={`/${index}m`}
+                >
+                  <div
+                    className={
+                      classSection ? "menu_box menu_boxC" : "menu_box menu_boxT"
+                    }
+                  >
+                    <img src={areuMenu[index]} className="iconMenu" /> {item}
+                  </div>
+                </Link>
+              </div>
+            ))}
+          </Dropdown.Menu>
+        </Dropdown>
       </header>
       <section className={classSection ? "light" : "dark"}>
         <div className="container">{children}</div>

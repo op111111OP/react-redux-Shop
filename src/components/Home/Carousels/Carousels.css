@@ -38,9 +38,6 @@ h3 {
   align-items: center;
   margin: 20px 0px 0px 0px;
 }
-/* .link {
-  color: black;
-} */
 
 .link_menuT {
   color: rgb(255, 252, 252);
@@ -70,3 +67,24 @@ h3 {
 /* carousels */
 
 /* carousels and */
+@media (max-width: 1040px) {
+  .carousels {
+    width: 69%;
+  }
+  .carousels_menu {
+    width: 30%;
+  }
+}
+@media (max-width: 765px) {
+  .carousels_cont {
+    flex-direction: column;
+  }
+  .carousels {
+    width: 100%;
+  }
+  .link_menuT {
+    color: #000;
+    font-size: 11px;
+    margin: 6px 0px 0px 0px;
+  }
+}

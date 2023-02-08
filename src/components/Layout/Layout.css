@@ -119,9 +119,10 @@ header {
 .cart {
   margin: 0px 5px 5px 0px;
 }
-.link_baslet {
+.link_basket {
   display: flex;
   position: relative;
+  margin: 0px 30px 0px 0px;
 }
 .basket_number {
   position: absolute;
@@ -154,14 +155,99 @@ header {
   display: flex;
   flex-direction: column;
   top: 50vh;
-  left: 97%;
+  left: 96%;
   position: fixed;
   z-index: 10;
 }
-/* footer */
-/* .dark-footer {
-} */
-/* footer and*/
+/*  */
 .profile {
   cursor: pointer;
+}
+/*  */
+.modal {
+  padding: 200px 0 0 0;
+}
+/* == */
+
+.bropdown {
+  display: none;
+}
+.dropdown_box {
+  display: flex;
+}
+#dropdown-basic {
+  display: flex;
+}
+/* =========== */
+@media (max-width: 1200px) {
+  .fixed_box {
+    left: 95%;
+  }
+}
+@media (max-width: 950px) {
+  .fixed_box {
+    left: 93%;
+  }
+}
+@media (max-width: 765px) {
+  header {
+    height: 70px;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+  }
+  .manu_home {
+    display: none;
+  }
+  .header_container {
+    flex-wrap: wrap;
+    padding: 5px 5px 50px 5px;
+    gap: 10px;
+  }
+  .bropdown {
+    display: inline-block;
+    margin: 10px 0px 0px 0px;
+  }
+  .dropdown_menu {
+    width: 200px;
+    padding: 0 0 0 10px;
+  }
+  .ul_menu {
+    display: none;
+  }
+}
+@media (max-width: 694px) {
+  header {
+    height: 90px;
+  }
+}
+@media (max-width: 650px) {
+  .fixed_box {
+    left: 90%;
+  }
+}
+@media (max-width: 460px) {
+  .fixed_box {
+    left: 88%;
+  }
+}
+@media (max-width: 406px) {
+  header {
+    height: 130px;
+  }
+}
+@media (max-width: 395px) {
+  .header_container {
+    font-size: 17px;
+  }
+}
+@media (max-width: 361px) {
+  .header_container {
+    gap: 10px;
+  }
+}
+@media (max-width: 350px) {
+  .fixed_box {
+    left: 86%;
+  }
 }

@@ -9,13 +9,22 @@ import Computer from "../../public/iconc/computer.png";
 import Diamond from "../../public/iconc/diamond.png";
 import Fut from "../../public/iconc/fut.png";
 import Womans from "../../public/iconc/womans.png";
+import Fon from "../../public/img/fon.png";
 
 // Home
 function Carousels() {
-  const {carousels1, carousels2, carousels3, categories, know, lenCategories, leng, colorMenu } =
-    useContext(Context);
+  const {
+    carousels1,
+    carousels2,
+    carousels3,
+    categories,
+    know,
+    lenCategories,
+    leng,
+    colorMenu,
+  } = useContext(Context);
   const [switchs, setSwitchs] = useState(lenCategories);
-// console.log(electronics);
+
   const areuMenu = [Computer, Diamond, Fut, Womans];
 
   useEffect(() => {
@@ -33,7 +42,7 @@ function Carousels() {
             </div>
           </div>
           {switchs.map((item, index) => (
-            <li key={index} className="li_menu">
+            <div key={index} className="li_menu">
               <Link
                 className={colorMenu ? "link link_menuC" : "link link_menuT"}
                 to={`/${index}m`}
@@ -46,61 +55,58 @@ function Carousels() {
                   <img src={areuMenu[index]} className="iconMenu" /> {item}
                 </div>
               </Link>
-            </li>
+            </div>
           ))}
         </ul>
       </div>
       <div className="carousels">
-
         <Carousel>
-          <Carousel.Item className="carItem">
-         
-            <Link
-                className= "link"
-                to={`/1m`}
-              >
+          <Carousel.Item
+            className="carItem"
+            style={{ backgroundImage: `url(${Fon})` }}
+          >
+            <Link className="link" to={`/1m`}>
               <img
                 className="d-block akcia"
                 src={carousels1.image}
                 alt="First slide"
               />
-              </Link>
-   
+            </Link>
+
             <Carousel.Caption className="carousel_text">
               <h3>SHARE</h3>
-              
             </Carousel.Caption>
           </Carousel.Item>
-          <Carousel.Item className="carItem">
-          <Link
-                className= "link"
-                to={`/1m`}
-              >
-            <img
-              className="d-block akcia"
-              src={carousels2.image}
-              alt="Second slide"
-            />
- </Link>
+          <Carousel.Item
+            className="carItem"
+            style={{ backgroundImage: `url(${Fon})` }}
+          >
+            <Link className="link" to={`/1m`}>
+              <img
+                className="d-block akcia"
+                src={carousels2.image}
+                alt="Second slide"
+              />
+            </Link>
 
             <Carousel.Caption className="carousel_text">
-            <h3>SHARE</h3>
+              <h3>SHARE</h3>
             </Carousel.Caption>
           </Carousel.Item>
-          <Carousel.Item className="carItem">
-          <Link
-                className= "link "
-                to={`/1m`}
-              >
-            <img
-              className="d-block h-1005 akcia"
-              src={carousels3.image}
-              alt="Third slide"
-            />
- </Link>
+          <Carousel.Item
+            className="carItem"
+            style={{ backgroundImage: `url(${Fon})` }}
+          >
+            <Link className="link " to={`/1m`}>
+              <img
+                className="d-block h-1005 akcia"
+                src={carousels3.image}
+                alt="Third slide"
+              />
+            </Link>
 
             <Carousel.Caption className="carousel_text">
-            <h3>SHARE</h3>
+              <h3>SHARE</h3>
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>

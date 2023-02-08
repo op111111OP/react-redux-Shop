@@ -9,7 +9,7 @@
 }
 
 .electronics_elem {
-  width: 222px;
+  width: 220px;
   background: white;
   border-radius: 10px;
   height: 385px;
@@ -74,3 +74,62 @@
   color: black;
 }
 /* box and */
+@media (max-width: 1200px) {
+}
+@media (max-width: 934px) {
+  .electronics_elem {
+    width: 250px;
+  }
+}
+@media (max-width: 788px) {
+  .electronics_elem {
+    width: 220px;
+  }
+}
+@media (max-width: 697px) {
+  .electronics_elem {
+    width: 200px;
+  }
+}
+@media (max-width: 637px) {
+  .electronics_elem {
+    width: 190px;
+  }
+  .electronics_box {
+    gap: 6px;
+  }
+}
+@media (max-width: 585px) {
+  .electronics_elem {
+    width: 240px;
+  }
+}
+@media (max-width: 500px) {
+  .electronics_elem {
+    width: 210px;
+  }
+}
+@media (max-width: 430px) {
+  .electronics_elem {
+    width: 185px;
+  }
+  .electronics_box {
+    gap: 5px;
+  }
+}
+@media (max-width: 378px) {
+  .electronics_elem {
+    width: 170px;
+  }
+  .electronics_box {
+    gap: 3px;
+  }
+}
+@media (max-width: 350px) {
+  .electronics_elem {
+    width: 250px;
+  }
+  .electronics_box {
+    justify-content: center;
+  }
+}

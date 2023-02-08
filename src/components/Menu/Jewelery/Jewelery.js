@@ -19,7 +19,6 @@ function Jewelery() {
     onYas,
     n,
   } = useContext(Context);
-  console.log(n);
   const [onTrue, setOnTrue] = useState(false);
   const [posts, setPosts] = useState("");
   const [e, setE] = useState("");
