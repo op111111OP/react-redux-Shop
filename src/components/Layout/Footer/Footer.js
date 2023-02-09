@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Facebook,
   Instagram,
@@ -6,11 +6,13 @@ import {
   Telephone,
 } from "react-bootstrap-icons";
 import Feedback from "react-bootstrap/esm/Feedback";
+import Context from "../../../common/context";
 import "./Footer.css";
 
 // Layout
 
 function Footer() {
+  const { leng } = useContext(Context);
   return (
     <div className="footer container">
       <div className="icon">
@@ -20,10 +22,8 @@ function Footer() {
       </div>
       <div className="addres">
         <div>support@kasta.ua</div>
-        <div>
-          адреса: Полтавська область, місто Полтава, пров. Мельникова, 22
-        </div>
-        <div>© 2010 - 2023 ТОВ «Каста». Всі права захищені.</div>
+        <div>{leng.address}</div>
+        <div>{leng.reserved}</div>
       </div>
       <div className="number">
         <div>

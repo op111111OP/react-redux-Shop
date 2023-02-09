@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 // App
 function DefenseYas() {
-  const { defenseCard, idElem, cardDefense } = useContext(Context);
+  const { defenseCard, idElem, cardDefense, leng } = useContext(Context);
   const [twoCard, setTwoCard] = useState(defenseCard);
   const [twoId, setTwoId] = useState(idElem);
   const [eId, setEId] = useState("");
@@ -56,7 +56,11 @@ function DefenseYas() {
 
             <div className="defense_numbers">
               <div className="defense_description">{item.description}</div>
-              <div className="defense_price"> {item.price}грн.</div>
+              <div className="defense_price">
+                {" "}
+                {item.price}
+                {leng.uah}
+              </div>
 
               <div className="card_but_conteiner">
                 <Button
@@ -64,7 +68,7 @@ function DefenseYas() {
                   size="sm"
                   variant="success"
                 >
-                  купити
+                  {leng.buy}
                 </Button>
                 <div className="XCircle_box">
                   <XCircle color="grin" size={21} />
