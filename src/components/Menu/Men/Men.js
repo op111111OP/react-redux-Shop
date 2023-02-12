@@ -27,7 +27,7 @@ function Men() {
       {e === "" ? false : <ElementDefense e={e} onTrueOne={onTrueOne} />}
       <div className="container">
         <div className="electronics_box">
-          {mens.map((item, index) => (
+          {mens.map((item) => (
             <div className="electronics_elem" key={item.id}>
               <div>
                 <Link className="link" to={`/post/${item.id}`}>
@@ -78,13 +78,13 @@ function Men() {
                 </div>
                 <Link className="link" to={`/post/${item.id}`}>
                   <div className="title">
-                    {know ? lenElectronicsTitl[index] : item.title}
+                    {know ? lenElectronicsTitl[item.id - 1] : item.title}
                   </div>
                 </Link>
               </div>
               <Link className="link" to={`/post/${item.id}`}>
                 <div className="description">
-                  {know ? lenElectronicsDes[index] : item.description}
+                  {know ? lenElectronicsDes[item.id - 1] : item.description}
                 </div>
               </Link>
             </div>

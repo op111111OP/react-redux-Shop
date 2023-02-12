@@ -19,6 +19,7 @@ export const Len = (know) => {
     address: "адреса: Полтавська область, місто Полтава, пров. Мельникова, 22",
     reserved: "© 2010 - 2023 ТОВ «Каста». Всі права захищені.",
     toOrder: "oформити замовлення",
+    h4: "до 20 к в і т н я",
   };
   const EN = {
     themeC: "theme-dark",
@@ -40,6 +41,7 @@ export const Len = (know) => {
     address: "address: Poltava region, Poltava city, ave. Melnykova, 22",
     reserved: "© 2010 -2023 <<Casta>> LLC. All rights reserved.",
     toOrder: "to order",
+    h4: "until  April   20",
   };
   return know ? UA : EN;
 };

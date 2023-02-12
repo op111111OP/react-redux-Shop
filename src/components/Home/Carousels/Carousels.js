@@ -65,7 +65,7 @@ function Carousels() {
             className="carItem"
             style={{ backgroundImage: `url(${Fon})` }}
           >
-            <Link className="link" to={`/1m`}>
+            <Link className="link" to={`/post/${carousels1.id}`}>
               <img
                 className="d-block akcia"
                 src={carousels1.image}
@@ -74,14 +74,21 @@ function Carousels() {
             </Link>
 
             <Carousel.Caption className="carousel_text">
-              <h3>SHARE</h3>
+              <Link className="link" to={`/post/${carousels1.id}`}>
+                <h4>{leng.h4}</h4>
+                <h3>
+                         S H A R E -50%        S H A R E -50%        S H A R E
+                  -50%
+                </h3>
+                <h5>-50%</h5>
+              </Link>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item
             className="carItem"
             style={{ backgroundImage: `url(${Fon})` }}
           >
-            <Link className="link" to={`/1m`}>
+            <Link className="link" to={`/post/${carousels2.id}`}>
               <img
                 className="d-block akcia"
                 src={carousels2.image}
@@ -90,14 +97,21 @@ function Carousels() {
             </Link>
 
             <Carousel.Caption className="carousel_text">
-              <h3>SHARE</h3>
+              <Link className="link" to={`/post/${carousels2.id}`}>
+                <h4>{leng.h4}</h4>
+                <h3>
+                         S H A R E -40%        S H A R E -40%        S H A R E
+                  -40%
+                </h3>
+                <h5>-40%</h5>
+              </Link>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item
             className="carItem"
             style={{ backgroundImage: `url(${Fon})` }}
           >
-            <Link className="link " to={`/1m`}>
+            <Link className="link " to={`/post/${carousels3.id}`}>
               <img
                 className="d-block h-1005 akcia"
                 src={carousels3.image}
@@ -106,7 +120,14 @@ function Carousels() {
             </Link>
 
             <Carousel.Caption className="carousel_text">
-              <h3>SHARE</h3>
+              <Link className="link" to={`/post/${carousels3.id}`}>
+                <h4>{leng.h4}</h4>
+                <h3>
+                         S H A R E -20%        S H A R E -20%        S H A R E
+                  -20%
+                </h3>
+                <h5>-20%</h5>
+              </Link>
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
