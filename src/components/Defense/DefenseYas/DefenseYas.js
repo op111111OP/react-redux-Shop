@@ -4,14 +4,17 @@ import { XCircle } from "react-bootstrap-icons";
 import Context from "../../../common/context";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import Element from "../../Menu/Element/Element";
 
 // App
 function DefenseYas() {
-  const { defenseCard, idElem, cardDefense, leng } = useContext(Context);
+  const { defenseCard, idElem, cardDefense, leng, onYas } = useContext(Context);
   const [twoCard, setTwoCard] = useState(defenseCard);
   const [twoId, setTwoId] = useState(idElem);
   const [eId, setEId] = useState("");
+  const [twoTrue, setTwoTrue] = useState(false);
   const [onTrue, setOnTrue] = useState(false);
+  const [posts, setPosts] = useState("");
 
   useEffect(() => {
     if (eId != "") {
@@ -28,17 +31,18 @@ function DefenseYas() {
           ? setTwoId([...twoId.slice(0, index), ...twoId.slice(index + 1)])
           : true
       );
-      setOnTrue((a) => !a);
+      setTwoTrue((a) => !a);
     }
   }, [eId]);
   useEffect(() => {
     if (eId != "") {
       cardDefense(twoCard, twoId);
     }
-  }, [onTrue]);
+  }, [twoTrue]);
 
   return (
     <div className="container card_box">
+      {posts === "" ? false : <Element posts={posts} onTrue={onTrue} />}
       <div className="container_cards">
         {defenseCard.map((item) => (
           <div key={item.id} className="card_conteiner">
@@ -56,17 +60,22 @@ function DefenseYas() {
 
             <div className="defense_numbers">
               <div className="defense_description">{item.description}</div>
-              <div className="defense_price">
-                {" "}
-                {item.price}
-                {leng.uah}
-              </div>
-
               <div className="card_but_conteiner">
+                <div className="defense_price">
+                  {" "}
+                  {item.price}
+                  {leng.uah}
+                </div>
                 <Button
                   className="electronics_but but"
                   size="sm"
                   variant="success"
+                  onClick={(e) => {
+                    setPosts(e.target.id);
+                    onYas(e.target.id);
+                    setOnTrue((a) => !a);
+                  }}
+                  id={item.id}
                 >
                   {leng.buy}
                 </Button>

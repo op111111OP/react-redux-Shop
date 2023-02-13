@@ -33,7 +33,14 @@ function Home() {
               <div className="electronics_elem" key={item.id}>
                 <div>
                   <Link className="link" to={`/post/${item.id}`}>
-                    <div className="electronics_container_img">
+                    <div
+                      className="electronics_container_img"
+                      style={
+                        item.id === 8
+                          ? { marginBottom: 60 }
+                          : { marginBottom: 15 }
+                      }
+                    >
                       <img src={item.image} className="electronics_img" />
                     </div>
                   </Link>

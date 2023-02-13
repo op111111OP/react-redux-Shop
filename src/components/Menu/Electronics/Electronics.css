@@ -74,8 +74,7 @@
   color: black;
 }
 /* box and */
-@media (max-width: 1200px) {
-}
+
 @media (max-width: 934px) {
   .electronics_elem {
     width: 250px;

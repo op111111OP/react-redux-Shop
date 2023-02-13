@@ -1,12 +1,12 @@
 .but {
-  font-size: 18px;
-  padding: 2px 5px 3px 5px;
+  font-size: 15px;
+  padding: 4px 5px 3px 5px;
 }
 .defense_numbers {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1px 0 60px 5px;
+  padding: 1px 5px 60px 5px;
   height: 100%;
   gap: 20px;
   border-top: 1px solid;
@@ -22,4 +22,13 @@
 }
 .defense_price {
   font-size: 18px;
+}
+/* -- */
+@media (max-width: 490px) {
+  .defense_numbers {
+    flex-direction: column;
+  }
+  .defense_description {
+    width: 100%;
+  }
 }

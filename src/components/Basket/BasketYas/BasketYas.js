@@ -52,9 +52,6 @@ function BasketYas() {
     setForTrue(1);
   }
 
-  //   useEffect(() => {
-  //     setTwoCard(value);
-  //   }, []);
   return (
     <div className="container card_box">
       <div className="container_cards">
