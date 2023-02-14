@@ -79,7 +79,10 @@ function Layout({ children }) {
           </div>
           <div>
             <Modal show={show} onHide={handleClose} className="modal">
-              <Modal.Header closeButton></Modal.Header>
+              <div className="modal_reg">
+                <div className="modal_text">Вхід / Реєстрація</div>
+                <Modal.Header closeButton></Modal.Header>
+              </div>
               <Reg />
             </Modal>
           </div>
