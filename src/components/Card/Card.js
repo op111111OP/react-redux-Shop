@@ -61,10 +61,10 @@ function Card() {
               variant="success"
               onClick={(e) => {
                 setPosts(e.target.id);
-                onYas();
+                onYas(e.target.id);
                 setOnTrue((a) => !a);
               }}
-              id={id}
+              id={element.id}
             >
               {leng.buy}
             </Button>

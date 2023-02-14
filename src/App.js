@@ -17,7 +17,7 @@ import Women from "./components/Menu/Women/Women";
 import Card from "./components/Card/Card";
 import RefIcon from "./components/RefIcon";
 
-function App({ appEId }) {
+function App() {
   const [item, setItem] = useState([]);
   const [categories, setCategories] = useState([]);
   const [know, setKnow] = useState(true);

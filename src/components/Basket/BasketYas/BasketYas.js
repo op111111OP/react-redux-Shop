@@ -16,8 +16,6 @@ function BasketYas() {
   const [twoId, setTwoId] = useState(id);
   const [eId, setEId] = useState("");
   const [onTrue, setOnTrue] = useState(false);
-  const [twoTrue, setTwoTrue] = useState(false);
-  const [forTrue, setForTrue] = useState(0);
 
   useEffect(() => {
     if (eId != "") {
@@ -48,8 +46,6 @@ function BasketYas() {
       { ...twoCard[Number(e)], amount: onCard[Number(e)].amount * e1 },
       ...twoCard.slice(Number(e) + 1),
     ]);
-    setTwoTrue((a) => !a);
-    setForTrue(1);
   }
 
   return (
