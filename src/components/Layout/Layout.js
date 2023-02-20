@@ -52,6 +52,9 @@ function Layout({ children }) {
   useEffect(() => {
     classSet(classSection);
   }, [classSection]);
+  function onTimeout(e) {
+    setShow(e);
+  }
 
   return (
     <div className="wrapper">
@@ -83,7 +86,7 @@ function Layout({ children }) {
                 <div className="modal_text">Вхід / Реєстрація</div>
                 <Modal.Header closeButton></Modal.Header>
               </div>
-              <Reg />
+              <Reg onTimeout={onTimeout} />
             </Modal>
           </div>
           <Link className="link link_basket" to="/basket">
