@@ -6,7 +6,7 @@ import Context from "../../../common/context";
 import Button from "react-bootstrap/Button";
 import { XCircle } from "react-bootstrap-icons";
 import { Card } from "react-bootstrap";
-import { useLocalStorageObject } from "react-use-window-localstorage";
+
 
 // Basket
 function BasketYas() {
