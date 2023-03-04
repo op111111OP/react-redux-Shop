@@ -7,6 +7,7 @@ import Button from "react-bootstrap/Button";
 import { Heart, HeartFill } from "react-bootstrap-icons";
 import Element from "../Element/Element";
 import ElementDefense from "../Element/ElementDefense";
+import { useLocalStorageString } from "react-use-window-localstorage";
 
 // App
 function Jewelery() {
@@ -23,6 +24,11 @@ function Jewelery() {
   const [posts, setPosts] = useState("");
   const [e, setE] = useState("");
   const [onTrueOne, setOnTrueOne] = useState(false);
+  const [radioValue, setRadioValue] = useLocalStorageString(
+    "favColor",
+    "icon_none"
+  );
+
   return (
     <Layout>
       {posts === "" ? false : <Element posts={posts} onTrue={onTrue} />}
@@ -61,6 +67,7 @@ function Jewelery() {
                       onClick={(e) => {
                         setE(e.target.id);
                         setOnTrueOne((a) => !a);
+                        setRadioValue("icon_block");
                         n[Number(item.id)].current.className = "icon_block";
                       }}
                       id={item.id}

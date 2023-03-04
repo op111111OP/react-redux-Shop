@@ -2,29 +2,37 @@ import Layout from "../Layout/Layout";
 import { Button } from "react-bootstrap";
 import "./Home.css";
 import Carousels from "./Carousels/Carousels";
-import React, { useState, useRef, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-
 import { Heart, HeartFill } from "react-bootstrap-icons";
 
 import Context from "../../common/context";
 import Element from "../Menu/Element/Element";
 import ElementDefense from "../Menu/Element/ElementDefense";
+import MarkedHeart from "../MarkedHeart";
+import useMarkedHeart from "./useMarkedHeart";
+
 // import { store } from "..";
 
 // App
 function Home() {
-  const { know, item, leng, lenElectronicsTitl, lenElectronicsDes, onYas, n } =
+  const { know, item, leng, lenElectronicsTitl, lenElectronicsDes, onYas } =
     useContext(Context);
   const [onTrue, setOnTrue] = useState(false);
   const [posts, setPosts] = useState("");
   const [e, setE] = useState("");
   const [onTrueOne, setOnTrueOne] = useState(false);
+
+  const { clickedIds, handleClick, refs, onMarkedHeartIds } =
+    useMarkedHeart(item);
   return (
     <Layout>
       <div className="home">
         <Carousels />
-
+        <MarkedHeart
+          clickedIds={clickedIds}
+          onMarkedHeartIds={onMarkedHeartIds}
+        />
         {posts === "" ? false : <Element posts={posts} onTrue={onTrue} />}
         {e === "" ? false : <ElementDefense e={e} onTrueOne={onTrueOne} />}
         <div className="container">
@@ -41,7 +49,11 @@ function Home() {
                           : { marginBottom: 15 }
                       }
                     >
-                      <img src={item.image} className="electronics_img" />
+                      <img
+                        src={item.image}
+                        className="electronics_img"
+                        alt=""
+                      />
                     </div>
                   </Link>
                   <div className="price">
@@ -51,7 +63,16 @@ function Home() {
                     </Link>
 
                     <div className="icon_box">
-                      <div ref={n[Number(item.id)]} className="icon_none">
+                      <div
+                        ref={(el) =>
+                          refs[item.id - 1] && (refs[item.id - 1].current = el)
+                        }
+                        className={
+                          clickedIds.includes(item.id)
+                            ? "icon_block"
+                            : "icon_none"
+                        }
+                      >
                         <HeartFill color="firebrick" size={18} />
                       </div>
                       <Heart
@@ -61,7 +82,7 @@ function Home() {
                         onClick={(e) => {
                           setE(e.target.id);
                           setOnTrueOne((a) => !a);
-                          n[Number(item.id)].current.className = "icon_block";
+                          handleClick(item.id);
                         }}
                         id={item.id}
                       />

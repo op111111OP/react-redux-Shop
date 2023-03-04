@@ -5,19 +5,22 @@ import Context from "../../../common/context";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import Element from "../../Menu/Element/Element";
+import MarkedHeart from "../../MarkedHeart";
 
 // App
 function DefenseYas() {
   const { defenseCard, idElem, cardDefense, leng, onYas } = useContext(Context);
+  //   const [twoCard, setTwoCard] = useLocalStorage("twoCard", defenseCard);
+  //   const [twoId, setTwoId] = useLocalStorage("twoId", idElem);
+  console.log(defenseCard, idElem);
   const [twoCard, setTwoCard] = useState(defenseCard);
   const [twoId, setTwoId] = useState(idElem);
   const [eId, setEId] = useState("");
   const [twoTrue, setTwoTrue] = useState(false);
   const [onTrue, setOnTrue] = useState(false);
   const [posts, setPosts] = useState("");
-
   useEffect(() => {
-    if (eId != "") {
+    if (eId !== "") {
       twoId.map((item, index) =>
         Number(item) === Number(eId)
           ? setTwoCard([
@@ -33,15 +36,16 @@ function DefenseYas() {
       );
       setTwoTrue((a) => !a);
     }
-  }, [eId]);
+  }, [eId, twoCard, twoId]);
   useEffect(() => {
-    if (eId != "") {
+    if (eId !== "") {
       cardDefense(twoCard, twoId);
     }
   }, [twoTrue]);
 
   return (
     <div className="container card_box">
+      <MarkedHeart eId={eId} />
       {posts === "" ? false : <Element posts={posts} onTrue={onTrue} />}
       <div className="container_cards">
         {defenseCard.map((item) => (
@@ -52,7 +56,7 @@ function DefenseYas() {
             >
               <div className="goods_card">
                 <div className="card_conteiner_img">
-                  <img src={item.image} className="card_img" />
+                  <img src={item.image} className="card_img" alt="" />
                 </div>
                 <div className="card_title"> {item.title}</div>
               </div>

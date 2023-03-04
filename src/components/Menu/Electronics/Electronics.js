@@ -9,6 +9,7 @@ import { Heart, HeartFill } from "react-bootstrap-icons";
 // import { store } from "../..";
 import Element from "../Element/Element";
 import ElementDefense from "../Element/ElementDefense";
+import { useLocalStorage } from "react-use";
 
 // App
 function Electronics() {
@@ -19,14 +20,31 @@ function Electronics() {
     lenElectronicsTitl,
     lenElectronicsDes,
     onYas,
-    n,
   } = useContext(Context);
+
   const [onTrue, setOnTrue] = useState(false);
   const [posts, setPosts] = useState("");
   const [e, setE] = useState("");
   const [onTrueOne, setOnTrueOne] = useState(false);
-
   // -----
+  const [clickedId, setClickedId] = useLocalStorage("clickedId", []);
+  const refs = Array(electronics.length)
+    .fill(null)
+    .map(() => React.createRef());
+
+  useEffect(() => {
+    if (refs.length === electronics.length) {
+      clickedId.forEach((id) => {
+        const ref = refs[id - 1]?.current;
+        if (ref) {
+          ref.className = "icon_block";
+        }
+      });
+    }
+  }, [clickedId, refs]);
+  const handleClicks = (id) => {
+    setClickedId([...clickedId, id]);
+  };
 
   return (
     <Layout>
@@ -39,7 +57,7 @@ function Electronics() {
               <div>
                 <Link className="link" to={`/post/${item.id}`}>
                   <div className="electronics_container_img">
-                    <img src={item.image} className="electronics_img" />
+                    <img src={item.image} className="electronics_img" alt="a" />
                   </div>
                 </Link>
                 <div className="price">
@@ -48,7 +66,14 @@ function Electronics() {
                     <span>{leng.uah}</span>
                   </Link>
                   <div className="icon_box">
-                    <div ref={n[Number(item.id)]} className="icon_none">
+                    <div
+                      ref={(el) =>
+                        refs[item.id - 1] && (refs[item.id - 1].current = el)
+                      }
+                      className={
+                        clickedId.includes(item.id) ? "icon_block" : "icon_none"
+                      }
+                    >
                       <HeartFill color="firebrick" size={18} />
                     </div>
                     <Heart
@@ -58,12 +83,13 @@ function Electronics() {
                       onClick={(e) => {
                         setE(e.target.id);
                         setOnTrueOne((a) => !a);
-                        n[Number(item.id)].current.className = "icon_block";
+                        handleClicks(item.id);
                       }}
                       id={item.id}
                     />
                   </div>
                 </div>
+
                 <div className="rete">
                   <Link className="link" to={`/post/${item.id}`}>
                     {leng.rating} {item.rating.rate}

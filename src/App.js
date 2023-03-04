@@ -16,8 +16,12 @@ import Men from "./components/Menu/Men/Men";
 import Women from "./components/Menu/Women/Women";
 import Card from "./components/Card/Card";
 import RefIcon from "./components/RefIcon";
+import { useLocalStorage } from "react-use";
 
 function App() {
+  const [defenseCard, setDefenseCard] = useLocalStorage("defenseCard", []);
+  const [idElem, setIdElem] = useLocalStorage("idElem", []);
+
   const [item, setItem] = useState([]);
   const [categories, setCategories] = useState([]);
   const [know, setKnow] = useState(true);
@@ -32,8 +36,8 @@ function App() {
   const [onCard, setOnCard] = useState([]);
   const [number, setNumber] = useState(0);
   const [id, setId] = useState([]);
-  const [idElem, setIdElem] = useState([]);
-  const [defenseCard, setDefenseCard] = useState([]);
+  //   const [idElem, setIdElem] = useState([]);
+  //   const [defenseCard, setDefenseCard] = useState([]);
   const [n, setN] = useState("");
 
   useEffect(() => {
@@ -93,8 +97,6 @@ function App() {
   function addIcon(res, e) {
     if (idElem.indexOf(e) === -1) {
       setIdElem([...idElem, e]);
-    }
-    if (idElem.indexOf(e) === -1) {
       setDefenseCard([...defenseCard, res]);
     }
   }
@@ -103,6 +105,7 @@ function App() {
     setDefenseCard(e);
     setIdElem(e1);
   }
+  console.log(idElem, defenseCard);
   //   --
   function addRef(e) {
     setN(e);
