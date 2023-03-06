@@ -10,28 +10,52 @@ import Context from "../../common/context";
 import Element from "../Menu/Element/Element";
 import ElementDefense from "../Menu/Element/ElementDefense";
 import MarkedHeart from "../MarkedHeart";
-import useMarkedHeart from "./useMarkedHeart";
+import { useMarkedHeart } from "./useMarkedHeart";
+import { useMarkedHeartElectronics } from "../Menu/Electronics/useMarkedHeaetElectronics";
+import { useMarkedHeartMen } from "../Menu/Men/useMarkedHeartMen";
 
 // import { store } from "..";
 
 // App
 function Home() {
-  const { know, item, leng, lenElectronicsTitl, lenElectronicsDes, onYas } =
-    useContext(Context);
+  const {
+    know,
+    item,
+    leng,
+    lenElectronicsTitl,
+    lenElectronicsDes,
+    onYas,
+    electronics,
+    mens,
+  } = useContext(Context);
   const [onTrue, setOnTrue] = useState(false);
   const [posts, setPosts] = useState("");
   const [e, setE] = useState("");
   const [onTrueOne, setOnTrueOne] = useState(false);
-
+  //   сердечка
   const { clickedIds, handleClick, refs, onMarkedHeartIds } =
     useMarkedHeart(item);
+  // ---
+  const {
+    handleClickElectronics,
+    onMarkedHeartIdsElectronics,
+    clickedIdsElectronics,
+  } = useMarkedHeartElectronics(electronics);
+  //   ---
+  const { handleClickMen, onMarkedHeartIdsMen, clickedIdsMen } =
+    useMarkedHeartMen(mens);
+
   return (
     <Layout>
       <div className="home">
         <Carousels />
         <MarkedHeart
+          clickedIdsElectronics={clickedIdsElectronics}
+          onMarkedHeartIdsElectronics={onMarkedHeartIdsElectronics}
           clickedIds={clickedIds}
           onMarkedHeartIds={onMarkedHeartIds}
+          clickedIdsMen={clickedIdsMen}
+          onMarkedHeartIdsMen={onMarkedHeartIdsMen}
         />
         {posts === "" ? false : <Element posts={posts} onTrue={onTrue} />}
         {e === "" ? false : <ElementDefense e={e} onTrueOne={onTrueOne} />}
@@ -83,6 +107,8 @@ function Home() {
                           setE(e.target.id);
                           setOnTrueOne((a) => !a);
                           handleClick(item.id);
+                          handleClickElectronics(item.id);
+                          handleClickMen(item.id);
                         }}
                         id={item.id}
                       />

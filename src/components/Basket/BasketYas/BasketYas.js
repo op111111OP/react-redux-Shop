@@ -5,20 +5,17 @@ import { Link } from "react-router-dom";
 import Context from "../../../common/context";
 import Button from "react-bootstrap/Button";
 import { XCircle } from "react-bootstrap-icons";
-import { Card } from "react-bootstrap";
-
 
 // Basket
 function BasketYas() {
-  const { know, onCard, leng, id, card, onNo } = useContext(Context);
-  //   const [twoCard, setTwoCard] = useLocalStorageObject("a", onCard);
+  const { onCard, leng, id, card, onNo } = useContext(Context);
   const [twoCard, setTwoCard] = useState(onCard);
   const [twoId, setTwoId] = useState(id);
   const [eId, setEId] = useState("");
   const [onTrue, setOnTrue] = useState(false);
 
   useEffect(() => {
-    if (eId != "") {
+    if (eId !== "") {
       twoId.map((item, index) =>
         Number(item) === Number(eId)
           ? setTwoCard([
@@ -36,7 +33,7 @@ function BasketYas() {
     }
   }, [eId]);
   useEffect(() => {
-    if (eId != "") {
+    if (eId !== "") {
       card(twoCard, twoId);
     }
   }, [onTrue]);
@@ -57,7 +54,7 @@ function BasketYas() {
               <div className="card_text">{leng.goods}</div>
               <div className="goods_card">
                 <div className="card_conteiner_img">
-                  <img src={item.image} className="card_img" />
+                  <img src={item.image} className="card_img" alt="" />
                 </div>
                 <div className="card_title"> {item.title}</div>
               </div>

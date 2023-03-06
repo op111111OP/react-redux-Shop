@@ -9,6 +9,8 @@ import { Heart, HeartFill } from "react-bootstrap-icons";
 // import { store } from "../..";
 import Element from "../Element/Element";
 import ElementDefense from "../Element/ElementDefense";
+import { useMarkedHeartMen } from "./useMarkedHeartMen";
+import MarkedHeart from "../../MarkedHeart";
 
 // App
 function Men() {
@@ -20,9 +22,16 @@ function Men() {
   const [onTrueOne, setOnTrueOne] = useState(false);
 
   // -----
+  //   сердечка
+  const { clickedIdsMen, handleClickMen, refs, onMarkedHeartIdsMen } =
+    useMarkedHeartMen(mens);
 
   return (
     <Layout>
+      <MarkedHeart
+        clickedIdsMen={clickedIdsMen}
+        onMarkedHeartIdsMen={onMarkedHeartIdsMen}
+      />
       {posts === "" ? false : <Element posts={posts} onTrue={onTrue} />}
       {e === "" ? false : <ElementDefense e={e} onTrueOne={onTrueOne} />}
       <div className="container">
@@ -41,7 +50,16 @@ function Men() {
                     <span>{leng.uah}</span>
                   </Link>
                   <div className="icon_box">
-                    <div ref={n[Number(item.id)]} className="icon_none">
+                    <div
+                      ref={(el) =>
+                        refs[item.id - 1] && (refs[item.id - 1].current = el)
+                      }
+                      className={
+                        clickedIdsMen.includes(item.id)
+                          ? "icon_block"
+                          : "icon_none"
+                      }
+                    >
                       <HeartFill color="firebrick" size={18} />
                     </div>
                     <Heart
@@ -51,7 +69,7 @@ function Men() {
                       onClick={(e) => {
                         setE(e.target.id);
                         setOnTrueOne((a) => !a);
-                        n[Number(item.id)].current.className = "icon_block";
+                        handleClickMen(item.id);
                       }}
                       id={item.id}
                     />

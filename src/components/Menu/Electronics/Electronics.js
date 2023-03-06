@@ -6,10 +6,10 @@ import Context from "../../../common/context";
 import { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import { Heart, HeartFill } from "react-bootstrap-icons";
-// import { store } from "../..";
 import Element from "../Element/Element";
 import ElementDefense from "../Element/ElementDefense";
-import { useLocalStorage } from "react-use";
+import { useMarkedHeartElectronics } from "./useMarkedHeaetElectronics";
+import MarkedHeart from "../../MarkedHeart";
 
 // App
 function Electronics() {
@@ -26,28 +26,20 @@ function Electronics() {
   const [posts, setPosts] = useState("");
   const [e, setE] = useState("");
   const [onTrueOne, setOnTrueOne] = useState(false);
-  // -----
-  const [clickedId, setClickedId] = useLocalStorage("clickedId", []);
-  const refs = Array(electronics.length)
-    .fill(null)
-    .map(() => React.createRef());
-
-  useEffect(() => {
-    if (refs.length === electronics.length) {
-      clickedId.forEach((id) => {
-        const ref = refs[id - 1]?.current;
-        if (ref) {
-          ref.className = "icon_block";
-        }
-      });
-    }
-  }, [clickedId, refs]);
-  const handleClicks = (id) => {
-    setClickedId([...clickedId, id]);
-  };
+  //   сердечка
+  const {
+    clickedIdsElectronics,
+    handleClickElectronics,
+    refs,
+    onMarkedHeartIdsElectronics,
+  } = useMarkedHeartElectronics(electronics);
 
   return (
     <Layout>
+      <MarkedHeart
+        clickedIdsElectronics={clickedIdsElectronics}
+        onMarkedHeartIdsElectronics={onMarkedHeartIdsElectronics}
+      />
       {posts === "" ? false : <Element posts={posts} onTrue={onTrue} />}
       {e === "" ? false : <ElementDefense e={e} onTrueOne={onTrueOne} />}
       <div className="container">
@@ -71,7 +63,9 @@ function Electronics() {
                         refs[item.id - 1] && (refs[item.id - 1].current = el)
                       }
                       className={
-                        clickedId.includes(item.id) ? "icon_block" : "icon_none"
+                        clickedIdsElectronics.includes(item.id)
+                          ? "icon_block"
+                          : "icon_none"
                       }
                     >
                       <HeartFill color="firebrick" size={18} />
@@ -83,7 +77,7 @@ function Electronics() {
                       onClick={(e) => {
                         setE(e.target.id);
                         setOnTrueOne((a) => !a);
-                        handleClicks(item.id);
+                        handleClickElectronics(item.id);
                       }}
                       id={item.id}
                     />

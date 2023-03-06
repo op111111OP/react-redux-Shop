@@ -105,7 +105,7 @@ function App() {
     setDefenseCard(e);
     setIdElem(e1);
   }
-  console.log(idElem, defenseCard);
+
   //   --
   function addRef(e) {
     setN(e);

@@ -7,18 +7,16 @@ import { Link } from "react-router-dom";
 import Element from "../../Menu/Element/Element";
 import MarkedHeart from "../../MarkedHeart";
 
-// App
+// Defense
 function DefenseYas() {
   const { defenseCard, idElem, cardDefense, leng, onYas } = useContext(Context);
-  //   const [twoCard, setTwoCard] = useLocalStorage("twoCard", defenseCard);
-  //   const [twoId, setTwoId] = useLocalStorage("twoId", idElem);
-  console.log(defenseCard, idElem);
   const [twoCard, setTwoCard] = useState(defenseCard);
   const [twoId, setTwoId] = useState(idElem);
   const [eId, setEId] = useState("");
   const [twoTrue, setTwoTrue] = useState(false);
   const [onTrue, setOnTrue] = useState(false);
   const [posts, setPosts] = useState("");
+
   useEffect(() => {
     if (eId !== "") {
       twoId.map((item, index) =>

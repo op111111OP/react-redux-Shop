@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import { useLocalStorage } from "react-use";
+
 // підключення батківські
 // Home(item[дає])
+// сердечка
 function useMarkedHeart(item) {
   const [clickedIds, setClickedIds] = useLocalStorage("clickedIds", []);
   function onMarkedHeartIds(newClickedIds) {
@@ -25,8 +27,14 @@ function useMarkedHeart(item) {
   const handleClick = (id) => {
     setClickedIds([...clickedIds, id]);
   };
+  //   ---
 
-  return { clickedIds, handleClick, refs, onMarkedHeartIds };
+  return {
+    clickedIds,
+    handleClick,
+    refs,
+    onMarkedHeartIds,
+  };
 }
 
-export default useMarkedHeart;
+export { useMarkedHeart };
