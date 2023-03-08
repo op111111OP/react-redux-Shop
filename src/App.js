@@ -21,10 +21,12 @@ import { useLocalStorage } from "react-use";
 function App() {
   const [defenseCard, setDefenseCard] = useLocalStorage("defenseCard", []);
   const [idElem, setIdElem] = useLocalStorage("idElem", []);
+  //   const [categories, setCategories] = useLocalStorage("categories", []);
+  const [categories, setCategories] = useLocalStorage("categories");
 
   const [item, setItem] = useState([]);
-  const [categories, setCategories] = useState([]);
-  const [know, setKnow] = useState(true);
+  const [know, setKnow] = useLocalStorage("know", true);
+  //   const [know, setKnow] = useState(true);
   const [colorMenu, setColorMenu] = useState(true);
   const [electronics, setElectronics] = useState([]);
   const [jewelery, setJewelery] = useState([]);
@@ -33,20 +35,31 @@ function App() {
   const [carousels1, setCarousels1] = useState("");
   const [carousels2, setCarousels2] = useState("");
   const [carousels3, setCarousels3] = useState("");
-  const [onCard, setOnCard] = useState([]);
-  const [number, setNumber] = useState(0);
-  const [id, setId] = useState([]);
-  //   const [idElem, setIdElem] = useState([]);
-  //   const [defenseCard, setDefenseCard] = useState([]);
+  const [onCard, setOnCard] = useLocalStorage("onCard", []);
+  const [number, setNumber] = useLocalStorage("number", 0);
+  const [id, setId] = useLocalStorage("id", []);
   const [n, setN] = useState("");
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
       .then((result) => setItem(result));
-    fetch("https://fakestoreapi.com/products/categories")
-      .then((res) => res.json())
-      .then((result) => setCategories(result));
+    //  fetch("https://fakestoreapi.com/products/categories")
+    //    .then((res) => res.json())
+    //    .then((result) => setCategories(result));
+
+    const storedCategories = JSON.parse(localStorage.getItem("categories"));
+    if (storedCategories) {
+      setCategories(storedCategories);
+    } else {
+      fetch("https://fakestoreapi.com/products/categories")
+        .then((res) => res.json())
+        .then((result) => {
+          setCategories(result);
+          localStorage.setItem("categories", JSON.stringify(result));
+        });
+    }
+
     fetch("https://fakestoreapi.com/products/category/electronics")
       .then((res) => res.json())
       .then((result) => setElectronics(result));
@@ -68,6 +81,7 @@ function App() {
     fetch("https://fakestoreapi.com/products/3")
       .then((res) => res.json())
       .then((result) => setCarousels3(result));
+    //  setCategories([]);
   }, []);
 
   function returs(len) {
@@ -78,11 +92,13 @@ function App() {
   }
   function onYas(e) {
     if (id.indexOf(e) === -1) {
-      setNumber((a) => a + 1);
+      setNumber(number + 1);
+      // setNumber(1);
     }
   }
   function onNo() {
-    setNumber((a) => a - 1);
+    //  setNumber(1);
+    setNumber(number - 1);
   }
   //   +++
   function addElement(res, e) {
@@ -112,6 +128,7 @@ function App() {
   }
   function card(e, e1) {
     setOnCard(e);
+    //  setId([]);
     setId(e1);
   }
 

@@ -24,6 +24,7 @@ import Footer from "./Footer/Footer";
 import { Modal } from "react-bootstrap";
 import Reg from "./Reg/Reg";
 import Dropdown from "react-bootstrap/Dropdown";
+import { useLocalStorage } from "react-use";
 
 // Home
 
@@ -31,11 +32,13 @@ function Layout({ children }) {
   const { leng, returs, classSet, categories, lenCategories, number } =
     useContext(Context);
   const [counts, setState] = useState(true);
-  const [len, setLen] = useState(true);
+  const [len, setLen] = useLocalStorage("len", true);
+  //   const [len, setLen] = useState(true);
   const [classSection, setSection] = useState(true);
   const [mouse, setMouse] = useState(false);
   const [radioValue, setRadioValue] = useState("1");
   const [switchs, setSwitchs] = useState(lenCategories);
+  //   const [switchs, setSwitchs] = useLocalStorage("switchs", lenCategories);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
