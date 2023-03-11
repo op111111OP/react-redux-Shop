@@ -1,4 +1,4 @@
-import React, { useState, useRef, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import "./Jewelery.css";
 import Layout from "../../Layout/Layout";
@@ -7,7 +7,9 @@ import Button from "react-bootstrap/Button";
 import { Heart, HeartFill } from "react-bootstrap-icons";
 import Element from "../Element/Element";
 import ElementDefense from "../Element/ElementDefense";
-import { useLocalStorageString } from "react-use-window-localstorage";
+import { useMarkedHeart } from "../../Home/useMarkedHeart";
+import { useMarkedHeartJewelery } from "./useMarkedHeartJewelery";
+import MarkedHeart from "../../MarkedHeart";
 
 // App
 function Jewelery() {
@@ -18,19 +20,32 @@ function Jewelery() {
     lenElectronicsTitl,
     lenElectronicsDes,
     onYas,
-    n,
+    item,
   } = useContext(Context);
   const [onTrue, setOnTrue] = useState(false);
   const [posts, setPosts] = useState("");
   const [e, setE] = useState("");
   const [onTrueOne, setOnTrueOne] = useState(false);
-  const [radioValue, setRadioValue] = useLocalStorageString(
-    "favColor",
-    "icon_none"
-  );
+
+  // -----
+  //   сердечка
+  const { clickedIds, handleClick, onMarkedHeartIds } = useMarkedHeart(item);
+
+  const {
+    clickedIdsJewelery,
+    handleClickJewelery,
+    refs,
+    onMarkedHeartIdsJewelery,
+  } = useMarkedHeartJewelery(jewelery);
 
   return (
     <Layout>
+      <MarkedHeart
+        clickedIds={clickedIds}
+        onMarkedHeartIds={onMarkedHeartIds}
+        clickedIdsJewelery={clickedIdsJewelery}
+        onMarkedHeartIdsJewelery={onMarkedHeartIdsJewelery}
+      />
       {posts === "" ? false : <Element posts={posts} onTrue={onTrue} />}
       {e === "" ? false : <ElementDefense e={e} onTrueOne={onTrueOne} />}
       <div className="container">
@@ -47,7 +62,7 @@ function Jewelery() {
                         : { marginBottom: 15 }
                     }
                   >
-                    <img src={item.image} className="electronics_img" />
+                    <img src={item.image} className="electronics_img" alt="" />
                   </div>
                 </Link>
                 <div className="price">
@@ -57,7 +72,16 @@ function Jewelery() {
                   </Link>
 
                   <div className="icon_box">
-                    <div ref={n[Number(item.id)]} className="icon_none">
+                    <div
+                      ref={(el) =>
+                        refs[item.id - 1] && (refs[item.id - 1].current = el)
+                      }
+                      className={
+                        clickedIdsJewelery.includes(item.id)
+                          ? "icon_block"
+                          : "icon_none"
+                      }
+                    >
                       <HeartFill color="firebrick" size={18} />
                     </div>
                     <Heart
@@ -67,8 +91,8 @@ function Jewelery() {
                       onClick={(e) => {
                         setE(e.target.id);
                         setOnTrueOne((a) => !a);
-                        setRadioValue("icon_block");
-                        n[Number(item.id)].current.className = "icon_block";
+                        handleClickJewelery(item.id);
+                        handleClick(item.id);
                       }}
                       id={item.id}
                     />

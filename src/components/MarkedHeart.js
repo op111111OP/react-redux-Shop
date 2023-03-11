@@ -1,15 +1,19 @@
 import { useEffect, useState } from "react";
 import { useLocalStorage } from "react-use";
 // підключення батківські
-//  DefenseYas(eId(number)) Home(clickedIds[дає], onMarkedHeartIds[прий.]) Electronics(clickedIdsElectronics[дає], onMarkedHeartIdsElectronics[прий.]) Men(clickedIdsMen[дає], onMarkedHeartIdsMen[прий.])
+//  DefenseYas(eId(number)) Home(clickedIds[дає], onMarkedHeartIds[прий.]) Electronics(clickedIdsElectronics[дає], onMarkedHeartIdsElectronics[прий.]) Men(clickedIdsMen[дає], onMarkedHeartIdsMen[прий.]) Jewelery(clickedIdsJewelery[дає], onMarkedHeartIdsJewelery[прий.]) useMarkedHeartWomen(clickedIdsWomen[дає], onMarkedHeartIdsWomen[прий.])
 function MarkedHeart({
   eId,
   clickedIdsMen,
   clickedIds,
+  clickedIdsJewelery,
+  clickedIdsWomen,
   onMarkedHeartIds,
   onMarkedHeartIdsElectronics,
   clickedIdsElectronics,
   onMarkedHeartIdsMen,
+  onMarkedHeartIdsJewelery,
+  onMarkedHeartIdsWomen,
 }) {
   const [onTrue, setOnTrue] = useState(true);
   const [clickedIds1, setClickedIds1] = useLocalStorage(
@@ -26,6 +30,16 @@ function MarkedHeart({
     "clickedIdsMen1",
     clickedIdsMen
   );
+  const [fourTrue, setFourTrue] = useState(true);
+  const [clickedIdsJewelery1, setcliCkedIdsJewelery1] = useLocalStorage(
+    "clickedIdsJewelery1",
+    clickedIdsJewelery
+  );
+  const [fiveTrue, setFiveTrue] = useState(true);
+  const [clickedIdsWomen1, setcliCkedIdsWomen1] = useLocalStorage(
+    "clickedIdsWomen1",
+    clickedIdsWomen
+  );
   useEffect(() => {
     if (clickedIds !== undefined) {
       setClickedIds1(clickedIds);
@@ -36,7 +50,19 @@ function MarkedHeart({
     if (clickedIdsMen !== undefined) {
       setcliCkedIdsMen1(clickedIdsMen);
     }
-  }, [clickedIds, clickedIdsElectronics, clickedIdsMen]);
+    if (clickedIdsJewelery !== undefined) {
+      setcliCkedIdsJewelery1(clickedIdsJewelery);
+    }
+    if (clickedIdsWomen !== undefined) {
+      setcliCkedIdsWomen1(clickedIdsWomen);
+    }
+  }, [
+    clickedIds,
+    clickedIdsElectronics,
+    clickedIdsMen,
+    clickedIdsJewelery,
+    clickedIdsWomen,
+  ]);
 
   useEffect(() => {
     if (eId !== "" && eId !== undefined) {
@@ -61,8 +87,29 @@ function MarkedHeart({
         setcliCkedIdsMen1(updatedIds);
         setThreeTrue((a) => !a);
       }
+      const indexJewelery = clickedIdsJewelery1.indexOf(Number(eId));
+      if (indexJewelery !== -1) {
+        const updatedIds = [...clickedIdsJewelery1];
+        updatedIds.splice(indexJewelery, 1);
+        setcliCkedIdsJewelery1(updatedIds);
+        setFourTrue((a) => !a);
+      }
+      const indexWomen = clickedIdsWomen1.indexOf(Number(eId));
+      if (indexWomen !== -1) {
+        const updatedIds = [...clickedIdsWomen1];
+        updatedIds.splice(indexWomen, 1);
+        setcliCkedIdsWomen1(updatedIds);
+        setFiveTrue((a) => !a);
+      }
     }
-  }, [clickedIds1, clickedIdsElectronics1, clickedIdsMen1, eId]);
+  }, [
+    clickedIds1,
+    clickedIdsElectronics1,
+    clickedIdsMen1,
+    clickedIdsJewelery1,
+    clickedIdsWomen1,
+    eId,
+  ]);
 
   useEffect(() => {
     if (clickedIds !== undefined && clickedIds1 !== clickedIds) {
@@ -77,7 +124,16 @@ function MarkedHeart({
     if (clickedIdsMen !== undefined && clickedIdsMen1 !== clickedIdsMen) {
       onMarkedHeartIdsMen(clickedIdsMen1);
     }
-  }, [onTrue, twoTrue, threeTrue]);
+    if (
+      clickedIdsJewelery !== undefined &&
+      clickedIdsJewelery1 !== clickedIdsJewelery
+    ) {
+      onMarkedHeartIdsJewelery(clickedIdsJewelery1);
+    }
+    if (clickedIdsWomen !== undefined && clickedIdsWomen1 !== clickedIdsWomen) {
+      onMarkedHeartIdsWomen(clickedIdsWomen1);
+    }
+  }, [onTrue, twoTrue, threeTrue, fourTrue, fiveTrue]);
 
   return null;
 }

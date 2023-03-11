@@ -21,12 +21,9 @@ import { useLocalStorage } from "react-use";
 function App() {
   const [defenseCard, setDefenseCard] = useLocalStorage("defenseCard", []);
   const [idElem, setIdElem] = useLocalStorage("idElem", []);
-  //   const [categories, setCategories] = useLocalStorage("categories", []);
   const [categories, setCategories] = useLocalStorage("categories");
-
   const [item, setItem] = useState([]);
   const [know, setKnow] = useLocalStorage("know", true);
-  //   const [know, setKnow] = useState(true);
   const [colorMenu, setColorMenu] = useState(true);
   const [electronics, setElectronics] = useState([]);
   const [jewelery, setJewelery] = useState([]);
@@ -44,10 +41,7 @@ function App() {
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
       .then((result) => setItem(result));
-    //  fetch("https://fakestoreapi.com/products/categories")
-    //    .then((res) => res.json())
-    //    .then((result) => setCategories(result));
-
+    // ----перевірка чі є і вставляння початкового localStorage
     const storedCategories = JSON.parse(localStorage.getItem("categories"));
     if (storedCategories) {
       setCategories(storedCategories);
@@ -59,7 +53,7 @@ function App() {
           localStorage.setItem("categories", JSON.stringify(result));
         });
     }
-
+    //  ----
     fetch("https://fakestoreapi.com/products/category/electronics")
       .then((res) => res.json())
       .then((result) => setElectronics(result));
@@ -81,7 +75,6 @@ function App() {
     fetch("https://fakestoreapi.com/products/3")
       .then((res) => res.json())
       .then((result) => setCarousels3(result));
-    //  setCategories([]);
   }, []);
 
   function returs(len) {
@@ -93,11 +86,9 @@ function App() {
   function onYas(e) {
     if (id.indexOf(e) === -1) {
       setNumber(number + 1);
-      // setNumber(1);
     }
   }
   function onNo() {
-    //  setNumber(1);
     setNumber(number - 1);
   }
   //   +++
@@ -128,7 +119,6 @@ function App() {
   }
   function card(e, e1) {
     setOnCard(e);
-    //  setId([]);
     setId(e1);
   }
 

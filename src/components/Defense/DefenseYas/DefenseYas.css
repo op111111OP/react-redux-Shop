@@ -6,24 +6,34 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1px 5px 60px 5px;
+  padding: 8vh 5px 10px 10px;
   height: 100%;
   gap: 20px;
   border-top: 1px solid;
 }
 .defense_description {
+  display: flex;
+  align-items: center;
   width: 70%;
-  padding-bottom: 1px;
+  padding: 0px 0px 0px 0px;
   line-height: 18px;
 }
 .link_defense {
+  display: flex;
+  align-items: center;
   border-top: 1px solid;
-  padding-top: 10px;
+  padding: 10px 0 0px 0;
 }
 .defense_price {
   font-size: 18px;
 }
 /* -- */
+@media (max-width: 967px) {
+  .defense_numbers {
+    padding: 1vh 5px 10px 10px;
+    border-top: none;
+  }
+}
 @media (max-width: 490px) {
   .defense_numbers {
     flex-direction: column;

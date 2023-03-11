@@ -8,7 +8,8 @@ import { XCircle } from "react-bootstrap-icons";
 
 // Basket
 function BasketYas() {
-  const { onCard, leng, id, card, onNo } = useContext(Context);
+  const { onCard, leng, id, card, onNo, lenElectronicsTitl, know } =
+    useContext(Context);
   const [twoCard, setTwoCard] = useState(onCard);
   const [twoId, setTwoId] = useState(id);
   const [eId, setEId] = useState("");
@@ -56,7 +57,7 @@ function BasketYas() {
                 <div className="card_conteiner_img">
                   <img src={item.image} className="card_img" alt="" />
                 </div>
-                <div className="card_title"> {item.title}</div>
+                {know ? lenElectronicsTitl[item.id - 1] : item.title}
               </div>
             </Link>
             <div className="card_conteiner_numbers">

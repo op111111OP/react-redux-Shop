@@ -10,6 +10,7 @@ import Element from "../Element/Element";
 import ElementDefense from "../Element/ElementDefense";
 import { useMarkedHeartElectronics } from "./useMarkedHeaetElectronics";
 import MarkedHeart from "../../MarkedHeart";
+import { useMarkedHeart } from "../../Home/useMarkedHeart";
 
 // App
 function Electronics() {
@@ -20,6 +21,7 @@ function Electronics() {
     lenElectronicsTitl,
     lenElectronicsDes,
     onYas,
+    item,
   } = useContext(Context);
 
   const [onTrue, setOnTrue] = useState(false);
@@ -33,10 +35,13 @@ function Electronics() {
     refs,
     onMarkedHeartIdsElectronics,
   } = useMarkedHeartElectronics(electronics);
+  const { clickedIds, handleClick, onMarkedHeartIds } = useMarkedHeart(item);
 
   return (
     <Layout>
       <MarkedHeart
+        clickedIds={clickedIds}
+        onMarkedHeartIds={onMarkedHeartIds}
         clickedIdsElectronics={clickedIdsElectronics}
         onMarkedHeartIdsElectronics={onMarkedHeartIdsElectronics}
       />
@@ -78,6 +83,7 @@ function Electronics() {
                         setE(e.target.id);
                         setOnTrueOne((a) => !a);
                         handleClickElectronics(item.id);
+                        handleClick(item.id);
                       }}
                       id={item.id}
                     />

@@ -11,11 +11,19 @@ import Element from "../Element/Element";
 import ElementDefense from "../Element/ElementDefense";
 import { useMarkedHeartMen } from "./useMarkedHeartMen";
 import MarkedHeart from "../../MarkedHeart";
+import { useMarkedHeart } from "../../Home/useMarkedHeart";
 
 // App
 function Men() {
-  const { know, leng, mens, lenElectronicsTitl, lenElectronicsDes, onYas, n } =
-    useContext(Context);
+  const {
+    know,
+    leng,
+    mens,
+    lenElectronicsTitl,
+    lenElectronicsDes,
+    onYas,
+    item,
+  } = useContext(Context);
   const [onTrue, setOnTrue] = useState(false);
   const [posts, setPosts] = useState("");
   const [e, setE] = useState("");
@@ -23,12 +31,16 @@ function Men() {
 
   // -----
   //   сердечка
+  const { clickedIds, handleClick, onMarkedHeartIds } = useMarkedHeart(item);
+
   const { clickedIdsMen, handleClickMen, refs, onMarkedHeartIdsMen } =
     useMarkedHeartMen(mens);
 
   return (
     <Layout>
       <MarkedHeart
+        clickedIds={clickedIds}
+        onMarkedHeartIds={onMarkedHeartIds}
         clickedIdsMen={clickedIdsMen}
         onMarkedHeartIdsMen={onMarkedHeartIdsMen}
       />
@@ -70,6 +82,7 @@ function Men() {
                         setE(e.target.id);
                         setOnTrueOne((a) => !a);
                         handleClickMen(item.id);
+                        handleClick(item.id);
                       }}
                       id={item.id}
                     />

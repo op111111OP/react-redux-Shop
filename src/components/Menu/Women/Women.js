@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Women.css";
 import Layout from "../../Layout/Layout";
@@ -6,9 +6,11 @@ import Context from "../../../common/context";
 import { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import { Heart, HeartFill } from "react-bootstrap-icons";
-// import { store } from "../..";
 import Element from "../Element/Element";
 import ElementDefense from "../Element/ElementDefense";
+import { useMarkedHeart } from "../../Home/useMarkedHeart";
+import { useMarkedHeartWomen } from "./useMarkedHeartWomen";
+import MarkedHeart from "../../MarkedHeart";
 
 // App
 function Women() {
@@ -19,7 +21,7 @@ function Women() {
     lenElectronicsTitl,
     lenElectronicsDes,
     onYas,
-    n,
+    item,
   } = useContext(Context);
   const [onTrue, setOnTrue] = useState(false);
   const [posts, setPosts] = useState("");
@@ -27,9 +29,20 @@ function Women() {
   const [onTrueOne, setOnTrueOne] = useState(false);
 
   // -----
+  //   сердечка
+  const { clickedIds, handleClick, onMarkedHeartIds } = useMarkedHeart(item);
+
+  const { clickedIdsWomen, handleClickWomen, refs, onMarkedHeartIdsWomen } =
+    useMarkedHeartWomen(womens);
 
   return (
     <Layout>
+      <MarkedHeart
+        clickedIds={clickedIds}
+        onMarkedHeartIds={onMarkedHeartIds}
+        clickedIdsWomen={clickedIdsWomen}
+        onMarkedHeartIdsWomen={onMarkedHeartIdsWomen}
+      />
       {posts === "" ? false : <Element posts={posts} onTrue={onTrue} />}
       {e === "" ? false : <ElementDefense e={e} onTrueOne={onTrueOne} />}
       <div className="container">
@@ -48,7 +61,16 @@ function Women() {
                     <span>{leng.uah}</span>
                   </Link>
                   <div className="icon_box">
-                    <div ref={n[Number(item.id)]} className="icon_none">
+                    <div
+                      ref={(el) =>
+                        refs[item.id - 1] && (refs[item.id - 1].current = el)
+                      }
+                      className={
+                        clickedIdsWomen.includes(item.id)
+                          ? "icon_block"
+                          : "icon_none"
+                      }
+                    >
                       <HeartFill color="firebrick" size={18} />
                     </div>
                     <Heart
@@ -58,7 +80,8 @@ function Women() {
                       onClick={(e) => {
                         setE(e.target.id);
                         setOnTrueOne((a) => !a);
-                        n[Number(item.id)].current.className = "icon_block";
+                        handleClickWomen(item.id);
+                        handleClick(item.id);
                       }}
                       id={item.id}
                     />

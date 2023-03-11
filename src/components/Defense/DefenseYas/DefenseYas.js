@@ -9,7 +9,16 @@ import MarkedHeart from "../../MarkedHeart";
 
 // Defense
 function DefenseYas() {
-  const { defenseCard, idElem, cardDefense, leng, onYas } = useContext(Context);
+  const {
+    defenseCard,
+    idElem,
+    cardDefense,
+    leng,
+    onYas,
+    know,
+    lenElectronicsTitl,
+    lenElectronicsDes,
+  } = useContext(Context);
   const [twoCard, setTwoCard] = useState(defenseCard);
   const [twoId, setTwoId] = useState(idElem);
   const [eId, setEId] = useState("");
@@ -56,12 +65,17 @@ function DefenseYas() {
                 <div className="card_conteiner_img">
                   <img src={item.image} className="card_img" alt="" />
                 </div>
-                <div className="card_title"> {item.title}</div>
+                <div className="card_title">
+                  {" "}
+                  {know ? lenElectronicsTitl[item.id - 1] : item.title}
+                </div>
               </div>
             </Link>
 
             <div className="defense_numbers">
-              <div className="defense_description">{item.description}</div>
+              <div className="defense_description">
+                {know ? lenElectronicsDes[item.id - 1] : item.description}
+              </div>
               <div className="card_but_conteiner">
                 <div className="defense_price">
                   {" "}

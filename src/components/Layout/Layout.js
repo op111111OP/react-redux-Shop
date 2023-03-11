@@ -31,14 +31,12 @@ import { useLocalStorage } from "react-use";
 function Layout({ children }) {
   const { leng, returs, classSet, categories, lenCategories, number } =
     useContext(Context);
-  const [counts, setState] = useState(true);
+  const [count, setState] = useState(true);
+  const [classSection, setSection] = useLocalStorage("classSection", true);
   const [len, setLen] = useLocalStorage("len", true);
-  //   const [len, setLen] = useState(true);
-  const [classSection, setSection] = useState(true);
   const [mouse, setMouse] = useState(false);
-  const [radioValue, setRadioValue] = useState("1");
+  const [radioValue, setRadioValue] = useLocalStorage("radioValue", "1");
   const [switchs, setSwitchs] = useState(lenCategories);
-  //   const [switchs, setSwitchs] = useLocalStorage("switchs", lenCategories);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -54,7 +52,8 @@ function Layout({ children }) {
   }, [len]);
   useEffect(() => {
     classSet(classSection);
-  }, [classSection]);
+    setSection(count);
+  }, [classSection, count]);
   function onTimeout(e) {
     setShow(e);
   }
@@ -101,12 +100,10 @@ function Layout({ children }) {
           <Button
             className="but_theme"
             size="sm"
-            variant={counts ? "outline-secondary" : "outline-success"}
-            onClick={() =>
-              setState((prevState) => !prevState) || setSection((s) => !s)
-            }
+            variant={classSection ? "outline-secondary" : "outline-success"}
+            onClick={() => setState((s) => !s)}
           >
-            {counts ? leng.themeC : leng.themeT}
+            {classSection ? leng.themeC : leng.themeT}
           </Button>
           <div
             className="language_box"
