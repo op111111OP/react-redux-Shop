@@ -1,0 +1,16 @@
+.defenseNo {
+  font-size: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: rgb(91, 91, 147);
+}
+.container_defenseNo {
+  height: 100%;
+}
+@media (max-width: 500px) {
+  .defenseNo {
+    font-size: 50px;
+  }
+}

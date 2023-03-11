@@ -12,6 +12,9 @@
   display: flex;
   justify-content: space-between;
 }
+.icon > * {
+  cursor: pointer;
+}
 .addres > * {
   max-width: 200px;
   margin: 20px;

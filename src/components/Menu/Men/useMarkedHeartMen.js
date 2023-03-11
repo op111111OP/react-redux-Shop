@@ -22,7 +22,7 @@ function useMarkedHeartMen(mens) {
         }
       });
     }
-  }, [clickedIdsMen, refs]);
+  }, [clickedIdsMen, refs, mens.length]);
   const handleClickMen = (id) => {
     setClickedIdsMen([...clickedIdsMen, id]);
   };

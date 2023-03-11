@@ -15,7 +15,6 @@ import Jewelery from "./components/Menu/Jewelery/Jewelery";
 import Men from "./components/Menu/Men/Men";
 import Women from "./components/Menu/Women/Women";
 import Card from "./components/Card/Card";
-import RefIcon from "./components/RefIcon";
 import { useLocalStorage } from "react-use";
 
 function App() {
@@ -35,7 +34,6 @@ function App() {
   const [onCard, setOnCard] = useLocalStorage("onCard", []);
   const [number, setNumber] = useLocalStorage("number", 0);
   const [id, setId] = useLocalStorage("id", []);
-  const [n, setN] = useState("");
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -114,9 +112,7 @@ function App() {
   }
 
   //   --
-  function addRef(e) {
-    setN(e);
-  }
+
   function card(e, e1) {
     setOnCard(e);
     setId(e1);
@@ -152,8 +148,6 @@ function App() {
         onCard,
         addIcon,
         defenseCard,
-        addRef,
-        n,
         id,
         card,
         onNo,
@@ -161,7 +155,6 @@ function App() {
         cardDefense,
       }}
     >
-      <RefIcon />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />

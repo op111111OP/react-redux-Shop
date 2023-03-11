@@ -25,7 +25,7 @@ function useMarkedHeartJewelery(jewelery) {
         }
       });
     }
-  }, [clickedIdsJewelery, refs]);
+  }, [clickedIdsJewelery, refs, jewelery.length]);
   const handleClickJewelery = (id) => {
     setClickedIdsJewelery([...clickedIdsJewelery, id]);
   };

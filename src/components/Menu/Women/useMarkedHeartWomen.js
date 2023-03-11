@@ -25,7 +25,7 @@ function useMarkedHeartWomen(womens) {
         }
       });
     }
-  }, [clickedIdsWomen, refs]);
+  }, [clickedIdsWomen, refs, womens.length]);
   const handleClickWomen = (id) => {
     setClickedIdsWomen([...clickedIdsWomen, id]);
   };

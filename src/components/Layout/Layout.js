@@ -158,7 +158,8 @@ function Layout({ children }) {
                     classSection ? "menu_box menu_boxC" : "menu_box menu_boxT"
                   }
                 >
-                  <img src={areuMenu[index]} className="iconMenu" /> {item}
+                  <img src={areuMenu[index]} className="iconMenu" alt="" />{" "}
+                  {item}
                 </div>
               </Link>
             </div>
@@ -183,7 +184,8 @@ function Layout({ children }) {
                       classSection ? "menu_box menu_boxC" : "menu_box menu_boxT"
                     }
                   >
-                    <img src={areuMenu[index]} className="iconMenu" /> {item}
+                    <img src={areuMenu[index]} className="iconMenu" alt="" />{" "}
+                    {item}
                   </div>
                 </Link>
               </div>

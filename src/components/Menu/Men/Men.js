@@ -53,7 +53,7 @@ function Men() {
               <div>
                 <Link className="link" to={`/post/${item.id}`}>
                   <div className="electronics_container_img">
-                    <img src={item.image} className="electronics_img" />
+                    <img src={item.image} className="electronics_img" alt="" />
                   </div>
                 </Link>
                 <div className="price">

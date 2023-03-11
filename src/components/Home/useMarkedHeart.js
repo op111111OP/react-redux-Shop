@@ -22,7 +22,7 @@ function useMarkedHeart(item) {
         }
       });
     }
-  }, [clickedIds, refs]);
+  }, [clickedIds, refs, item]);
 
   const handleClick = (id) => {
     setClickedIds([...clickedIds, id]);

@@ -25,7 +25,7 @@ function useMarkedHeartElectronics(electronics) {
         }
       });
     }
-  }, [clickedIdsElectronics, refs]);
+  }, [clickedIdsElectronics, refs, electronics.length]);
   const handleClickElectronics = (id) => {
     setClickedIdsElectronics([...clickedIdsElectronics, id]);
   };
