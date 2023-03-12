@@ -14,6 +14,8 @@ import MarkedHeart from "../MarkedHeart";
 import { useMarkedHeart } from "./useMarkedHeart";
 import { useMarkedHeartElectronics } from "../Menu/Electronics/useMarkedHeaetElectronics";
 import { useMarkedHeartMen } from "../Menu/Men/useMarkedHeartMen";
+import { useMarkedHeartJewelery } from "../Menu/Jewelery/useMarkedHeartJewelery";
+import { useMarkedHeartWomen } from "../Menu/Women/useMarkedHeartWomen";
 
 // App
 function Home() {
@@ -26,6 +28,8 @@ function Home() {
     onYas,
     electronics,
     mens,
+    jewelery,
+    womens,
   } = useContext(Context);
   const [onTrue, setOnTrue] = useState(false);
   const [posts, setPosts] = useState("");
@@ -43,6 +47,10 @@ function Home() {
   //   ---
   const { handleClickMen, onMarkedHeartIdsMen, clickedIdsMen } =
     useMarkedHeartMen(mens);
+  const { clickedIdsJewelery, handleClickJewelery, onMarkedHeartIdsJewelery } =
+    useMarkedHeartJewelery(jewelery);
+  const { clickedIdsWomen, handleClickWomen, onMarkedHeartIdsWomen } =
+    useMarkedHeartWomen(womens);
 
   return (
     <Layout>
@@ -55,6 +63,10 @@ function Home() {
           onMarkedHeartIds={onMarkedHeartIds}
           clickedIdsMen={clickedIdsMen}
           onMarkedHeartIdsMen={onMarkedHeartIdsMen}
+          clickedIdsJewelery={clickedIdsJewelery}
+          onMarkedHeartIdsJewelery={onMarkedHeartIdsJewelery}
+          clickedIdsWomen={clickedIdsWomen}
+          onMarkedHeartIdsWomen={onMarkedHeartIdsWomen}
         />
         {posts === "" ? false : <Element posts={posts} onTrue={onTrue} />}
         {e === "" ? false : <ElementDefense e={e} onTrueOne={onTrueOne} />}
@@ -113,6 +125,8 @@ function Home() {
                           handleClick(item.id);
                           handleClickElectronics(item.id);
                           handleClickMen(item.id);
+                          handleClickJewelery(item.id);
+                          handleClickWomen(item.id);
                         }}
                         id={item.id}
                       />

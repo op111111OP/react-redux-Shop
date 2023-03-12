@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { ArrowDownCircleFill, ArrowUpCircleFill } from "react-bootstrap-icons";
 import "./Layout.css";
 import Footer from "./Footer/Footer";
 import Header from "./Header";
+import { useLocalStorage } from "react-use";
 
 // Home
 
 function Layout({ children }) {
-  const [classSection, setSection] = useState(true);
+  const [classSection, setState] = useLocalStorage("classSecti", true);
   function section(e) {
-    setSection(e);
+    setState(e);
   }
   return (
     <div className="wrapper">

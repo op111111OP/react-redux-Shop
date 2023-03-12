@@ -6,11 +6,11 @@ function MarkedHeart({
   eId,
   clickedIdsMen,
   clickedIds,
+  clickedIdsElectronics,
   clickedIdsJewelery,
   clickedIdsWomen,
   onMarkedHeartIds,
   onMarkedHeartIdsElectronics,
-  clickedIdsElectronics,
   onMarkedHeartIdsMen,
   onMarkedHeartIdsJewelery,
   onMarkedHeartIdsWomen,
@@ -65,7 +65,7 @@ function MarkedHeart({
   ]);
 
   useEffect(() => {
-    if (eId !== "" && eId !== undefined) {
+    if (eId !== "" || eId !== undefined) {
       const index = clickedIds1.indexOf(Number(eId));
       if (index !== -1) {
         const updatedIds = [...clickedIds1];

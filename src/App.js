@@ -49,6 +49,8 @@ function App() {
       setCarousels2,
       setCarousels3
     );
+    //  setIdElem([]);
+    //  setDefenseCard([]);
   }, []);
 
   function returs(len) {
@@ -74,6 +76,7 @@ function App() {
       setOnCard([...onCard, { ...res, amount: res.price }]);
     }
   }
+
   //   ===
   function addIcon(res, e) {
     if (idElem.indexOf(e) === -1) {

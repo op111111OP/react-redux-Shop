@@ -20,6 +20,7 @@ import { useLocalStorage } from "react-use";
 function Header({ section }) {
   const { leng, returs, classSet, categories, lenCategories, number } =
     useContext(Context);
+
   const [count, setState] = useState(true);
   const [classSection, setSection] = useLocalStorage("classSection", true);
   const [len, setLen] = useLocalStorage("len", true);
@@ -41,12 +42,16 @@ function Header({ section }) {
   }, [len]);
   useEffect(() => {
     classSet(classSection);
-    setSection(count);
     section(classSection);
-  }, [classSection, count]);
+  }, [classSection]);
+
+  function onSection() {
+    count ? setSection(true) : setSection(false);
+  }
   function onTimeout(e) {
     setShow(e);
   }
+
   return (
     <header>
       <div className="header_container container">
@@ -89,7 +94,10 @@ function Header({ section }) {
           className="but_theme"
           size="sm"
           variant={classSection ? "outline-secondary" : "outline-success"}
-          onClick={() => setState((s) => !s)}
+          onClick={() => {
+            setState((s) => !s);
+            onSection();
+          }}
         >
           {classSection ? leng.themeC : leng.themeT}
         </Button>
