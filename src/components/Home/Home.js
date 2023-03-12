@@ -1,11 +1,12 @@
 import Layout from "../Layout/Layout";
+import LazyLoad from "react-lazyload";
+import Spinner from "react-bootstrap/Spinner";
 import { Button } from "react-bootstrap";
 import "./Home.css";
 import Carousels from "./Carousels/Carousels";
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Heart, HeartFill } from "react-bootstrap-icons";
-
 import Context from "../../common/context";
 import Element from "../Menu/Element/Element";
 import ElementDefense from "../Menu/Element/ElementDefense";
@@ -13,8 +14,6 @@ import MarkedHeart from "../MarkedHeart";
 import { useMarkedHeart } from "./useMarkedHeart";
 import { useMarkedHeartElectronics } from "../Menu/Electronics/useMarkedHeaetElectronics";
 import { useMarkedHeartMen } from "../Menu/Men/useMarkedHeartMen";
-
-// import { store } from "..";
 
 // App
 function Home() {
@@ -73,11 +72,16 @@ function Home() {
                           : { marginBottom: 15 }
                       }
                     >
-                      <img
-                        src={item.image}
-                        className="electronics_img"
-                        alt=""
-                      />
+                      <LazyLoad
+                        once
+                        placeholder={<Spinner animation="border" />}
+                      >
+                        <img
+                          src={item.image}
+                          className="electronics_img"
+                          alt=""
+                        />
+                      </LazyLoad>
                     </div>
                   </Link>
                   <div className="price">

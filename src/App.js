@@ -16,6 +16,8 @@ import Men from "./components/Menu/Men/Men";
 import Women from "./components/Menu/Women/Women";
 import Card from "./components/Card/Card";
 import { useLocalStorage } from "react-use";
+import { fetchData } from "./fetchData";
+import Notfound from "./components/Notfound/Notfound";
 
 function App() {
   const [defenseCard, setDefenseCard] = useLocalStorage("defenseCard", []);
@@ -36,43 +38,17 @@ function App() {
   const [id, setId] = useLocalStorage("id", []);
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((result) => setItem(result));
-    // ----перевірка чі є і вставляння початкового localStorage
-    const storedCategories = JSON.parse(localStorage.getItem("categories"));
-    if (storedCategories) {
-      setCategories(storedCategories);
-    } else {
-      fetch("https://fakestoreapi.com/products/categories")
-        .then((res) => res.json())
-        .then((result) => {
-          setCategories(result);
-          localStorage.setItem("categories", JSON.stringify(result));
-        });
-    }
-    //  ----
-    fetch("https://fakestoreapi.com/products/category/electronics")
-      .then((res) => res.json())
-      .then((result) => setElectronics(result));
-    fetch("https://fakestoreapi.com/products/category/jewelery")
-      .then((res) => res.json())
-      .then((result) => setJewelery(result));
-    fetch("https://fakestoreapi.com/products/category/men's%20clothing")
-      .then((res) => res.json())
-      .then((result) => setMens(result));
-    fetch("https://fakestoreapi.com/products/category/women's%20clothing")
-      .then((res) => res.json())
-      .then((result) => setWomens(result));
-    fetch("https://fakestoreapi.com/products/1")
-      .then((res) => res.json())
-      .then((result) => setCarousels1(result));
-    fetch("https://fakestoreapi.com/products/2")
-      .then((res) => res.json())
-      .then((result) => setCarousels2(result));
-    fetch("https://fakestoreapi.com/products/3")
-      .then((res) => res.json())
-      .then((result) => setCarousels3(result));
+    fetchData(
+      setCategories,
+      setElectronics,
+      setJewelery,
+      setMens,
+      setWomens,
+      setItem,
+      setCarousels1,
+      setCarousels2,
+      setCarousels3
+    );
   }, []);
 
   function returs(len) {
@@ -157,15 +133,15 @@ function App() {
     >
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          {/* <Route path="/" element={<Home />} />
           <Route path="/defense" element={<Defense />} />
           <Route path="/basket" element={<Basket />} />
           <Route path="/0m" element={<Electronics />} />
           <Route path="/1m" element={<Jewelery />} />
           <Route path="/2m" element={<Men />} />
           <Route path="/3m" element={<Women />} />
-          <Route path="/post/:id" element={<Card />} />
-          {/* <Route path="*" element={<Notfound />} /> */}
+          <Route path="/post/:id" element={<Card />} /> */}
+          <Route path="*" element={<Notfound />} />
         </Routes>
       </BrowserRouter>
     </ContextProvider>
