@@ -133,14 +133,14 @@ function App() {
     >
       <BrowserRouter>
         <Routes>
-          {/* <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/defense" element={<Defense />} />
           <Route path="/basket" element={<Basket />} />
           <Route path="/0m" element={<Electronics />} />
           <Route path="/1m" element={<Jewelery />} />
           <Route path="/2m" element={<Men />} />
           <Route path="/3m" element={<Women />} />
-          <Route path="/post/:id" element={<Card />} /> */}
+          <Route path="/post/:id" element={<Card />} />
           <Route path="*" element={<Notfound />} />
         </Routes>
       </BrowserRouter>
