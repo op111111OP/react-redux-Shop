@@ -20,22 +20,18 @@ function MarkedHeart({
     "clickedIds1",
     clickedIds
   );
-  const [twoTrue, setTwoTrue] = useState(true);
   const [clickedIdsElectronics1, setcliCkedIdsElectronics1] = useLocalStorage(
     "clickedIdsElectronics1",
     clickedIdsElectronics
   );
-  const [threeTrue, setThreeTrue] = useState(true);
   const [clickedIdsMen1, setcliCkedIdsMen1] = useLocalStorage(
     "clickedIdsMen1",
     clickedIdsMen
   );
-  const [fourTrue, setFourTrue] = useState(true);
   const [clickedIdsJewelery1, setcliCkedIdsJewelery1] = useLocalStorage(
     "clickedIdsJewelery1",
     clickedIdsJewelery
   );
-  const [fiveTrue, setFiveTrue] = useState(true);
   const [clickedIdsWomen1, setcliCkedIdsWomen1] = useLocalStorage(
     "clickedIdsWomen1",
     clickedIdsWomen
@@ -65,7 +61,7 @@ function MarkedHeart({
   ]);
 
   useEffect(() => {
-    if (eId !== "" || eId !== undefined) {
+    if (eId !== "" && eId !== undefined) {
       const index = clickedIds1.indexOf(Number(eId));
       if (index !== -1) {
         const updatedIds = [...clickedIds1];
@@ -78,28 +74,28 @@ function MarkedHeart({
         const updatedIds = [...clickedIdsElectronics1];
         updatedIds.splice(indexElectronics, 1);
         setcliCkedIdsElectronics1(updatedIds);
-        setTwoTrue((a) => !a);
+        setOnTrue((a) => !a);
       }
       const indexMen = clickedIdsMen1.indexOf(Number(eId));
       if (indexMen !== -1) {
         const updatedIds = [...clickedIdsMen1];
         updatedIds.splice(indexMen, 1);
         setcliCkedIdsMen1(updatedIds);
-        setThreeTrue((a) => !a);
+        setOnTrue((a) => !a);
       }
       const indexJewelery = clickedIdsJewelery1.indexOf(Number(eId));
       if (indexJewelery !== -1) {
         const updatedIds = [...clickedIdsJewelery1];
         updatedIds.splice(indexJewelery, 1);
         setcliCkedIdsJewelery1(updatedIds);
-        setFourTrue((a) => !a);
+        setOnTrue((a) => !a);
       }
       const indexWomen = clickedIdsWomen1.indexOf(Number(eId));
       if (indexWomen !== -1) {
         const updatedIds = [...clickedIdsWomen1];
         updatedIds.splice(indexWomen, 1);
         setcliCkedIdsWomen1(updatedIds);
-        setFiveTrue((a) => !a);
+        setOnTrue((a) => !a);
       }
     }
   }, [
@@ -133,7 +129,7 @@ function MarkedHeart({
     if (clickedIdsWomen !== undefined && clickedIdsWomen1 !== clickedIdsWomen) {
       onMarkedHeartIdsWomen(clickedIdsWomen1);
     }
-  }, [onTrue, twoTrue, threeTrue, fourTrue, fiveTrue]);
+  }, [onTrue]);
 
   return null;
 }
