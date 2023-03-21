@@ -16,8 +16,8 @@ import Men from "./components/Menu/Men/Men";
 import Women from "./components/Menu/Women/Women";
 import Card from "./components/Card/Card";
 import { useLocalStorage } from "react-use";
-import { fetchData } from "./fetchData";
 import Notfound from "./components/Notfound/Notfound";
+import { fetchData } from "./fetchData";
 
 function App() {
   const [defenseCard, setDefenseCard] = useLocalStorage("defenseCard", []);
@@ -49,8 +49,6 @@ function App() {
       setCarousels2,
       setCarousels3
     );
-    //  setIdElem([]);
-    //  setDefenseCard([]);
   }, []);
 
   function returs(len) {
