@@ -165,7 +165,6 @@ function Home() {
               </div>
             ))}
           </div>
-          <div className="name"></div>
         </div>
       </div>
     </Layout>
