@@ -16,6 +16,8 @@ import { useMarkedHeartElectronics } from "../Menu/Electronics/useMarkedHeaetEle
 import { useMarkedHeartMen } from "../Menu/Men/useMarkedHeartMen";
 import { useMarkedHeartJewelery } from "../Menu/Jewelery/useMarkedHeartJewelery";
 import { useMarkedHeartWomen } from "../Menu/Women/useMarkedHeartWomen";
+import Car from "./Car/Car";
+import ccc from "../public/img/pexels-reshma-chowdhury-47258.jpg";
 
 // App
 function Home() {
@@ -31,6 +33,12 @@ function Home() {
     jewelery,
     womens,
   } = useContext(Context);
+  //   ==
+  const [showBouquet, setShowBouquet] = useState(false);
+  const handleButtonClick = () => {
+    setShowBouquet(!showBouquet);
+  };
+  // ==
   const [onTrue, setOnTrue] = useState(false);
   const [posts, setPosts] = useState("");
   const [e, setE] = useState("");
@@ -166,6 +174,20 @@ function Home() {
             ))}
           </div>
         </div>
+        {/*  */}
+        <Car />
+        <div>
+          <button onClick={handleButtonClick} className="car_b">
+            УРА ТИ УГАДАВ
+          </button>
+          {showBouquet && (
+            <div className="car_dr">
+              <img src={ccc} alt="Букет" className="car_i" />
+              <div className="car_a">Ці квіти для тебе </div>
+            </div>
+          )}
+        </div>
+        {/*  */}
       </div>
     </Layout>
   );
