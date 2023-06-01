@@ -3,7 +3,8 @@ import LazyLoad from "react-lazyload";
 import Spinner from "react-bootstrap/Spinner";
 import { Button } from "react-bootstrap";
 import "./Home.css";
-import Carousels from "./Carousels/Carousels";
+import SSCarousels from "./Carousels/SSCarousels";
+// import Carousels from "./Carousels/Carousels";
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Heart, HeartFill } from "react-bootstrap-icons";
@@ -63,7 +64,7 @@ function Home() {
   return (
     <Layout>
       <div className="home">
-        <Carousels />
+        <SSCarousels />
         <MarkedHeart
           clickedIdsElectronics={clickedIdsElectronics}
           onMarkedHeartIdsElectronics={onMarkedHeartIdsElectronics}

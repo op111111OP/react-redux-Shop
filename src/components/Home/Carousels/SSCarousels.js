@@ -12,7 +12,7 @@ import Womans from "../../public/iconc/womans.png";
 import Fon from "../../public/img/fon.png";
 
 // Home
-function Carousels() {
+function SSCarousels() {
   const {
     carousels1,
     carousels2,
@@ -136,4 +136,4 @@ function Carousels() {
   );
 }
 
-export default Carousels;
+export default SSCarousels;
