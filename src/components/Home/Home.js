@@ -1,5 +1,5 @@
 import Layout from "../Layout/Layout";
-import LazyLoad from "react-lazyload";
+// import LazyLoad from "react-lazyload";
 import Spinner from "react-bootstrap/Spinner";
 import { Button } from "react-bootstrap";
 import "./Home.css";
@@ -93,16 +93,16 @@ function Home() {
                           : { marginBottom: 15 }
                       }
                     >
-                      <LazyLoad
+                      {/* <LazyLoad
                         once
                         placeholder={<Spinner animation="border" />}
-                      >
-                        <img
-                          src={item.image}
-                          className="electronics_img"
-                          alt=""
-                        />
-                      </LazyLoad>
+                      > */}
+                      <img
+                        src={item.image}
+                        className="electronics_img"
+                        alt=""
+                      />
+                      {/* </LazyLoad> */}
                     </div>
                   </Link>
                   <div className="price">
