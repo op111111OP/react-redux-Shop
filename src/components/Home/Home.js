@@ -4,7 +4,6 @@ import Spinner from "react-bootstrap/Spinner";
 import { Button } from "react-bootstrap";
 import "./Home.css";
 import SSCarousels from "./Carousels/SSCarousels";
-// import Carousels from "./Carousels/Carousels";
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Heart, HeartFill } from "react-bootstrap-icons";
@@ -175,20 +174,6 @@ function Home() {
             ))}
           </div>
         </div>
-        {/*  */}
-        <Car />
-        <div>
-          <button onClick={handleButtonClick} className="car_b">
-            УРА ТИ УГАДАВ
-          </button>
-          {showBouquet && (
-            <div className="car_dr">
-              <img src={ccc} alt="Букет" className="car_i" />
-              <div className="car_a">Ці квіти для тебе </div>
-            </div>
-          )}
-        </div>
-        {/*  */}
       </div>
     </Layout>
   );
